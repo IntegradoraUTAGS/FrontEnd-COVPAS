@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pase de Salida</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-secondary">
+        
+        
+            <p class="navbar-brand ">Docente</p>
+            <p class="navbar-tex"># de empleado</p>
+            <p class="navbar-tex">Tipo usuario</p>
+        
+          
+        <div>
+          <label> Estatus</label>
+          <br>
+          <span class="badge badge-warning">En progreso...</span>
+
+        </div>
+          
+        
+
+      </nav>
+
+      <div class="container ">
+        <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
+        <P class="text-center">PASE DE SALIDA PERSONAL</P>
+      </div>
+
+    <div class="container mt-5">
+        <form class="needs-validation" novalidate>
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+                <label>Departamento:</label>
+                <select  class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label>Dirección:</label>
+                <select class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+                 <label>Nombre:</label>
+                 <input type="text" class="form-control">
+              </div>
+
+                  <div class="form-group col-md-6">
+                       <label >Cargo:</label>
+                       <select class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                      </select>
+                  </div>
+
+              </div>
+              <div class="form-row">
+
+                <div class="col mb-3">
+                  <label >Fecha:</label>
+                  <input type="date" class="form-control"  required>
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
+                  </div>
+                </div>
+
+                <div class="col mb-3">
+                  <label for="validationCustom04">Hora de salida:</label>
+                  <input type="time" class="form-control"  required>
+                  <div class="invalid-feedback">
+                    Please select a valid state.
+                  </div>
+                </div>
+
+                <div class="col mb-3">
+                  <label >Hora de regreso:</label>
+                  <input type="time" class="form-control"  required>
+                  <div class="invalid-feedback">
+                    Please provide a valid zip.
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-row">
+
+                <div class="form-group col-md-6">
+                   <label>Translado de:</label>
+                   <input type="text" class="form-control">
+                </div>
+  
+                    <div class="form-group col-md-6">
+                         <label >A:</label>
+                         <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label >Nombre de la empresa a visitar: </label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label >Asunto a tratar:</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label >Nombre de la persona quien tinene cita:</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="form-row">
+
+                  <div class="form-group col-md-6">
+                     <label>Solicitante:</label>
+                     <input type="text" class="form-control">
+                  </div>
+    
+                  <div class="form-group col-md-6">
+                    <label>Autorizo:</label>
+                    <select class="form-control">
+                      <option selected>Choose...</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+    
+                  </div>
+
+         
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+    </div>
+    
+
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
