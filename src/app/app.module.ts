@@ -6,11 +6,13 @@ import { PaseSalidaComponent } from './pase-salida/pase-salida.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { ServiceService } from './service/service.service';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PaseSalidaComponent
+    PaseSalidaComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
