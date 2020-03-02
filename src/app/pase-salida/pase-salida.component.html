@@ -5,28 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pase de Salida</title>
+    <script src="https://kit.fontawesome.com/da0fd3fe54.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
     <nav class="navbar navbar-light bg-secondary">
 
+            <div class="col">
+              
+                <a class="navbar-brand" (click)="openNav()">
+                  Docente
+                </a>
+                
+            </div>
+        
+        <div class="col text-center">
+          <label> Estatus</label>
+          <br>
+          <span class="badge badge-warning">En progreso...</span>
 
-        <p class="navbar-brand ">Docente</p>
-        <p class="navbar-tex"># de empleado</p>
-        <p class="navbar-tex">Tipo usuario</p>
 
 
-        <div>
-            <label> Estatus</label>
-            <br>
-            <span class="badge badge-warning">En progreso...</span>
+        
+
 
         </div>
 
+      </nav>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        <a href="#">Tipo empleado</a>
+        <a href="#"># de empleado</a>
+        <a href="#">Vacaciones</a>
+        <a href="#">Vehiculos</a>
+        <a href="#">Admin</a>
+        <a href="#">Cerrar sesión</a>
+      </div>
 
 
-    </nav>
+
+   
 
     <div class="container ">
         <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
@@ -37,9 +56,15 @@
         <form class="needs-validation" novalidate>
             <div class="form-row">
 
+
+              <div class="form-group col-md-6">
+                <label> <i class="fas fa-bars"> </i> Departamento:</label>
+                <select  class="form-control">
+
                 <div class="form-group col-md-6">
                     <label>Departamento:</label>
                     <select class="form-control">
+
                   <option selected>Choose...</option>
                   <option>...</option>
                 </select>
@@ -94,13 +119,15 @@
                     </div>
                 </div>
 
-            </div>
+
+   
 
             <div class="form-row">
 
                 <div class="form-group col-md-6">
                     <label>Translado de:</label>
                     <input type="text" class="form-control">
+
                 </div>
 
                 <div class="form-group col-md-6">
@@ -143,7 +170,11 @@
     </div>
 
 
-    <script>
+   
+
+     
+<script>
+
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
             'use strict';
@@ -166,6 +197,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
