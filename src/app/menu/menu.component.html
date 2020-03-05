@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+</head>
+
+<body>
+    <p class="text-center">Solicitudes</p>
+    <nav class="navbar navbar-light bg-secondary">
+        <p class="navbar-brand ">Docente</p>
+        <p class="navbar-tex"># de empleado</p>
+        <p class="navbar-tex">Tipo usuario</p>
+        <div>
+            <label> Estatus</label>
+            <br>
+            <span class="badge badge-warning">En progreso...</span>
+        </div>
+    </nav>
+
+    <div class="form-row">
+        <div class="">
+            <img  class='imgRedonda1' />
+            <button href="#" type="button" class="btn btn-outline-primary" (click)="gotopass()">Solicitud Pase de Salida</button>
+        </div>
+        <div class="" *ngIf="tipoEmpleado==='ptc' || tipoEmpleado==='admin'">
+            <img class='imgRedonda2' />
+            <button href="#" type="button" class="btn btn-outline-success">Solicitud de Vacaciones</button>
+        </div>
+        <div>
+            <img class='imgRedonda3' />
+            <button href="#" type="button" class="btn btn-outline-danger">Solicitud de Vehiculo</button>
+        </div>
+        <div *ngIf="tipoEmpleado==='admin'">
+            <img class='imgRedonda4' />
+            <button href="#" type="button" class="btn btn-outline-dark">Admin</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
