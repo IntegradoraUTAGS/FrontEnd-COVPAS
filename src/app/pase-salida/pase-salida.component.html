@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,10 @@
     <script src="https://kit.fontawesome.com/da0fd3fe54.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
 <body>
     <nav class="navbar navbar-light bg-secondary">
+
             <div class="col">
               
                 <a class="navbar-brand" (click)="openNav()">Docente</a>
@@ -20,9 +23,12 @@
           <br>
           <span class="badge badge-warning">En progreso...</span>
 
-        </div>
-          
+
+
         
+
+
+        </div>
 
       </nav>
       <div id="mySidenav" class="sidenav">
@@ -34,41 +40,50 @@
         <a href="#">Admin</a>
         <a href="#">Cerrar sesión</a>
       </div>
-    
 
-      <div class="container ">
+
+
+   
+
+    <div class="container ">
         <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
         <P class="text-center">PASE DE SALIDA PERSONAL</P>
-      </div>
+    </div>
 
     <div class="container mt-5">
         <form class="needs-validation" #myForm="ngForm">
             <div class="form-row">
 
+
               <div class="form-group col-md-6">
+
                 <label>Departamento:</label>
                 <select  [(ngModel)]="departamentoP" name="departa" #departa="ngModel" (change)="capturardep()" class="form-control" [ngClass]="{ 'is-invalid': !departa.valid && departa.touched,'is-valid': departa.valid}" required >
                   <option value="0">Choose...</option>
                   <option value="dato1">dato1</option>
                   <option value="dato2">dato2</option>
                   <option value="dato3">dato3</option>
+
                 </select>
-              </div>
+                </div>
+
 
               <div class="form-group col-md-6">
                 <label>Dirección:</label>
                 <select  class="form-control" [(ngModel)]="direccionP" name="dire" #dire="ngModel" (change)="capturardir()" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required >
+
                   <option selected>Choose...</option>
                   <option value="dato1">dato1</option>
                   <option value="dato2">dato2</option>
                   <option value="dato3">dato3</option>
                   <option>...</option>
                 </select>
-              </div>
+                </div>
 
             </div>
 
             <div class="form-row">
+
 
               <div class="form-group col-md-6">
                  <label>Nombre:</label>
@@ -151,6 +166,7 @@
                   </div>
     
                   <div class="form-group col-md-6">
+
                     <label>Autorizo:</label>
                     <select class="form-control" name="autoriza" #autoriza="ngModel" [(ngModel)]="autorizaP" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched,'is-valid': autoriza.valid}">
                       <option selected>Choose...</option>
@@ -158,9 +174,10 @@
                       <option value="dato2">dato2</option>
                      <option value="dato3">dato3</option>
                     </select>
-                  </div>
-    
-                  </div>
+                </div>
+
+            </div>
+
 
          
             <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Enviar</button>
@@ -172,5 +189,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
+
 </html>
