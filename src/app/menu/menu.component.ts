@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
-
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -10,16 +7,7 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-
-  ngOnInit(){
-    
-  }
-
-  constructor(public route: Router) { }
-   title = 'FrontPaseSalida';
-   tipoEmpleado = 'admin';
-   gotopass(){
-     this.route.navigateByUrl('pase-salida');
-   }
-
+  constructor() { }
+title = 'FrontPaseSalida';
+  tipoEmpleado = 'admin';
 }
