@@ -1,0 +1,123 @@
+<nav class="navbar navbar-light bg-secondary">
+
+    <div class="col">
+        <img (click)="openNav()" class="img" src="../../../assets/imagen/menu.png" alt="">
+    </div>
+    <div class="col">
+        <a class="navbar-brand">Docente</a>
+    </div>
+
+    <div class="col text-center">
+        <label> Estatus</label>
+        <br>
+        <span class="badge badge-warning">En progreso...</span>
+    </div>
+    <div class="col">
+        <label> Vacaciones Disponibles</label>
+        <br>
+        <span class="badge badge-warning">0</span>
+
+    </div>
+
+</nav>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a href="#">Tipo empleado</a>
+    <a href="#"># de empleado</a>
+    <a href="#">Vacaciones</a>
+    <a href="#">Vehiculos</a>
+    <a href="#">Admin</a>
+    <a href="#">Cerrar sesión</a>
+</div>
+<div class="container">
+    <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
+    <P class="text-center">SOLICITUD DE VACACIONES</P>
+</div>
+<div class="container">
+
+
+    <form class="needs-validation" novalidate>
+        <img class="img1" src="assets/imagen/Logo.gif">
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Nombre:</label>
+                <input type="text" class="form-control">
+            </div>
+
+
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label>Departamento:</label>
+                <select class="form-control">
+                    <option value="0">Choose...</option>
+                    <option value="dato1">dato1</option>
+                    <option value="dato2">dato2</option>
+                    <option value="dato3">dato3</option>
+            </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Dirección y/o Secretaria:</label>
+                <select class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="dato1">dato1</option>
+                    <option value="dato2">dato2</option>
+                    <option value="dato3">dato3</option>
+                    <option>...</option>
+            </select>
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label>Jefe Inmediato:</label>
+                <select class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="dato1">dato1</option>
+                    <option value="dato2">dato2</option>
+                     <option value="dato3">dato3</option>
+            </select>
+            </div>
+
+        </div>
+
+
+        <label>Fecha en que se desea tomar las vacaciones</label>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+
+                <label>De:</label>
+                <input type="date" class="form-control" required>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Al:</label>
+                <input type="date" class="form-control" required>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Autorizo:</label>
+                <select class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="dato1">dato1</option>
+                    <option value="dato2">dato2</option>
+                   <option value="dato3">dato3</option>
+                </select>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
