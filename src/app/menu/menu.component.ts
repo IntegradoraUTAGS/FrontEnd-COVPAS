@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit  {
 
 
   ngOnInit(){
@@ -18,8 +18,12 @@ export class MenuComponent implements OnInit {
   constructor(public route: Router) { }
    title = 'FrontPaseSalida';
    tipoEmpleado = 'admin';
+   
    gotopass(){
-     this.route.navigateByUrl('pase-salida');
-   }
+    this.route.navigateByUrl('pase-salida');
+  }
+  gotovaca(){
+    this.route.navigateByUrl('solivaca');
 
+  }
 }

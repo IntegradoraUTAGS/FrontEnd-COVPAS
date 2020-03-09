@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { ServiceService } from '../service/service.service';
 import { Traslado } from '../models/traslado';
+import { PaseSalida } from '../models/modelPasedalida';
 
 @Component({
   selector: 'app-pase-salida',
@@ -10,26 +11,28 @@ import { Traslado } from '../models/traslado';
 })
 export class PaseSalidaComponent implements OnInit {
    traslados : Traslado[];
-   
-   nombreP: string;
-   fechaP: Date;
-   departamentoP:string;
-   direccionP: string;
-   cargoP:string;
-   horasalidaP: Date;
-   horaregresoP:Date;
-   nevP:string;
-   asuntoP:string;
-   nomperP:string;
-   solicitanteP:string;
-   autorizaP:string;
+   passalida : PaseSalida;
 
-   ver= '';
+   a:string;
+   b:string;
+   c:string;
+   d:string;
+   e:Date;
+   f:Date;
+   g:Date;
+   h:string;
+   i:string;
+   j:string;
+   k:string;
+   l:string;
+   
+ 
 
   constructor() { }
 
   ngOnInit() {
     this.traslados=[];
+   
     this.agregar();
     
   }
@@ -40,20 +43,12 @@ export class PaseSalidaComponent implements OnInit {
     this.traslados.splice(index, 1)
   }
   capturardep(){
-    console.log(this.departamentoP);
+    
   }
   capturardir() {
-    console.log(this.direccionP);
+    
   }
 
-  openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
-  
-  /* Set the width of the side navigation to 0 */
-  closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
   
 
 }

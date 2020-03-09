@@ -1,48 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-</head>
-
-<body>
-    <p class="text-center">Solicitudes</p>
-    <nav class="navbar navbar-light bg-secondary">
-        <p class="navbar-brand ">Docente</p>
-        <p class="navbar-tex"># de empleado</p>
-        <p class="navbar-tex">Tipo usuario</p>
-        <div>
-            <label> Estatus</label>
-            <br>
-            <span class="badge badge-warning">En progreso...</span>
-        </div>
-    </nav>
-
+<app-nav></app-nav>
+<p class="text-center">Solicitudes</p>
+<div class="container">
     <div class="form-row">
-        <div class="">
+        <div class="col-sm">
 
-            <img  class='imgRedonda1' />
-            <button href="#" type="button" class="btn btn-outline-primary" (click)="gotopass()">Solicitud Pase de Salida</button>
+            <div *ngIf="tipoEmpleado==='admin'">
+                <img class='img-fluid' />
+                <button href="#" type="button" class="btn btn-dark">Admin</button>
+                <div class="img1">
+
+                </div>
+            </div>
 
         </div>
-        <div class="" *ngIf="tipoEmpleado==='ptc' || tipoEmpleado==='admin'">
-            <img class='imgRedonda2' />
-            <button href="#" type="button" class="btn btn-outline-success">Solicitud de Vacaciones</button>
-        </div>
-        <div>
-            <img class='imgRedonda3' />
-            <button href="#" type="button" class="btn btn-outline-danger">Solicitud de Vehiculo</button>
-        </div>
-        <div *ngIf="tipoEmpleado==='admin'">
-            <img class='imgRedonda4' />
-            <button href="#" type="button" class="btn btn-outline-dark">Admin</button>
-        </div>
+        <div class="col-sm">
+            <div class="">
+                <img class='img-fluid' />
+                <button href="#" type="button" class="btn btn-primary" (click)="gotopass()">Solicitud Pase de Salida</button>
+                <div class="img2"></div>
 
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="" *ngIf="tipoEmpleado==='ptc' || tipoEmpleado==='admin'">
+                <img class='img-fluid' />
+                <button href="#" type="button" class="btn btn-success" (click)="gotovaca()">Solicitud de Vacaciones</button>
+                <div class="img3"></div>
+            </div>
+
+        </div>
+        <div class="col-sm">
+            <div>
+                <img class='img-fluid' />
+                <button href="#" type="button" class="btn btn-danger">Solicitud de Vehiculo</button>
+                <div class="img4"></div>
+            </div>
+        </div>
     </div>
-
-</body>
-
-</html>
+</div>

@@ -1,4 +1,4 @@
 export class Traslado {
     de: string;
-    a: string
+    a: string;
 }

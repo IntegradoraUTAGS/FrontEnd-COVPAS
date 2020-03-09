@@ -1,76 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<app-nav></app-nav>
+<div class="container ">
+    <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
+    <P class="text-center">PASE DE SALIDA PERSONAL</P>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pase de Salida</title>
-    <script src="https://kit.fontawesome.com/da0fd3fe54.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-
-<body>
-    <nav class="navbar navbar-light bg-secondary">
-
-            <div class="col">
-              
-                <a class="navbar-brand" (click)="openNav()">Docente</a>
-                
-            </div>
-        
-        <div class="col text-center">
-          <label> Estatus</label>
-          <br>
-          <span class="badge badge-warning">En progreso...</span>
+<div class="container mt-5">
+    <form class="needs-validation" #myForm="ngForm">
+        <div class="form-row">
 
 
-
-        
-
-
-        </div>
-
-      </nav>
-      <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-        <a href="#">Tipo empleado</a>
-        <a href="#"># de empleado</a>
-        <a href="#">Vacaciones</a>
-        <a href="#">Vehiculos</a>
-        <a href="#">Admin</a>
-        <a href="#">Cerrar sesión</a>
-      </div>
-
-
-
-   
-
-    <div class="container ">
-        <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
-        <P class="text-center">PASE DE SALIDA PERSONAL</P>
-    </div>
-
-    <div class="container mt-5">
-        <form class="needs-validation" #myForm="ngForm">
-            <div class="form-row">
-
-
-              <div class="form-group col-md-6">
+            <div class="form-group col-md-6">
 
                 <label>Departamento:</label>
-                <select  [(ngModel)]="departamentoP" name="departa" #departa="ngModel" (change)="capturardep()" class="form-control" [ngClass]="{ 'is-invalid': !departa.valid && departa.touched,'is-valid': departa.valid}" required >
+                <select [(ngModel)]="a" name="departa" #departa="ngModel" class="form-control" [ngClass]="{ 'is-invalid': !departa.valid && departa.touched,'is-valid': departa.valid}" required>
                   <option value="0">Choose...</option>
                   <option value="dato1">dato1</option>
                   <option value="dato2">dato2</option>
                   <option value="dato3">dato3</option>
 
                 </select>
-                </div>
+            </div>
 
 
-              <div class="form-group col-md-6">
+            <div class="form-group col-md-6">
                 <label>Dirección:</label>
-                <select  class="form-control" [(ngModel)]="direccionP" name="dire" #dire="ngModel" (change)="capturardir()" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required >
+                <select class="form-control" [(ngModel)]="b" name="dire" #dire="ngModel" (change)="capturardir()" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
 
                   <option selected>Choose...</option>
                   <option value="dato1">dato1</option>
@@ -78,118 +32,107 @@
                   <option value="dato3">dato3</option>
                   <option>...</option>
                 </select>
-                </div>
-
             </div>
 
-            <div class="form-row">
+        </div>
+
+        <div class="form-row">
 
 
-              <div class="form-group col-md-6">
-                 <label>Nombre:</label>
-                 <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="nombreP"  [ngClass]="{ 'is-invalid': !nombre.valid && nombre.touched,'is-valid': nombre.valid}" required >
-              </div>
+            <div class="form-group col-md-6">
+                <label>Nombre:</label>
+                <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="c" [ngClass]="{ 'is-invalid': !nombre.valid && nombre.touched,'is-valid': nombre.valid}" required>
+            </div>
 
-                  <div class="form-group col-md-6" >
-                       <label >Cargo:</label>
-                       <select class="form-control" name="cargo" #cargo="ngModel" [(ngModel)]="cargoP" [ngClass]="{ 'is-invalid': !cargo.valid && cargo.touched,'is-valid': cargo.valid}" required >
+            <div class="form-group col-md-6">
+                <label>Cargo:</label>
+                <select class="form-control" name="cargo" #cargo="ngModel" [(ngModel)]="d" [ngClass]="{ 'is-invalid': !cargo.valid && cargo.touched,'is-valid': cargo.valid}" required>
 
                         <option selected>Choose...</option>
                         <option value="dato1">dato1</option>
                         <option value="dato2">dato2</option>
                          <option value="dato3">dato3</option>
                       </select>
-                  </div>
-
-              </div>
-
-              <div class="form-row">
-
-                <div class="form-group col-mb-3">
-                  <label >Fecha:</label>
-                  <input type="date" class="form-control"  name="date" #date="ngModel" [(ngModel)]="fechaP"  [ngClass]="{ 'is-invalid': !date.valid && date.touched,'is-valid': date.valid}" required>
-                </div>
-
-                <div class="form-group col-mb-3">
-                  <label >Hora de salida:</label>
-                  <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="horasalidaP" [ngClass]="{ 'is-invalid': !horas.valid && horas.touched,'is-valid': horas.valid}" required>
-                </div>
-
-                <div class="form-group col-mb-3">
-                  <label >Hora de regreso:</label>
-                  <input type="time" class="form-control" name="horar" #horar="ngModel" [(ngModel)]="horaregresoP" [ngClass]="{ 'is-invalid': !horar.valid && horar.touched,'is-valid': horar.valid}" required  >
-                </div>
-
-              </div>
-<!--===============================================================================-->
-              <div class="form-row" *ngFor="let item of traslados; let index=index">
-
-                <div class="form-group col-mb-6">
-                   <label >De:</label>
-                   <input class="form-control" type="text" [(ngModel)]="traslados[index].de" name="de{{index}}" required>
-                </div>
-  
-                    <div class="form-group  col-mb-6">
-                      <label>A:</label>
-                         <input class="form-control" type="text" [(ngModel)]="traslados[index].a"  name="a{{index}}" required> 
-                         <div class="input-group-append ">
-                            <button class="btn btn-danger btn-sm" (click)="eliminar(index)" id="button-addon2" *ngIf="traslados.length !== 1 && traslados.length == (index+1)" type="button">-</button>
-                         </div>
-                    </div>
-                </div>
-                <div >
-                  <button type="button" class="btn btn-primary" slot="end" (click)="agregar()">agregar</button>
-                </div>
-
-
-<!--===========================================================================-->
-                <div class="form-group">
-                  <label >Nombre de la empresa a visitar: </label>
-                  <input type="text" class="form-control" name="nev" #nev="ngModel" [(ngModel)]="nevP" [ngClass]="{ 'is-invalid': !nev.valid && nev.touched,'is-valid': nev.valid}" required required>
-                </div>
-
-                <div class="form-group">
-                  <label >Asunto a tratar:</label>
-                  <input type="text" class="form-control" name="asunto" #asunto="ngModel" [(ngModel)]="asuntoP" [ngClass]="{ 'is-invalid': !asunto.valid && asunto.touched,'is-valid': asunto.valid}" required>
-                </div>
-                
-                <div class="form-group">
-                  <label >Nombre de la persona quien tinene cita:</label>
-                  <input type="text" class="form-control"  name="nomper" #nomper="ngModel" [(ngModel)]="nomperP" [ngClass]="{ 'is-invalid': !nomper.valid && nomper.touched,'is-valid': nomper.valid}" required>
-                </div>
-
-                <div class="form-row">
-
-                  <div class="form-group col-md-6">
-                     <label>Solicitante:</label>
-                     <input type="text" class="form-control" name="solicitante" #solicitante="ngModel" [(ngModel)]="solicitanteP" [ngClass]="{ 'is-invalid': !solicitante.valid && solicitante.touched,'is-valid': solicitante.valid}" required>
-                  </div>
-    
-                  <div class="form-group col-md-6">
-
-                    <label>Autorizo:</label>
-                    <select class="form-control" name="autoriza" #autoriza="ngModel" [(ngModel)]="autorizaP" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched,'is-valid': autoriza.valid}">
-                      <option selected>Choose...</option>
-                      <option value="dato1">dato1</option>
-                      <option value="dato2">dato2</option>
-                     <option value="dato3">dato3</option>
-                    </select>
-                </div>
-
             </div>
 
+        </div>
 
-         
-            <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Enviar</button>
-          </form>
-    </div>
-    
+        <div class="form-row">
+
+            <div class="form-group col">
+                <label>Fecha:</label>
+                <input type="date" class="form-control" name="date" #date="ngModel" [(ngModel)]="e" [ngClass]="{ 'is-invalid': !date.valid && date.touched,'is-valid': date.valid}" required>
+            </div>
+
+            <div class="form-group col">
+                <label>Hora de salida:</label>
+                <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="f" [ngClass]="{ 'is-invalid': !horas.valid && horas.touched,'is-valid': horas.valid}" required>
+            </div>
+
+            <div class="form-group col">
+                <label>Hora de regreso:</label>
+                <input type="time" class="form-control" name="horar" #horar="ngModel" [(ngModel)]="g" [ngClass]="{ 'is-invalid': !horar.valid && horar.touched,'is-valid': horar.valid}" required>
+            </div>
+
+        </div>
+        <!--===============================================================================-->
+        <div class="form-row" *ngFor="let item of traslados; let index=index">
+
+            <div class="form-group col-md-6">
+                <label>De:</label>
+                <input class="form-control" type="text" [(ngModel)]="traslados[index].de" name="de{{index}}" required>
+            </div>
+
+            <div class="form-group col-md-6 ">
+                <label>A:</label>
+                <input class="form-control " type="text " [(ngModel)]="traslados[index].a " name="a{{index}} " required>
+                <div class="input-group-append ">
+                    <button class="btn btn-danger btn-sm " (click)="eliminar(index) " id="button-addon2 " *ngIf="traslados.length !==1 && traslados.length==( index+1) " type="button">-</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="button " class="btn btn-primary " slot="end " (click)="agregar() ">agregar</button>
+        </div>
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!--===========================================================================-->
+        <div class="form-group ">
+            <label>Nombre de la empresa a visitar: </label>
+            <input type="text " class="form-control " name="nev " #nev="ngModel" [(ngModel)]="h" [ngClass]="{ 'is-invalid': !nev.valid && nev.touched, 'is-valid': nev.valid} " required>
+        </div>
 
-</body>
+        <div class="form-group ">
+            <label>Asunto a tratar:</label>
+            <input type="text " class="form-control " name="asunto " #asunto="ngModel" [(ngModel)]="i" [ngClass]="{ 'is-invalid': !asunto.valid && asunto.touched, 'is-valid': asunto.valid} " required>
+        </div>
 
-</html>
+        <div class="form-group ">
+            <label>Nombre de la persona quien tinene cita:</label>
+            <input type="text " class="form-control " name="nomper " #nomper="ngModel" [(ngModel)]="j " [ngClass]="{ 'is-invalid': !nomper.valid && nomper.touched, 'is-valid': nomper.valid} " required>
+        </div>
+
+        <div class="form-row ">
+
+            <div class="form-group col-md-6 ">
+                <label>Solicitante:</label>
+                <input type="text " class="form-control " name="solicitante " #solicitante="ngModel" [(ngModel)]="k " [ngClass]="{ 'is-invalid': !solicitante.valid && solicitante.touched, 'is-valid': solicitante.valid} " required>
+            </div>
+
+            <div class="form-group col-md-6 ">
+
+                <label>Autorizo:</label>
+                <select class="form-control " name="autoriza " #autoriza="ngModel" [(ngModel)]="l" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched, 'is-valid': autoriza.valid}" required>
+                      <option value="dato1 ">dato1</option>
+                      <option value="dato2 ">dato2</option>
+                     <option value="dato3 ">dato3</option>
+                    </select>
+            </div>
+
+        </div>
+
+
+
+        <button type="submit " class="btn btn-primary " [disabled]="!myForm.valid ">Enviar</button>
+    </form>
+</div>

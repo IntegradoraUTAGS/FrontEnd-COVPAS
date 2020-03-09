@@ -1,10 +1,56 @@
-.text-center {
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    right: -28%;
+    top: -40%;
     position: absolute;
-    font-size: 71px;
+}
+
+p {
+    margin-top: 0;
+    /* margin-bottom: 1rem; */
+    position: absolute;
+    font-size: 54px;
     color: black;
     text-align: center;
     right: 37%;
-    top: 136px;
+    top: 142px;
+}
+
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 0px;
+    position: relative;
+    left: -18px;
+}
+
+.col-sm {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 30px;
+    margin-left: 34px;
+    top: 350px;
+    left: -2%;
+}
+
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    right: -32%;
+    top: 52%;
+    position: absolute;
 }
 
 .Logo {
@@ -13,6 +59,7 @@
     position: absolute;
     right: -2%;
     top: 2px;
+    background-image: url('../../assets/imagen/Logo2.png');
     background-repeat: no-repeat;
     background-size: 145px;
     left: 0%;
@@ -36,18 +83,40 @@
     box-sizing: border-box
 }
 
-.imgRedonda1 {
-    width: 200px;
+.img-fluid {
+    width: 195px;
     height: 200px;
     border-radius: 160px;
     border: 10px solid transparent;
     position: relative;
-    right: -60%;
-    top: 264px;
-
+    right: -51%;
+    top: -126px;
     background-size: 180px;
     background-repeat: no-repeat;
-    box-sizing: border-box
+    box-sizing: border-box;
+    /* background-image: url(../imagen/Logo.gif); */
+    left: -8px;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 10px solid medium;
+    padding: .375rem .75rem;
+    font-size: 17px;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    position: relative;
+    top: -89px;
 }
 
 .button2 {
@@ -67,18 +136,19 @@
     box-sizing: border-box
 }
 
-.imgRedonda2 {
-    width: 200px;
+.img1 {
+    width: 195px;
     height: 200px;
     border-radius: 160px;
     border: 10px solid transparent;
     position: relative;
-    right: -48%;
-    top: 266px;
-
+    right: -51%;
+    top: -360px;
     background-size: 180px;
     background-repeat: no-repeat;
-    box-sizing: border-box
+    box-sizing: border-box;
+    background-image: url('../../assets/imagen/employee.png');
+    left: -8px;
 }
 
 .button3 {
@@ -99,29 +169,44 @@
     box-sizing: border-box
 }
 
-.imgRedonda3 {
-    width: 200px;
+.img2 {
+    width: 195px;
     height: 200px;
     border-radius: 160px;
     border: 10px solid transparent;
     position: relative;
-    right: -36%;
-    top: 266px;
-
+    right: -51%;
+    top: -360px;
     background-size: 180px;
     background-repeat: no-repeat;
-    box-sizing: border-box
+    box-sizing: border-box;
+    background-image: url('../../assets/imagen/archive.png');
+    left: -8px;
 }
 
-.imgRedonda4 {
+.img3 {
     width: 200px;
     height: 200px;
     border-radius: 160px;
     border: 10px solid transparent;
     position: relative;
     right: -3%;
-    top: 66px;
+    top: -360px;
+    background-image: url('../../assets/imagen/island.png');
+    background-size: 180px;
+    background-repeat: no-repeat;
+    box-sizing: border-box
+}
 
+.img4 {
+    width: 200px;
+    height: 200px;
+    border-radius: 160px;
+    border: 10px solid transparent;
+    position: relative;
+    right: -3%;
+    top: -360px;
+    background-image: url('../../assets/imagen/autobus.png');
     background-size: 180px;
     background-repeat: no-repeat;
     box-sizing: border-box
@@ -135,60 +220,58 @@
     position: relative;
 }
 
-.btn-outline-primary {
-    font-size: 1.25em;
-    margin: 0px;
-    padding: 10px 0px;
-    text-align: center;
-    width: 200px;
-    text-decoration: none;
-    box-shadow: 0px 3px 0px #373c3c;
-    position: relative;
-    right: -9.4%;
-    top: 400px;
-    box-sizing: border-box
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    background-color: #818181;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
 }
 
-.btn-outline-success {
-    font-size: 1.25em;
-    margin: 0px;
-    padding: 10px 0px;
-    text-align: center;
-    width: 200px;
+.sidenav a {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    box-shadow: 0px 3px 0px #373c3c;
-    position: relative;
-    right: 3%;
-    top: 400px;
-    box-sizing: border-box
+    font-size: 20px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
 }
 
-.btn-outline-danger {
-    font-size: 1.25em;
-    margin: 0px;
-    padding: 10px 0px;
-    text-align: center;
-    width: 200px;
-    text-decoration: none;
-    box-shadow: 0px 3px 0px #373c3c;
-    position: relative;
-    right: 13.5%;
-    top: 400px;
-    height: 85px;
-    box-sizing: border-box
+.sidenav a:hover {
+    color: #ffffff;
 }
 
-.btn-outline-dark {
-    font-size: 1.25em;
-    margin: 0px;
-    padding: 10px 0px;
-    text-align: center;
-    width: 128px;
-    text-decoration: none;
-    box-shadow: 0px 3px 0px #373c3c;
-    position: relative;
-    right: 47%;
-    height: 84px;
-    box-sizing: border-box;
-    top: 100%;
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.container {
+    max-width: 1123px;
 }

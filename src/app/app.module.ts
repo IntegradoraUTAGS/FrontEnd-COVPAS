@@ -8,12 +8,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { ServiceService } from './service/service.service';
 import { MenuComponent } from './menu/menu.component';
+import { NavComponent } from './Components/nav/nav.component';
+import { LoginComponent } from './login/login.component';
+import { SoliVacacionesComponent } from './soli-vacaciones/soli-vacaciones.component';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaseSalidaComponent,
-    MenuComponent
+    MenuComponent,
+    NavComponent,
+    LoginComponent,
+    SoliVacacionesComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
