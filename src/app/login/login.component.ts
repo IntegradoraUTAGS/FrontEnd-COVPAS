@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   providers:[ServiceService]
 })
 export class LoginComponent implements OnInit {
-  email:string;
+  numEmpleado:string;
   password:string;
 
   constructor(public router: Router) { }
@@ -17,9 +17,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   ingresar(){
+    if(this.numEmpleado===''&&this.password===''){
+      alert('datos vacios');
+    }else if(this.numEmpleado!=='1234'&&this.password!=='contraseña'){
+      alert('datos incorrectos');
+    }else{
      this.router.navigateByUrl('menu');
+    }
   } 
   registrar(){
+    this.router.navigateByUrl('registro');
     
   }
 
