@@ -1,33 +1,36 @@
 import { ServiceService } from './../service/service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers:[ServiceService]
+  providers: [ServiceService]
 })
 export class LoginComponent implements OnInit {
-  numEmpleado:string;
-  password:string;
+  numEmp: string;
+  pass: string;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public service: ServiceService, public http: HttpClient) { }
 
   ngOnInit() {
   }
-  ingresar(){
-    if(this.numEmpleado===''&&this.password===''){
-      alert('datos vacios');
-    }else if(this.numEmpleado!=='1234'&&this.password!=='contraseña'){
-      alert('datos incorrectos');
-    }else{
-     this.router.navigateByUrl('menu');
-    }
-  } 
-  registrar(){
+
+  registrar() {
     this.router.navigateByUrl('registro');
-    
+
   }
+  ingresar() {
+      this.service.Login();
+}
+
+
+
+
 
 }
