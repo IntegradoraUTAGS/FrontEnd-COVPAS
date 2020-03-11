@@ -1,12 +1,12 @@
 export class User{
 
-    IntNumeroEmpleado: number;
+    numNoEmpleado: number;
     strNombre:string;
     strCorreo:string;
-    strContraseña:string;
+    strPassword:string;
     strTipoEmpleado:string;
-    strDireccion:string;
+    idDireccion:string;
     strDepartamento:string;
-    imgLicencia:any;
+    //imgLicencia:any;
 
 }
