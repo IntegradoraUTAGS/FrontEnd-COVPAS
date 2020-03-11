@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       console.log(usuario.persona);
       console.warn(usuario.token)
       myForm.reset();
+      this.router.navigateByUrl('menu');
     }).catch((err: any) => {
       console.log(err);
     });
