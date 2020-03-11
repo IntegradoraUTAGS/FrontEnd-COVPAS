@@ -6,7 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-
+a;
+b;
+c;
+d;
+e;
+f;
+g;
+h;
+i;
+j;
+k;
   constructor() { }
 
   ngOnInit(): void {

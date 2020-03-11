@@ -9,12 +9,12 @@
         </div>
         <div class="form-group">
             <label for="">Nombre</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="a" [ngClass]="{ 'is-invalid': !nombre.valid && nombre.touched,'is-valid': nombre.valid}" required>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="">Departamento</label>
-                <select name="" id="" class="form-control">
+                <select name="departamento" class="form-control" #departamento="ngModel" [(ngModel)]="b" [ngClass]="{ 'is-invalid': !departamento.valid && departamento.touched,'is-valid': departamento.valid}" required>
                     <option value="">1</option>
                     <option value="">2</option>
                     <option value="">3</option>
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="">Dirección</label>
-                <select name="" id="" class="form-control">
+                <select name="dire" class="form-control" #dire="ngModel" [(ngModel)]="c" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
                     <option value="">1</option>
                     <option value="">2</option>
                     <option value="">3</option>
@@ -36,7 +36,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="">Tipo Empleado</label>
-                <select name="" id="" class="form-control">
+                <select name="tipoEmp" class="form-control" #tipoEmp="ngModel" [(ngModel)]="d" [ngClass]="{ 'is-invalid': !tipoEmp.valid && tipoEmp.touched,'is-valid': tipoEmp.valid}" required>
                     <option value="">1</option>
                     <option value="">2</option>
                     <option value="">3</option>
@@ -52,17 +52,20 @@
 
         <div class="form-group">
             <label for="">Correo</label>
-            <input type="text" class="form-control" placeholder="example@utags.edu.mx">
+            <input type="text" class="form-control" placeholder="example@utags.edu.mx" name="correo" #correo="ngModel" [(ngModel)]="e" [ngClass]="{ 'is-invalid': !correo.valid && correo.touched,'is-valid': correo.valid}" required>
         </div>
 
 
         <div class="form-group">
             <label for="">Ingresar Conraseña</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="password1" #password1="ngModel" [(ngModel)]="f" [ngClass]="{ 'is-invalid': !password1.valid && password1.touched,'is-valid': password1.valid}" required>
         </div>
         <div class="form-group">
             <label for="">Reingresar Conraseña</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="password2" #password2="ngModel" [(ngModel)]="g" [ngClass]="{ 'is-invalid': !password2.valid && password2.touched,'is-valid': password2.valid}" required>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="f!==g">
+            Las contraseñas no coinciden
         </div>
         <button type="submit" class="btn btn-primary " [disabled]="!myForm.valid ">Registrar</button>
 
