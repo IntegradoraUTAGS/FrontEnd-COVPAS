@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { NgForm } from '@angular/forms';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +24,8 @@ export class LoginComponent implements OnInit {
 
   ingresar(myForm: NgForm) {  
     this.service.Login(this.usuario).then((usuario: any) => {
-      console.log(usuario.msg);
+      console.log(usuario.persona);
+      console.warn(usuario.token)
       myForm.reset();
     }).catch((err: any) => {
       console.log(err);

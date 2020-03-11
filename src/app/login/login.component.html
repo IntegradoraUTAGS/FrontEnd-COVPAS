@@ -3,7 +3,7 @@
         <img src="../../assets/imagen/Logo2.png" style="width: 100%; text-align: center;" alt="">
     </div>
 
-    <form class="needs-validation" (ngSubmit)="registrar(myForm)" #myForm="ngForm">
+    <form class="needs-validation" (ngSubmit)="ingresar(myForm)" #myForm="ngForm">
         <div class="form-group">
             <label for="">Numero de Empleado</label>
             <input class="form-control" [(ngModel)]="usuario.numNoEmpleado" type="text" name="numEmpleado" #numEmpleado="ngModel" [ngClass]="{ 'is-invalid': !numEmpleado.valid && numEmpleado.touched,'is-valid': numEmpleado.valid}" required>

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { Injectable, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 @Injectable({
@@ -10,7 +10,7 @@ userLogged: boolean;
   constructor(public router: Router, private http: HttpClient) { }
 
    Login( usuario:User ){
-    this.http.post('http://localhost:3000/persona/login',usuario).toPromise();
+    return this.http.post('http://localhost:3000/persona/login',usuario).toPromise();
   }
 
 
