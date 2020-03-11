@@ -9,8 +9,8 @@ export class ServiceService {
 userLogged: boolean;
   constructor(public router: Router, private http: HttpClient) { }
 
-   Login( usuario:User ){
-    return this.http.post('http://localhost:3000/persona/login',usuario).toPromise();
+   Login( usuario: User ){
+    return this.http.post('http://localhost:3000/persona/login', usuario).toPromise();
   }
 
 
