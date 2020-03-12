@@ -1,4 +1,7 @@
+import { User } from './../models/user';
+import { ServiceService } from './../service/service.service';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -6,20 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-a;
-b;
-c;
-d;
-e;
-f;
-g;
-h;
-i;
-j;
-k;
-  constructor() { }
+Usuario: User = new User();
+pass: string;
+regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
-  ngOnInit(): void {
+
+  constructor( public service: ServiceService) { }
+
+  ngOnInit() {
+  }
+
+  registrarUsuario() {
+    this.service.registarUsuario();
+
+
   }
 
 }
