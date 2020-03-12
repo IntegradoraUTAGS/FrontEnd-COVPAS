@@ -1,15 +1,15 @@
 export class PaseSalida {
     strDepartamento: string;
-    strDireccion: string;
+    idDireccion: string;
     strNombre: string;
     strTipoempleado: string;
-    dateFecha: Date;
-    dateHorasalida: Date;
-    dateHoraregreso: Date ;
-    translado: Array<string>;
+    dteFecha: Date;
+    dteHoraSalida: Date;
+    dteHoraRegreso: Date ;
+    ajsnTraslado: Array<string>;
     strNombreEmpresa: string;
-    strAsunto: string;
-    strNombrePersonaCita:string;
+    strMotivo: string;
+    strNombrePersonaCita: string;
     strSolicitante: string;
     strAutorizo: string;
 }

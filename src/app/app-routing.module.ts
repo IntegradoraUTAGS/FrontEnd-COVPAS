@@ -7,6 +7,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { PaseSalidaComponent } from './pase-salida/pase-salida.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
+import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
 
 
 const routes: Routes = [
@@ -15,11 +16,13 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent, canActivate: [LoginGuard]},
   { path: 'login' , component: LoginComponent},
   { path: 'solivaca', component: SoliVacacionesComponent, canActivate: [LoginGuard]},
-  { path: 'registro', component: RegistroComponent}
+  { path: 'registro', component: RegistroComponent},
+  { path: 'admin', component: CRUDAdminComponent },
+  { path: '**', component: LoginComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports:[ RouterModule]
+  exports: [ RouterModule]
 })
 export class AppRoutingModule { }

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
+import { PaseSalida } from '../models/modelPasedalida';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +12,12 @@ userLogged: boolean;
 
    Login( usuario: User ){
     return this.http.post('http://localhost:3000/persona/login', usuario).toPromise();
+  }
+  enviarPaseSalida(){
+    
+  }
+  registarUsuario() {
+
   }
 
 
