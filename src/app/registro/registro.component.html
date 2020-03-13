@@ -44,7 +44,7 @@
 
         <div class="form-group">
             <label for="">Correo</label>
-            <input type="email" class="form-control" placeholder="example@utags.edu.mx" name="correo" #correo="ngModel" [(ngModel)]="Usuario.strCorreo" [ngClass]="{ 'is-invalid': !correo.valid && correo.touched,'is-valid': correo.valid}" required>
+            <input type="email" class="form-control" placeholder="example@utags.edu.mx" name="correo" #correo="ngModel" [(ngModel)]="Usuario.strEmail" [ngClass]="{ 'is-invalid': !correo.valid && correo.touched,'is-valid': correo.valid}" required>
         </div>
         <div class="alert alert-danger" role="alert" *ngIf="correo.touched&&!regexp.test(correo.value)">
             Ingrese un correo valido
