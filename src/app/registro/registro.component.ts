@@ -19,10 +19,14 @@ regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"
   ngOnInit() {
   }
 
-  registrarUsuario() {
-    this.service.registarUsuario();
-
-
+  registrarUsuario(myForm:NgForm) {
+    this.service.registarUsuario(this.Usuario).then((usuario: any)=> {
+      console.log(usuario);
+      myForm.reset();
+    }).catch((err:any)=>{
+      console.log(err);
+    });
+   
   }
 
 }

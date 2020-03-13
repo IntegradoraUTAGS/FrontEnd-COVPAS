@@ -8,16 +8,17 @@ import { PaseSalida } from '../models/modelPasedalida';
 })
 export class ServiceService {
 userLogged: boolean;
+private url:string = 'http://localhost:3000/';
   constructor(public router: Router, private http: HttpClient) { }
 
    Login( usuario: User ){
-    return this.http.post('http://localhost:3000/persona/login', usuario).toPromise();
+    return this.http.post(this.url + 'persona/login', usuario).toPromise();
   }
   enviarPaseSalida(){
     
   }
-  registarUsuario() {
-
+  registarUsuario(usuario: User) {
+    return this.http.post(this.url + 'persona/registrar',usuario).toPromise();
   }
 
 

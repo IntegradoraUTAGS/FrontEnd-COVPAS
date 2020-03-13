@@ -5,8 +5,8 @@ export class User{
     strNombre: string;
     strCorreo: string;
     strPassword: string;
-    idDireccion: string;
-    strDepartamento: string;
+    idDireccion: number;
+    //strDepartamento: string;
     // imgLicencia:any;
 
 }
