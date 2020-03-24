@@ -13,7 +13,8 @@ import { NavComponent } from './Components/nav/nav.component';
 import { LoginComponent } from './login/login.component';
 import { SoliVacacionesComponent } from './soli-vacaciones/soli-vacaciones.component';
 import { RegistroComponent } from './registro/registro.component';
-import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
+import { VehiculoComponent } from './vehiculo/vehiculo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,16 +24,18 @@ import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
     LoginComponent,
     SoliVacacionesComponent,
     RegistroComponent,
-    CRUDAdminComponent,
+    VehiculoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [ServiceService],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
