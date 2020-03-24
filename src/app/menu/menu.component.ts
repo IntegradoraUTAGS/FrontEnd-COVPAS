@@ -24,4 +24,9 @@ export class MenuComponent implements OnInit  {
     this.route.navigateByUrl('solivaca');
 
   }
+  
+  gotovehiculo(){
+    this.route.navigateByUrl('vehiculo');
+
+  }
 }
