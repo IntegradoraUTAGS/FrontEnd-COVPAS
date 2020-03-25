@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SoliVacacionesComponent } from './soli-vacaciones/soli-vacaciones.component';
 import { RegistroComponent } from './registro/registro.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
+import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { VehiculoComponent } from './vehiculo/vehiculo.component';
     SoliVacacionesComponent,
     RegistroComponent,
     VehiculoComponent,
+    CRUDAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -39,3 +41,4 @@ import { VehiculoComponent } from './vehiculo/vehiculo.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+//
