@@ -68,7 +68,7 @@
             <label for="">Reingresar Conraseña</label>
             <input type="text" class="form-control" name="password2" #password2="ngModel" [(ngModel)]="g" [ngClass]="{ 'is-invalid': !password2.valid && password2.touched,'is-valid': password2.valid}" required>
         </div>
-        <div class="alert alert-danger" role="alert" *ngIf="f!==g">
+        <div class="alert alert-danger" role="alert" *ngIf="password1.value!==password2.value">
             Las contraseñas no coinciden
         </div>
         <button type="submit" class="btn btn-primary " [disabled]="!myForm.valid ">Registrar</button>
