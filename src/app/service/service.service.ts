@@ -13,6 +13,7 @@ userLogged: boolean;
     return this.http.post('http://localhost:3000/persona/login', usuario).toPromise();
   }
 
+  
 
 
 }

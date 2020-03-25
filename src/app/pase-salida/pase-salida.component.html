@@ -81,7 +81,7 @@
                 <input class="form-control" type="text" [(ngModel)]="traslados[index].de" name="de{{index}}" required>
             </div>
 
-            <div class="form-group col-md-6 ">
+            <div class="form-group col-md-6">
                 <label>A:</label>
                 <input class="form-control " type="text " [(ngModel)]="traslados[index].a " name="a{{index}} " required>
                 <div class="input-group-append ">
@@ -130,7 +130,7 @@
         </div>
 
 
-
-        <button type="submit " class="btn btn-primary " [disabled]="!myForm.valid">Enviar</button>
+        <!-- [disabled]="!myForm.valid" -->
+        <button type="submit " class="btn btn-primary" (click)="capturardep()">Enviar</button>
     </form>
 </div>

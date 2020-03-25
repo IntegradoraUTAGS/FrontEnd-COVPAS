@@ -43,6 +43,7 @@ export class PaseSalidaComponent implements OnInit {
     this.traslados.splice(index, 1)
   }
   capturardep(){
+    console.log(this.traslados);
     
   }
   capturardir() {

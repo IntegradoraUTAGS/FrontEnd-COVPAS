@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('registro');
   }
 
-  ingresar(myForm: NgForm) {  
+  ingresar(myForm: NgForm) {
     this.service.Login(this.usuario).then((usuario: any) => {
       console.log(usuario.persona);
       console.warn(usuario.token);
