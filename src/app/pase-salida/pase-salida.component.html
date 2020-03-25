@@ -5,8 +5,7 @@
 </div>
 
 <div class="container mt-5">
-    <form class="needs-validation" #myForm="ngForm">
-        <div class="form-row">
+    <form class="needs-validation" (ngSubmit)="registrarPaseSalida(myForm,passalida.idPersona)" #myForm="ngForm">
 
 
             <div class="form-group col-md-6">
@@ -33,8 +32,6 @@
                 </select>
             </div>
 
-        </div>
-
         <div class="form-row">
 
             <div class="form-group col-md-6">
@@ -59,20 +56,25 @@
 
             <div class="form-group col">
                 <label>Fecha:</label>
-                <input type="date" class="form-control" name="date" #date="ngModel" [(ngModel)]="e" [ngClass]="{ 'is-invalid': !date.valid && date.touched,'is-valid': date.valid}" required>
+                <input type="date" class="form-control" name="date" #date="ngModel" [(ngModel)]="passalida.dteFecha" [ngClass]="{ 'is-invalid': !date.valid && date.touched,'is-valid': date.valid}" required>
             </div>
 
             <div class="form-group col">
                 <label>Hora de salida:</label>
-                <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="f" [ngClass]="{ 'is-invalid': !horas.valid && horas.touched,'is-valid': horas.valid}" required>
+                <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="passalida.dteHoraSalida" [ngClass]="{ 'is-invalid': !horas.valid && horas.touched,'is-valid': horas.valid}" required>
             </div>
 
-            <div class="form-group col">
+            <div class="form-group col" *ngIf="passalida.blnRegreso==true; nomostrar">
                 <label>Hora de regreso:</label>
-                <input type="time" class="form-control" name="horar" #horar="ngModel" [(ngModel)]="g" [ngClass]="{ 'is-invalid': !horar.valid && horar.touched,'is-valid': horar.valid}" required>
+                <input type="time" class="form-control" name="horar" #horar="ngModel"  [(ngModel)]="passalida.dteHoraRegreso" [ngClass]="{ 'is-invalid': !horar.valid && horar.touched,'is-valid': horar.valid}" required>
             </div>
-
+            <ng-template id="nomostrar"></ng-template>
+            
         </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" #name="ngModel" name="name" [(ngModel)]="passalida.blnRegreso">
+            <label class="form-check-label" for="exampleCheck1"> Voy a regresar</label>
+          </div>
         <!--===============================================================================-->
         <div class="form-row" *ngFor="let item of traslados; let index=index">
 
@@ -97,33 +99,31 @@
         <!--===========================================================================-->
         <div class="form-group ">
             <label>Nombre de la empresa a visitar: </label>
-            <input type="text " class="form-control " name="nev " #nev="ngModel" [(ngModel)]="h" [ngClass]="{ 'is-invalid': !nev.valid && nev.touched, 'is-valid': nev.valid} " required>
+            <input type="text " class="form-control " name="nev " #nev="ngModel" [(ngModel)]="passalida.strEmpresaVisita" [ngClass]="{ 'is-invalid': !nev.valid && nev.touched, 'is-valid': nev.valid} " required>
         </div>
 
         <div class="form-group ">
             <label>Asunto a tratar:</label>
-            <input type="text " class="form-control " name="asunto " #asunto="ngModel" [(ngModel)]="i" [ngClass]="{ 'is-invalid': !asunto.valid && asunto.touched, 'is-valid': asunto.valid} " required>
+            <input type="text " class="form-control " name="asunto " #asunto="ngModel" [(ngModel)]="passalida.strMotivo" [ngClass]="{ 'is-invalid': !asunto.valid && asunto.touched, 'is-valid': asunto.valid} " required>
         </div>
 
         <div class="form-group ">
             <label>Nombre de la persona quien tinene cita:</label>
-            <input type="text " class="form-control " name="nomper " #nomper="ngModel" [(ngModel)]="j " [ngClass]="{ 'is-invalid': !nomper.valid && nomper.touched, 'is-valid': nomper.valid} " required>
+            <input type="text " class="form-control " name="nomper " #nomper="ngModel" [(ngModel)]="passalida.strPersonaCita" [ngClass]="{ 'is-invalid': !nomper.valid && nomper.touched, 'is-valid': nomper.valid} " required>
         </div>
 
         <div class="form-row ">
 
             <div class="form-group col-md-6 ">
                 <label>Solicitante:</label>
-                <input type="text " class="form-control " name="solicitante " #solicitante="ngModel" [(ngModel)]="k " [ngClass]="{ 'is-invalid': !solicitante.valid && solicitante.touched, 'is-valid': solicitante.valid} " required>
+                <input type="text " class="form-control " name="solicitante " #solicitante="ngModel" [(ngModel)]="passalida.idPersona" [ngClass]="{ 'is-invalid': !solicitante.valid && solicitante.touched, 'is-valid': solicitante.valid} " required>
             </div>
 
             <div class="form-group col-md-6 ">
 
                 <label>Autorizo:</label>
-                <select class="form-control " name="autoriza " #autoriza="ngModel" [(ngModel)]="l" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched, 'is-valid': autoriza.valid}" required>
-                      <option value="dato1 ">dato1</option>
-                      <option value="dato2 ">dato2</option>
-                     <option value="dato3 ">dato3</option>
+                <select class="form-control " name="autoriza " #autoriza="ngModel" [(ngModel)]="passalida.idAutoriza" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched, 'is-valid': autoriza.valid}" required>
+                      <option  *ngFor="let item of usuarios" value={{item._id}}>{{item.strNombre}}</option>
                     </select>
             </div>
 
@@ -131,6 +131,6 @@
 
 
         <!-- [disabled]="!myForm.valid" -->
-        <button type="submit " class="btn btn-primary" (click)="capturardep()">Enviar</button>
+        <button type="submit " class="btn btn-primary">Enviar</button>
     </form>
 </div>

@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'login' , component: LoginComponent},
   { path: 'solivaca', component: SoliVacacionesComponent},
   { path: 'registro', component: RegistroComponent},
-  { path: 'vehiculo', component: VehiculoComponent}
+  { path: 'vehiculo', component: VehiculoComponent},
+  { path: 'admin', component: CRUDAdminComponent }
 ];
 
 @NgModule({

@@ -24,10 +24,7 @@
             <div class="form-group col-md-6">
                 <label for="">Dirección</label>
                 <select name="dire" class="form-control" #dire="ngModel" [(ngModel)]="Usuario.idDireccion" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
-                    <option value=1>1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
+                    <option  *ngFor="let item of direcciones" value={{item._id}}>{{item.strNombre}}</option>
                 </select>
 
             </div>
@@ -37,10 +34,8 @@
             <div class="form-group col-md-6">
                 <label for="">Tipo Empleado</label>
                 <select name="tipoEmp" class="form-control" #tipoEmp="ngModel" [(ngModel)]="Usuario.strTipoEmpleado" [ngClass]="{ 'is-invalid': !tipoEmp.valid && tipoEmp.touched,'is-valid': tipoEmp.valid}" required>
-                    <option value="1">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
+                    <option value="PA">Profesor Tiempo Completo</option>
+                    <option value="PTC">Profesor Asignatura</option>
                 </select>
 
             </div>
@@ -62,11 +57,11 @@
 
         <div class="form-group">
             <label for="">Ingresar Conraseña</label>
-            <input type="text" class="form-control" name="password1" #password1="ngModel" [(ngModel)]="Usuario.strPassword" [ngClass]="{ 'is-invalid': !password1.valid && password1.touched,'is-valid': password1.valid}" required>
+            <input type="password" class="form-control" name="password1" #password1="ngModel" [(ngModel)]="Usuario.strPassword" [ngClass]="{ 'is-invalid': !password1.valid && password1.touched,'is-valid': password1.valid}" required>
         </div>
         <div class="form-group">
             <label for="">Reingresar Conraseña</label>
-            <input type="text" class="form-control" name="password2" #password2="ngModel" [(ngModel)]="pass" [ngClass]="{ 'is-invalid': !password2.valid && password2.touched,'is-valid': password2.valid}" required>
+            <input type="password" class="form-control" name="password2" #password2="ngModel" [(ngModel)]="pass" [ngClass]="{ 'is-invalid': !password2.valid && password2.touched,'is-valid': password2.valid}" required>
         </div>
         <div class="alert alert-danger" role="alert" *ngIf="password1.value!==password2.value">
             Las contraseñas no coinciden

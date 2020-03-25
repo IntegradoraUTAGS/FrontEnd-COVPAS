@@ -12,12 +12,23 @@ import { ServiceService } from '../service/service.service';
 export class RegistroComponent implements OnInit {
 Usuario: User = new User();
 pass: string;
+// tslint:disable-next-line: max-line-length
 regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
 
   constructor( public service: ServiceService, public router: Router) { }
-
+  direcciones: any;
   ngOnInit() {
+    this.obtenerDirecciones();
+  }
+
+  obtenerDirecciones(){
+    this.service.obtenerDirecciones().then((direccion: any)=>{
+      this.direcciones = direccion.cont;
+      console.log(direccion);
+    }).catch((err)=>{
+      console.log(err);
+    })
   }
 
   registrarUsuario(myForm: NgForm) {
