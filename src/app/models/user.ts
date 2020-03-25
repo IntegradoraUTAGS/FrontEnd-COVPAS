@@ -3,10 +3,10 @@ export class User{
     numNoEmpleado: number;
     strTipoEmpleado: string;
     strNombre: string;
-    strCorreo: string;
+    strEmail: string;
     strPassword: string;
-    idDireccion: string;
-    strDepartamento: string;
+    idDireccion: number;
+    //strDepartamento: string;
     // imgLicencia:any;
 
 }
