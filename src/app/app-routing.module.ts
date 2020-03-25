@@ -8,6 +8,8 @@ import { PaseSalidaComponent } from './pase-salida/pase-salida.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
+import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
+//
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },

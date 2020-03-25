@@ -12,7 +12,7 @@ describe('VehiculoComponent', () => {
     })
     .compileComponents();
   }));
-
+//
   beforeEach(() => {
     fixture = TestBed.createComponent(VehiculoComponent);
     component = fixture.componentInstance;
