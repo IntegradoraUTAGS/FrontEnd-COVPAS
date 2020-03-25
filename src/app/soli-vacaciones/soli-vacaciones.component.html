@@ -1,5 +1,4 @@
 <nav class="navbar navbar-light bg-secondary">
-
     <div class="col">
         <img (click)="openNav()" class="img" src="../../../assets/imagen/menu.png" alt="">
     </div>
@@ -34,10 +33,13 @@
     <P class="text-center">SOLICITUD DE VACACIONES</P>
 </div>
 <div class="container">
-
+    <script>
+        document.getElementById("img-thumbnail").style.visibility = "hidden";
+    </script>
+    <img class="img-thumbnail" src="assets/imagen/Logo.gif">
 
     <form class="needs-validation" #myform="ngForm">
-        <img class="img1" src="assets/imagen/Logo.gif">
+
 
         <div class="form-row">
             <div class="form-group col-md-6">

@@ -1,37 +1,55 @@
-import { ServiceService } from './../service/service.service';
 import { Component, OnInit, NgModule } from '@angular/core';
+import { ServiceService } from '../service/service.service';
 import { Traslado } from '../models/traslado';
 import { PaseSalida } from '../models/modelPasedalida';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-pase-salida',
   templateUrl: './pase-salida.component.html',
   styleUrls: ['./pase-salida.component.css'],
-  providers: [ServiceService]
+  providers:[ServiceService]
 })
 export class PaseSalidaComponent implements OnInit {
-  ajsnTraslado: Traslado[];
-   paseSalida: PaseSalida = new PaseSalida();
+   traslados : Traslado[];
+   passalida : PaseSalida;
 
-  constructor(public service: ServiceService) { }
+   a:string;
+   b:string;
+   c:string;
+   d:string;
+   e:Date;
+   f:Date;
+   g:Date;
+   h:string;
+   i:string;
+   j:string;
+   k:string;
+   l:string;
+   
+ 
+
+  constructor() { }
 
   ngOnInit() {
-    this.ajsnTraslado = [];
+    this.traslados=[];
+   
     this.agregar();
+    
+  }
+  agregar(){
+    this.traslados.push({de:'',a:''});
+  }
+  eliminar(index: number){
+    this.traslados.splice(index, 1)
+  }
+  capturardep(){
+    console.log(this.traslados);
+    
+  }
+  capturardir() {
+    
   }
 
-  agregar() {
-    this.ajsnTraslado.push({de: '' , a: '' });
-  }
-  eliminar(index: number) {
-    this.ajsnTraslado.splice(index, 1);
-  }
-  enviar(myForm: NgForm) {
-    this.service.enviarPaseSalida();
-
-  }
- 
   
 
 }

@@ -2,7 +2,6 @@ import { Router } from '@angular/router';
 import { Injectable, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-import { PaseSalida } from '../models/modelPasedalida';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,6 +22,7 @@ private url: string = 'http://localhost:3000/';
     return this.http.post(this.url + 'persona/registrar', usuario).toPromise();
 
   }
+
 
 
 

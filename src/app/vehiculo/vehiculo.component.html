@@ -1,0 +1,131 @@
+<app-nav></app-nav>
+<div class="container ">
+    <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
+    <P class="text-center">SOLICITUD DE VEHICULO</P>
+</div>
+
+<div class="container mt-5">
+
+    <form class="needs-validation" #myForm="ngForm">
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Fecha de Solicitud:</label>
+                <input type="date" class="form-control" name="date" #date="ngModel" [(ngModel)]="e" [ngClass]="{ 'is-invalid': !date.valid && date.touched,'is-valid': date.valid}" required>
+            </div>
+            <div class="form-group col">
+                <label>Unidad Solicitada:</label>
+                <select class="form-control">
+                    <option value="0">Choose...</option>
+                    <option value="dato1">dato1</option>
+                    <option value="dato2">dato2</option>
+                    <option value="dato3">dato3</option>
+            </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Nombre del Solicitante:</label>
+                <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="c" [ngClass]="{ 'is-invalid': !nombre.valid && nombre.touched,'is-valid': nombre.valid}" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Placas:</label>
+
+                <input type="text" class="form-control" name="placas" #placas="ngModel" [(ngModel)]="p" [ngClass]="{ 'is-invalid': !placas.valid && placas.touched,'is-valid': placas.valid}" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Departamento:</label>
+                <select class="form-control">
+                    <option value="0">Choose...</option>
+                    <option value="dato1">dato1</option>
+                    <option value="dato2">dato2</option>
+                    <option value="dato3">dato3</option>
+            </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Servicio:</label>
+                <select class="form-control">
+                    <option value="0">Choose...</option>
+                    <option value="dato1">Local</option>
+                    <option value="dato2">Foraneo</option>
+                    
+            </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Licencia No. :</label>
+                <input type="number" class="form-control" name="licencia" #licencia="ngModel" [(ngModel)]="n" [ngClass]="{ 'is-invalid': !licencia.valid && licencia.touched,'is-valid': licencia.valid}" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Chofer:</label>
+                <select class="form-control">
+                    <option value="0">Choose...</option>
+                    <option value="dato1">Si</option>
+                    <option value="dato2">No</option>
+                    
+            </select>
+            </div>
+        </div>
+        <label>Destinos: </label>
+        <div class="form-row" *ngFor="let item of traslados; let index=index">
+
+            <div class="form-group col-md-6">
+                <label>A:</label>
+                <input class="form-control" type="text" [(ngModel)]="traslados[index].de" name="de{{index}}" required>
+                <div class="input-group-append ">
+                    <button class="btn btn-danger btn-sm " (click)="eliminar(index) " id="button-addon2 " *ngIf="traslados.length !==1 && traslados.length==( index+1) " type="button">-</button>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <button type="button " class="btn btn-primary " slot="end " (click)="agregar() ">agregar</button>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Motivo:</label>
+                <input type="text" class="form-control" name="motivo" #motivo="ngModel" [(ngModel)]="m" [ngClass]="{ 'is-invalid': !motivo.valid && motivo.touched,'is-valid': motivo.valid}" required>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col">
+                <label>Fecha de salida:</label>
+                <input type="date" class="form-control" name="date" #date="ngModel" [(ngModel)]="e" [ngClass]="{ 'is-invalid': !date.valid && date.touched,'is-valid': date.valid}" required>
+            </div>
+
+            <div class="form-group col">
+                <label>Hora de salida:</label>
+                <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="f" [ngClass]="{ 'is-invalid': !horas.valid && horas.touched,'is-valid': horas.valid}" required>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col">
+                <label>Fecha de Regreso:</label>
+                <input type="date" class="form-control" name="date" #date="ngModel" [(ngModel)]="e" [ngClass]="{ 'is-invalid': !date.valid && date.touched,'is-valid': date.valid}" required>
+            </div>
+
+            <div class="form-group col">
+                <label>Hora de Regreso:</label>
+                <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="f" [ngClass]="{ 'is-invalid': !horas.valid && horas.touched,'is-valid': horas.valid}" required>
+            </div>
+        </div>
+        <div class="form-row " style="justify-content: center;">
+            <div class="form-group col-md-6">
+                <label>Quien autorizo:</label>
+                <select class="form-control">
+                <option value="0">Choose...</option>
+                <option value="dato1">Jefe Inmediato</option>
+                <option value="dato2">Jefe Servicios Generales</option>
+                <option value="dato3">Director Admon. y Finanzas</option>
+                <option value="dato4">Rector</option>
+        </select>
+            </div>
+        </div>
+        <button type="submit " class="btn btn-primary " [disabled]="!myForm.valid">Enviar</button>
+    </form>
+</div>

@@ -5,7 +5,7 @@ export class User{
     strNombre: string;
     strEmail: string;
     strPassword: string;
-    idDireccion: number;
+    idDireccion: string;
     //strDepartamento: string;
     // imgLicencia:any;
 

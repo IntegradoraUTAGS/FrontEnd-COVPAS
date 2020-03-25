@@ -7,22 +7,20 @@ import {RouterModule, Routes} from '@angular/router';
 import { PaseSalidaComponent } from './pase-salida/pase-salida.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
-import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
-
+import { VehiculoComponent } from './vehiculo/vehiculo.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'pase-salida', component: PaseSalidaComponent, canActivate: [LoginGuard] },
-  { path: 'menu', component: MenuComponent, canActivate: [LoginGuard]},
+  { path: 'pase-salida', component: PaseSalidaComponent},
+  { path: 'menu', component: MenuComponent},
   { path: 'login' , component: LoginComponent},
-  { path: 'solivaca', component: SoliVacacionesComponent, canActivate: [LoginGuard]},
+  { path: 'solivaca', component: SoliVacacionesComponent},
   { path: 'registro', component: RegistroComponent},
-  { path: 'admin', component: CRUDAdminComponent },
-  { path: '**', component: LoginComponent }
+  { path: 'vehiculo', component: VehiculoComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [ RouterModule]
+  exports:[ RouterModule]
 })
 export class AppRoutingModule { }
