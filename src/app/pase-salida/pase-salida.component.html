@@ -80,19 +80,19 @@
 
             <div class="form-group col-md-6">
                 <label>De:</label>
-                <input class="form-control" type="text" [(ngModel)]="traslados[index].de" name="de{{index}}" required>
+                <input class="form-control" type="text" [(ngModel)]="traslados[index].De" name="de{{index}}" required>
             </div>
 
             <div class="form-group col-md-6">
                 <label>A:</label>
-                <input class="form-control " type="text " [(ngModel)]="traslados[index].a " name="a{{index}} " required>
+                <input class="form-control " type="text " [(ngModel)]="traslados[index].A " name="a{{index}} " required>
                 <div class="input-group-append ">
                     <button class="btn btn-danger btn-sm " (click)="eliminar(index) " id="button-addon2 " *ngIf="traslados.length !==1 && traslados.length==( index+1) " type="button">-</button>
                 </div>
             </div>
         </div>
         <div>
-            <button type="button " class="btn btn-primary " slot="end " (click)="agregar() ">agregar</button>
+            <button type="button" class="btn btn-primary " slot="end " (click)="agregar() ">agregar</button>
         </div>
 
 

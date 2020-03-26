@@ -3,6 +3,7 @@ import { Injectable, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { PaseSalida } from '../models/modelPasedalida';
+import { Traslado } from '../models/traslado';
 @Injectable({
   providedIn: 'root'
 })
@@ -39,6 +40,10 @@ private url: string = 'http://localhost:3000/';
 
   registrarPaseSalida(paseSalida: PaseSalida, id: any) {
     return this.http.post(`${this.url}paseSalida/registrar/${id}`, paseSalida).toPromise();
+  }
+
+  actualizarDestinos(destinos: Traslado[], idPaseSalida: any) {
+    return this.http.put(`${this.url}destinos/actualizar/${idPaseSalida}`, destinos).toPromise();
   }
 
 }

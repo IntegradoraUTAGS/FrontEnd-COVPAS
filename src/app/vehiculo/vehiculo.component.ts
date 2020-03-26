@@ -33,7 +33,7 @@ export class VehiculoComponent implements OnInit {
   }
   
   agregar(){
-    this.traslados.push({de:'',a:''});
+    this.traslados.push({De:'', A:''});
   }
   eliminar(index: number){
     this.traslados.splice(index, 1)
