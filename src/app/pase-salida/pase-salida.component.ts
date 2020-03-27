@@ -12,7 +12,8 @@ import { NgForm } from '@angular/forms';
 })
 export class PaseSalidaComponent implements OnInit {
    traslados: Traslado[];
-   traslados2: any;
+   trasladosDe: any;
+   trasladosA: any;
    passalida: PaseSalida = new PaseSalida();
 
    usuarios: any;
@@ -37,7 +38,11 @@ export class PaseSalidaComponent implements OnInit {
   }
   agregar(){
     this.traslados.push({De: '', A: ''});
-    console.log(this.traslados)
+    console.log(this.traslados);
+    for (let index = 0; index < this.traslados.length; index++) {
+      const element = this.traslados[index];
+    console.log(element);
+    }
   }
   eliminar(index: number){
     this.traslados.splice(index, 1);
@@ -62,11 +67,16 @@ export class PaseSalidaComponent implements OnInit {
   registrarPaseSalida(myform: NgForm, id: any) {
     this.service.registrarPaseSalida(this.passalida, id).then((paseSalida: any) => {
       console.log(paseSalida);
-      this.service.actualizarDestinos(this.traslados, paseSalida._id).then((destinos: any) => {
-        console.log(destinos);
-      }).catch((err: any) => {
-        console.log(err);
-      });
+      for (let index = 0; index <= this.traslados.length - 1; index++) {
+        const element = this.traslados[index];
+
+        this.service.actualizarDestinos(element, paseSalida.cont._id).then((destinos: any) => {
+          console.log(destinos);
+        }).catch((err: any) => {
+          console.log(err);
+        });
+      }
+      
     }).catch((err: any) => {
       console.log(err);
     });

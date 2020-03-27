@@ -42,7 +42,7 @@ private url: string = 'http://localhost:3000/';
     return this.http.post(`${this.url}paseSalida/registrar/${id}`, paseSalida).toPromise();
   }
 
-  actualizarDestinos(destinos: Traslado[], idPaseSalida: any) {
+  actualizarDestinos(destinos: any, idPaseSalida: any) {
     return this.http.put(`${this.url}destinos/actualizar/${idPaseSalida}`, destinos).toPromise();
   }
 
