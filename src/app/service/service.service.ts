@@ -15,13 +15,11 @@ private url: string = 'http://localhost:3000/';
 // registrar paseSalida: paseSalida/registrar
 // actualicar destino: destinos/actualicar
 // registrar vaccaciones: vacaciones/RegistarVacaciones
-
+status: any;
   constructor(public router: Router, private http: HttpClient) { }
 
    Login( usuario: User ){
     return this.http.post(this.url + 'persona/login', usuario).toPromise();
-  }
-  enviarPaseSalida() {
   }
 
   obtenerUsuario(){
@@ -40,9 +38,6 @@ private url: string = 'http://localhost:3000/';
     return this.http.get(`${this.url}paseSalida/obtener/${idPaseSalida}`).toPromise();
   }
 
-  actualizarEstatusPaseSalida(idPaseSalida: any, paseSalida: PaseSalida) {
-    return this.http.put(`${this.url}paseSalida/actualizar/estatus/${idPaseSalida}`, paseSalida).toPromise();
-  }
   registrarPaseSalida(paseSalida: PaseSalida, id: any) {
     return this.http.post(`${this.url}paseSalida/registrar/${id}`, paseSalida).toPromise();
   }
@@ -55,4 +50,11 @@ private url: string = 'http://localhost:3000/';
     return this.http.get(`${this.url}paseSalida/enviarConfirmacion/${idAutoriza}`).toPromise();
   }
 
+  actualizarEstatusPaseSalida(id: any, estatus: any) {
+    return this.http.get(`${this.url}paseSalida/actualizar/estatus/${id}/${estatus}`).toPromise();
+  }
+
+  obtenerEstatusPaseSalida(idPaseSalida: any) {
+    return this.http.get(`${this.url}paseSalida/obtener/${idPaseSalida}`).toPromise();
+  }
 }

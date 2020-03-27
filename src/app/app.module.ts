@@ -16,7 +16,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
 import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
 import { InterceptorService } from './service/interceptor.service';
-import { ConfirmarPasesalidaComponent } from './confirmar-pasesalida/confirmar-pasesalida.component';
+import { ConfirmarPasesalidaComponent } from './Components/confirmar-pasesalida/confirmar-pasesalida.component';
 
 @NgModule({
   declarations: [

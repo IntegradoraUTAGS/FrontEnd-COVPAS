@@ -9,7 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
 import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
-import { ConfirmarPasesalidaComponent } from './confirmar-pasesalida/confirmar-pasesalida.component';
+import { ConfirmarPasesalidaComponent } from './Components/confirmar-pasesalida/confirmar-pasesalida.component';
 //
 
 const routes: Routes = [
@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent},
   { path: 'vehiculo', component: VehiculoComponent},
   { path: 'admin', component: CRUDAdminComponent },
-  { path: 'confirmar-pase-salida', component: ConfirmarPasesalidaComponent}
+  { path: 'confirmar-pase-salida/:id/:strEstatus', component: ConfirmarPasesalidaComponent}
 ];
 
 @NgModule({
