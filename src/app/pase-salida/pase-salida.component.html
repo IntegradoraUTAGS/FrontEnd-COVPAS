@@ -11,15 +11,13 @@
             <div class="form-group col-md-6">
 
                 <label>Departamento:</label>
-                <select [(ngModel)]="a" name="departa" #departa="ngModel" class="form-control" disabled required>
-               </select>
+                <input [(ngModel)]="informacion.usuario.idDireccion.ajsnDepartamento[0].strNombre" name="departa" #departa="ngModel" class="form-control" disabled required>
             </div>
 
 
             <div class="form-group col-md-6">
                 <label>Dirección:</label>
-                <select class="form-control" [(ngModel)]="b" name="dire" #dire="ngModel" disabled required>
-        </select>
+                <input class="form-control" [(ngModel)]="informacion.usuario.idDireccion.strNombre" name="dire" #dire="ngModel" disabled required>
             </div>
         </div>
 
@@ -33,8 +31,7 @@
 
             <div class="form-group col-md-6">
                 <label>Cargo:</label>
-                <select class="form-control" name="cargo" #cargo="ngModel" [(ngModel)]="informacion.usuario.numNoEmpleado" disabled required>
-                        </select>
+                <input class="form-control" name="cargo" #cargo="ngModel" [(ngModel)]="informacion.usuario.strTipoEmpleado" disabled required>
             </div>
 
         </div>
@@ -86,7 +83,7 @@
                 <label>A:</label>
                 <input class="form-control " type="text " [(ngModel)]="traslados[index].A " name="a{{index}}" #a="ngModel" [ngClass]="{ 'is-invalid': !a.valid && a.touched,'is-valid': a.valid}" required>
                 <div class="input-group-append ">
-                    <button class="btn btn-danger" (click)="eliminar(index) " id="button-addon2 " *ngIf="traslados.length !==1 && traslados.length==( index+1) " type="button">-</button>
+                    <button class="btn btn-danger btn-sm" (click)="eliminar(index) " id="button-addon2 " *ngIf="traslados.length !==1 && traslados.length==( index+1) " type="button">-</button>
                 </div>
                 <div class="invalid-feedback">
                     Ingrese un destino.
@@ -124,14 +121,14 @@
             </div>
         </div>
 
-        <div class="form-row ">
+        <div class="form-row " >
 
-            <div class="form-group col-md-6 ">
+            <div class="form-group col " style="display: none;">
                 <label>Solicitante:</label>
-                <input type="text " class="form-control " name="solicitante " #solicitante="ngModel" [(ngModel)]="informacion.usuario._id" disabled required>
+                <input  type="text " class="form-control " name="solicitante " #solicitante="ngModel"  [(ngModel)]="informacion.usuario._id" disabled required>
             </div>
 
-            <div class="form-group col-md-6 ">
+            <div class="form-group col ">
 
                 <label>Autorizo:</label>
                 <select class="form-control " name="autoriza " #autoriza="ngModel" [(ngModel)]="passalida.idAutoriza" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched, 'is-valid': autoriza.valid}" required>

@@ -4,20 +4,20 @@
         <img (click)="openNav()" class="img" src="../../../assets/imagen/menu.png" alt="">
     </div>
     <div class="col">
-        <a class="navbar-brand">Docente</a>
+        <a class="navbar-brand">{{informacion.usuario.strNombre}}</a>
     </div>
 
     <div class="col text-center">
         <label> Estatus</label>
         <br>
-        <span class="badge badge-warning">En progreso...</span>
+        <span class="badge badge-warning">{{status}}</span>
     </div>
 
 </nav>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <a href="#">Tipo empleado</a>
-    <a href="#"># de empleado</a>
+    <a href="#">Tipo empleado: {{informacion.usuario.strTipoEmpleado}}</a>
+    <a href="#">#{{informacion.usuario.numNoEmpleado}}</a>
     <a routerLink="/pase-salida">Pase Saldia</a>
     <a routerLink="/solivaca">Vacaciones</a>
     <a routerLink="#">Vehiculos</a>

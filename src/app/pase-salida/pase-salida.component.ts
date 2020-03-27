@@ -39,6 +39,9 @@ export class PaseSalidaComponent implements OnInit {
     this.traslados = [{De: '', A: ''}];
     this.informacion = jwt_decode(localStorage.getItem('token'));
     console.log(this.informacion);
+    
+    this.passalida.idPersona = this.informacion.usuario._id;
+    console.log(this.passalida.idPersona = this.informacion.usuario._id);
   }
   agregar() {
     this.traslados.push({De: '', A: ''});
@@ -68,6 +71,12 @@ export class PaseSalidaComponent implements OnInit {
   registrarPaseSalida(myform: NgForm, id: any) {
     this.service.registrarPaseSalida(this.passalida, id).then((paseSalida: any) => {
       console.log(paseSalida);
+      this.service.obtenerEstatusPaseSalida(paseSalida.cont._id).then((resp: any) => {
+        console.log(resp);
+        localStorage.setItem('status',resp.pase.strEstatus);
+      }).catch((err: any) => {
+        console.log(err);
+      });
       for (let index = 0; index <= this.traslados.length - 1; index++) {
         const element = this.traslados[index];
 
@@ -77,7 +86,11 @@ export class PaseSalidaComponent implements OnInit {
           console.log(err);
         });
       }
-
+      this.service.enviarConfirmacionPaseSalida(paseSalida.cont._id).then((resp: any) => {
+        console.log(resp);
+      }).catch((err: any) => {
+        console.log(err);
+      });
     }).catch((err: any) => {
       console.log(err);
     });
