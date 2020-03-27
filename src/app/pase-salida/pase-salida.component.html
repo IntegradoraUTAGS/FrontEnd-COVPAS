@@ -7,47 +7,34 @@
 <div class="container mt-5">
     <form class="needs-validation" (ngSubmit)="registrarPaseSalida(myForm,passalida.idPersona)" #myForm="ngForm">
 
-
+        <div class="form-row">
             <div class="form-group col-md-6">
 
                 <label>Departamento:</label>
-                <select [(ngModel)]="a" name="departa" #departa="ngModel" class="form-control" [ngClass]="{ 'is-invalid': !departa.valid && departa.touched,'is-valid': departa.valid}" required>
-                  <option value="0">Choose...</option>
-                  <option value="dato1">dato1</option>
-                  <option value="dato2">dato2</option>
-                  <option value="dato3">dato3</option>
-
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
+                <select [(ngModel)]="a" name="departa" #departa="ngModel" class="form-control" disabled required>
+               </select>
             </div>
 
 
             <div class="form-group col-md-6">
                 <label>Dirección:</label>
-                <select class="form-control" [(ngModel)]="b" name="dire" #dire="ngModel" (change)="capturardir()" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
-
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
+                <select class="form-control" [(ngModel)]="b" name="dire" #dire="ngModel" disabled required>
+        </select>
             </div>
+        </div>
+
 
         <div class="form-row">
 
             <div class="form-group col-md-6">
                 <label>Nombre:</label>
-                <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="c" [ngClass]="{ 'is-invalid': !nombre.valid && nombre.touched,'is-valid': nombre.valid}" required>
+                <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="informacion.usuario.strNombre" disabled required>
             </div>
 
             <div class="form-group col-md-6">
                 <label>Cargo:</label>
-                <select class="form-control" name="cargo" #cargo="ngModel" [(ngModel)]="d" [ngClass]="{ 'is-invalid': !cargo.valid && cargo.touched,'is-valid': cargo.valid}" required>
-
-                        <option selected>Choose...</option>
-                        <option value="dato1">dato1</option>
-                        <option value="dato2">dato2</option>
-                         <option value="dato3">dato3</option>
-                      </select>
+                <select class="form-control" name="cargo" #cargo="ngModel" [(ngModel)]="informacion.usuario.numNoEmpleado" disabled required>
+                        </select>
             </div>
 
         </div>
@@ -57,39 +44,55 @@
             <div class="form-group col">
                 <label>Fecha:</label>
                 <input type="date" class="form-control" name="date" #date="ngModel" [(ngModel)]="passalida.dteFecha" [ngClass]="{ 'is-invalid': !date.valid && date.touched,'is-valid': date.valid}" required>
+                <div class="invalid-feedback">
+                    Ingrese una fecha.
+                </div>
             </div>
 
             <div class="form-group col">
                 <label>Hora de salida:</label>
                 <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="passalida.dteHoraSalida" [ngClass]="{ 'is-invalid': !horas.valid && horas.touched,'is-valid': horas.valid}" required>
+                <div class="invalid-feedback">
+                    Ingrese una hora de salida.
+                </div>
             </div>
 
             <div class="form-group col" *ngIf="passalida.blnRegreso==true; nomostrar">
                 <label>Hora de regreso:</label>
-                <input type="time" class="form-control" name="horar" #horar="ngModel"  [(ngModel)]="passalida.dteHoraRegreso" [ngClass]="{ 'is-invalid': !horar.valid && horar.touched,'is-valid': horar.valid}" required>
+                <input type="time" class="form-control" name="horar" #horar="ngModel" [(ngModel)]="passalida.dteHoraRegreso" [ngClass]="{ 'is-invalid': !horar.valid && horar.touched,'is-valid': horar.valid}" required>
+                <div class="invalid-feedback">
+                    Ingrese una hora de regreso.
+                </div>
             </div>
             <ng-template id="nomostrar"></ng-template>
-            
+
         </div>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" #name="ngModel" name="name" [(ngModel)]="passalida.blnRegreso">
             <label class="form-check-label" for="exampleCheck1"> Voy a regresar</label>
-          </div>
+        </div>
         <!--===============================================================================-->
         <div class="form-row" *ngFor="let item of traslados; let index=index">
 
             <div class="form-group col-md-6">
                 <label>De:</label>
-                <input class="form-control" type="text" [(ngModel)]="traslados[index].De" name="de{{index}}" required>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label>A:</label>
-                <input class="form-control " type="text " [(ngModel)]="traslados[index].A " name="a{{index}} " required>
-                <div class="input-group-append ">
-                    <button class="btn btn-danger btn-sm " (click)="eliminar(index) " id="button-addon2 " *ngIf="traslados.length !==1 && traslados.length==( index+1) " type="button">-</button>
+                <input class="form-control" type="text" [(ngModel)]="traslados[index].De" name="de{{index}}" #de="ngModel" [ngClass]="{ 'is-invalid': !de.valid && de.touched,'is-valid': de.valid}" required>
+                <div class="invalid-feedback">
+                    Ingrese un destino.
                 </div>
             </div>
+
+            <div class="form-group input-group col-md-6">
+                <label>A:</label>
+                <input class="form-control " type="text " [(ngModel)]="traslados[index].A " name="a{{index}}" #a="ngModel" [ngClass]="{ 'is-invalid': !a.valid && a.touched,'is-valid': a.valid}" required>
+                <div class="input-group-append ">
+                    <button class="btn btn-danger" (click)="eliminar(index) " id="button-addon2 " *ngIf="traslados.length !==1 && traslados.length==( index+1) " type="button">-</button>
+                </div>
+                <div class="invalid-feedback">
+                    Ingrese un destino.
+                </div>
+            </div>
+
         </div>
         <div>
             <button type="button" class="btn btn-primary " slot="end " (click)="agregar() ">agregar</button>
@@ -100,23 +103,32 @@
         <div class="form-group ">
             <label>Nombre de la empresa a visitar: </label>
             <input type="text " class="form-control " name="nev " #nev="ngModel" [(ngModel)]="passalida.strEmpresaVisita" [ngClass]="{ 'is-invalid': !nev.valid && nev.touched, 'is-valid': nev.valid} " required>
+            <div class="invalid-feedback">
+                Ingrese un nombre de empresa.
+            </div>
         </div>
 
         <div class="form-group ">
             <label>Asunto a tratar:</label>
             <input type="text " class="form-control " name="asunto " #asunto="ngModel" [(ngModel)]="passalida.strMotivo" [ngClass]="{ 'is-invalid': !asunto.valid && asunto.touched, 'is-valid': asunto.valid} " required>
+            <div class="invalid-feedback">
+                Ingrese un asunto.
+            </div>
         </div>
 
         <div class="form-group ">
             <label>Nombre de la persona quien tinene cita:</label>
             <input type="text " class="form-control " name="nomper " #nomper="ngModel" [(ngModel)]="passalida.strPersonaCita" [ngClass]="{ 'is-invalid': !nomper.valid && nomper.touched, 'is-valid': nomper.valid} " required>
+            <div class="invalid-feedback">
+                Ingrese un nombre.
+            </div>
         </div>
 
         <div class="form-row ">
 
             <div class="form-group col-md-6 ">
                 <label>Solicitante:</label>
-                <input type="text " class="form-control " name="solicitante " #solicitante="ngModel" [(ngModel)]="passalida.idPersona" [ngClass]="{ 'is-invalid': !solicitante.valid && solicitante.touched, 'is-valid': solicitante.valid} " required>
+                <input type="text " class="form-control " name="solicitante " #solicitante="ngModel" [(ngModel)]="informacion.usuario._id" disabled required>
             </div>
 
             <div class="form-group col-md-6 ">
@@ -125,6 +137,9 @@
                 <select class="form-control " name="autoriza " #autoriza="ngModel" [(ngModel)]="passalida.idAutoriza" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched, 'is-valid': autoriza.valid}" required>
                       <option  *ngFor="let item of usuarios" value={{item._id}}>{{item.strNombre}}</option>
                     </select>
+                <div class="invalid-feedback">
+                    Ingrese quien autoriza.
+                </div>
             </div>
 
         </div>

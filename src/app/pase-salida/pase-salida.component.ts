@@ -3,18 +3,20 @@ import { ServiceService } from '../service/service.service';
 import { Traslado } from '../models/traslado';
 import { PaseSalida } from '../models/modelPasedalida';
 import { NgForm } from '@angular/forms';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-pase-salida',
   templateUrl: './pase-salida.component.html',
   styleUrls: ['./pase-salida.component.css'],
-  providers:[ServiceService]
+  providers: [ServiceService]
 })
 export class PaseSalidaComponent implements OnInit {
    traslados: Traslado[];
    trasladosDe: any;
    trasladosA: any;
    passalida: PaseSalida = new PaseSalida();
+   public informacion: any;
 
    usuarios: any;
    a: string;
@@ -31,31 +33,30 @@ export class PaseSalidaComponent implements OnInit {
    l: string;
 
   constructor(public service: ServiceService) { }
-
+ 
   ngOnInit() {
     this.obtenerUsuarios();
     this.traslados = [{De: '', A: ''}];
+    this.informacion = jwt_decode(localStorage.getItem('token'));
+    console.log(this.informacion);
   }
-  agregar(){
+  agregar() {
     this.traslados.push({De: '', A: ''});
     console.log(this.traslados);
+    // tslint:disable-next-line:prefer-for-of
     for (let index = 0; index < this.traslados.length; index++) {
       const element = this.traslados[index];
-    console.log(element);
+      console.log(element);
     }
   }
-  eliminar(index: number){
+  eliminar(index: number) {
     this.traslados.splice(index, 1);
   }
-  capturardep(){
+  capturardep() {
     console.log(this.traslados);
-    
-  }
-  capturardir() {
-    
-  }
 
-  obtenerUsuarios(){
+  }
+  obtenerUsuarios() {
     this.service.obtenerUsuario().then((usuarios: any) => {
       this.usuarios = usuarios.cont;
       console.log(usuarios);
@@ -76,7 +77,7 @@ export class PaseSalidaComponent implements OnInit {
           console.log(err);
         });
       }
-      
+
     }).catch((err: any) => {
       console.log(err);
     });
