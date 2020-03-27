@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PaseSalidaComponent } from './pase-salida/pase-salida.component';
@@ -15,6 +15,7 @@ import { SoliVacacionesComponent } from './soli-vacaciones/soli-vacaciones.compo
 import { RegistroComponent } from './registro/registro.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
 import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
+import { InterceptorService } from './service/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,12 @@ import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
     HttpClientModule,
 
   ],
-  providers: [ServiceService],
+  providers: [ServiceService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  }],
  
   bootstrap: [AppComponent]
 })
