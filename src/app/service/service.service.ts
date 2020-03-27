@@ -46,4 +46,8 @@ private url: string = 'http://localhost:3000/';
     return this.http.put(`${this.url}destinos/actualizar/${idPaseSalida}`, destinos).toPromise();
   }
 
+  enviarConfirmacionPaseSalida(idAutoriza: any) {
+    return this.http.get(`${this.url}paseSalida/enviarConfirmacion/${idAutoriza}`).toPromise();
+  }
+
 }

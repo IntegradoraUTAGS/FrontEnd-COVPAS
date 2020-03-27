@@ -76,7 +76,11 @@ export class PaseSalidaComponent implements OnInit {
           console.log(err);
         });
       }
-      
+      this.service.enviarConfirmacionPaseSalida(paseSalida.cont._id).then((resp: any) => {
+        console.log(resp);
+      }).catch((err: any) => {
+        console.log(err);
+      });
     }).catch((err: any) => {
       console.log(err);
     });
