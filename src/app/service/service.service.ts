@@ -36,8 +36,13 @@ private url: string = 'http://localhost:3000/';
     return this.http.get(`${this.url}direcciones/obtener`).toPromise();
   }
 
+  obtenerPaseSalidaPorId(idPaseSalida: any) {
+    return this.http.get(`${this.url}paseSalida/obtener/${idPaseSalida}`).toPromise();
+  }
 
-
+  actualizarEstatusPaseSalida(idPaseSalida: any, paseSalida: PaseSalida) {
+    return this.http.put(`${this.url}paseSalida/actualizar/estatus/${idPaseSalida}`, paseSalida).toPromise();
+  }
   registrarPaseSalida(paseSalida: PaseSalida, id: any) {
     return this.http.post(`${this.url}paseSalida/registrar/${id}`, paseSalida).toPromise();
   }
