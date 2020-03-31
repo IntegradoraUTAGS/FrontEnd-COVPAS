@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as jwt_decode from 'jwt-decode';
+import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-crudadmin',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crudadmin.component.css']
 })
 export class CRUDAdminComponent implements OnInit {
-
-  constructor() { }
+informacion: any;
+status: any;
+  constructor(public service: ServiceService) { }
 //
-  ngOnInit(){
-  }
+ngOnInit() {
+  this.informacion = jwt_decode(localStorage.getItem('token'));
+  console.log(this.informacion);
+  this.status = localStorage.getItem('status');
+}
 
 }

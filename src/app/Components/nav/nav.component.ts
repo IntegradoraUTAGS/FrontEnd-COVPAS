@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 import { ServiceService } from 'src/app/service/service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -8,7 +9,7 @@ import { ServiceService } from 'src/app/service/service.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(public service: ServiceService) { }
+  constructor(public service: ServiceService, public router: Router) { }
    informacion: any;
    status: any;
   ngOnInit(): void {
@@ -21,7 +22,11 @@ export class NavComponent implements OnInit {
   }
   /* Set the width of the side navigation to 0 */
   closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById('mySidenav').style.width = '0';
+  }
+  logout() {
+    this.router.navigateByUrl('login');
+    localStorage.clear();
   }
 
 }
