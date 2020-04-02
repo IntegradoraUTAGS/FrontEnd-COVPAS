@@ -20,6 +20,9 @@ import { ConfirmarPasesalidaComponent } from './Components/confirmar-pasesalida/
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { ModifyUserComponent } from './Components/modify-user/modify-user.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,9 @@ import { ModifyUserComponent } from './Components/modify-user/modify-user.compon
     RouterModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatCheckboxModule
 
   ],
   providers: [ServiceService,

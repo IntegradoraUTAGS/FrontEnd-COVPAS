@@ -1,5 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Traslado } from '../models/traslado';
+
 
 @Component({
   selector: 'app-vehiculo',
@@ -15,6 +17,9 @@ export class VehiculoComponent implements OnInit {
  m:string;//Motivo
  f:Date;//Salida
    g:Date;//Regreso
+   o:String;//Observacion
+   checked = false;
+disabled = false;
   constructor() { }
 
    ngOnInit() {
@@ -38,5 +43,21 @@ export class VehiculoComponent implements OnInit {
   eliminar(index: number){
     this.traslados.splice(index, 1)
   }
+  ocultar() {
+      document.getElementById('mostrarOcultar').style.display = "none";
 
+  }
+
+mostrar() {
+      document.getElementById('mostrarOcultar').style.display = "block";
+
+  }
+  ocultar2() {
+    document.getElementById('mostrarOcultar2').style.display = "none";
+
+}
+mostrar2() {
+  document.getElementById('mostrarOcultar2').style.display = "block";
+
+}
 }
