@@ -3,6 +3,7 @@ import * as jwt_decode from 'jwt-decode';
 import { ServiceService } from '../service/service.service';
 import { PaseVacaciones } from '../models/modelovacaciones';
 import { Router } from '@angular/router';
+import { PersonaService } from '../service/persona.service';
 @Component({
   selector: 'app-soli-vacaciones',
   templateUrl: './soli-vacaciones.component.html',
@@ -12,13 +13,25 @@ export class SoliVacacionesComponent implements OnInit {
   paseVacacion = new PaseVacaciones();
   informacion: any;
   status: any;
+  personas: any[] = [];
   usuarios: any;
-  constructor(public service: ServiceService, public router: Router) { }
+  arrDate: Date[];
+  constructor(public service: ServiceService, public router: Router, private personaService: PersonaService) { }
 
   ngOnInit(){
     this.informacion = jwt_decode(localStorage.getItem('token'));
     console.log(this.informacion);
+    this.paseVacacion.idPersona = this.informacion._id;
     this.status = localStorage.getItem('status');
+
+    this.personaService.obtenerPersona().then((resp) => {
+      console.log(resp)
+      this.personas = resp.cont;
+      console.log(this.personas)
+
+    }).catch((err) => {
+
+    })
   }
   Registrarvacaciones(){
 
