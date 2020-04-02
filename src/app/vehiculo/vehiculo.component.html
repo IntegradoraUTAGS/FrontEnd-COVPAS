@@ -1,4 +1,6 @@
-<!-- <app-nav></app-nav>
+<app-nav>
+
+</app-nav>
 <div class="container ">
     <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
     <P class="text-center">SOLICITUD DE VEHICULO</P>
@@ -114,18 +116,228 @@
                 <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="f" [ngClass]="{ 'is-invalid': !horas.valid && horas.touched,'is-valid': horas.valid}" required>
             </div>
         </div>
-        <div class="form-row " style="justify-content: center;">
+        <script>
+            $(function() {
+                $("#id_categoria").change(function() {
+                    if ($(this).val() === "1") {
+                        $("#id_input").prop("disabled", true);
+                    } else {
+                        $("#id_input").prop("disabled", false);
+                    }
+                });
+            });
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <div class="form-row ">
             <div class="form-group col-md-6">
                 <label>Quien autorizo:</label>
                 <select class="form-control">
                 <option value="0">Choose...</option>
                 <option value="dato1">Jefe Inmediato</option>
                 <option value="dato2">Jefe Servicios Generales</option>
-                <option value="dato3">Director Admon. y Finanzas</option>
+                <option value="dato3" >Director Admon. y Finanzas</option>
                 <option value="dato4">Rector</option>
+                
         </select>
             </div>
         </div>
+        <!-- ALTA DE VEHICULO -->
+        <strong> <label>ALTA DE VEHICULO</label> </strong>
+        <br>
+        <input type="button" value="Alta de Vehiculo" (click)="mostrar2();">
+        <div id="mostrarOcultar2">
+            <div class="container-fluid">
+                <div class="row h-100 d-flex justify-content-center">
+                    <div class="col-md-6 mt-5">
+                        <h2>
+                            <div class="p-3 mb-2 bg-secondary text-white font-weight-normal">Alta de Vehiculo</div>
+                        </h2>
+                        <hr>
+                        <form enctype="multipart/form-data">
+                            <p id="error" style="color: red; display:none;"></p>
+                            <input name="unidad" type="text" class="form-control" placeholder="Unidad" required><br>
+                            <input name="marca" type="text" class="form-control" placeholder="Marca" required><br>
+                            <input name="placa" type="text" class="form-control" placeholder="Placa" required><br>
+                            <input name="modelo" type="number" class="form-control" placeholder="Modelo" required><br>
+                            <input name="motor" type="text" class="form-control" placeholder="No. de Motor" required><br>
+                            <input name="niv" type="text" class="form-control" placeholder="N.I.V" required><br>
+                            <div class="custom-file">
+                                <br><br>
+                            </div>
+                            <!-- <input name="button" type="submit" onclick='alert("Se agrego correctamente el registro.")' value="Enviar" /> -->
+                            <button type="submit" class="btn btn-secondary font-weight-normal">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <input type="button" value="Ocultar" (click)="ocultar2();">
+        <br>
+        <br>
+        <strong><label>TABLA DE VEHICULOS</label></strong>
+        <br>
+        <!-- CRUD -->
+        <input type="button" value="Mostrar Tabla de Vehiculos" (click)="mostrar();">
+
+        <div id="mostrarOcultar">
+            <div class="container-fluid">
+                <div class="row h-100 d-flex justify-content-center">
+                </div>
+            </div>
+            <br>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 mt-3">
+                        <legend>Reporte de Vehiculos</legend>
+                        <hr>
+                        <table class="table table-bordered table-striped table-hover table-sm">
+                            <thead>
+                                <th>ID</th>
+                                <th>UNIDAD</th>
+                                <th>MARCA</th>
+                                <th>PLACA </th>
+                                <th>MODELO</th>
+                                <th>NO. DE MOTOR</th>
+                                <th>N.I.V</th>
+
+
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                if (localStorage.getItem("token") === null) {
+                    //     window.location.href = "home.php";
+                };
+
+                $('#cerrar_sesion').on('click', function(e) {
+                    localStorage.clear();
+                    //     window.location.href = "index.php";
+                });
+
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:3000/listingsAndReviews',
+                    beforeSend: function(request) {
+                        request.setRequestHeader("token", window.localStorage.getItem('token'));
+                    },
+                    success: function(resp) {
+                        $.each(resp.customers, function(i, item) {
+                            $('tbody').append(
+                                '<tr>' +
+
+                                `<td>
+                    <input name='id' class='form-control' value='${item._id}'>
+                    </td>` +
+                                `<td>
+                    <input name='unidad' class='form-control' value='${item.unidad}'>
+                    </td>` +
+                                `<td>
+                    <input name='marca' class='form-control' value='${item.marca}'>
+                    </td>` +
+                                `<td>
+                    <input name='placa' class='form-control' value='${item.placa}'>
+                    </td>` +
+                                `<td>
+                    <input name='modelo' class='form-control' value='${item.modelo}'>
+                    </td>` +
+                                `<td>
+                    <input name='motor' class='form-control' value='${item.motor}'>
+                    </td>` +
+                                `<td>
+                    <input name='niv' class='form-control' value='${item.niv}'>
+                    </td>` +
+                                `<td>
+                                
+                    <div class='row'>
+                    <div class='col-md-6'>
+                    <a href='#' data-id='${item._id}' class='actualiza btn btn-outline-warning'>Editar</a>
+                    </div>
+                    <div class='col-md-6'>
+                    <a href='#' data-id='${item._id}' class='elimina btn btn btn-outline-danger'>Eliminar</a>
+                    </div>
+                    </div>
+                    </td>` +
+                                '</tr>'
+                            )
+                        });
+                    },
+                    error: function(err) {
+                        console.log(err.responseJSON);
+                    }
+                });
+                $(document).on('click', '.actualiza', function(e) {
+                    var id = $(this).data('id');
+                    var form = $(this).closest('tr').find('input').serialize();
+                    var opt = confirm("Estas seguro de actualizar?");
+
+                    if (opt == true) {
+                        $.ajax({
+                            type: 'PUT',
+                            url: `http://localhost:3000/customer/${id}`,
+                            data: form,
+                            beforeSend: function(request) {
+                                request.setRequestHeader("token", window.localStorage.getItem('token'));
+                            },
+                            success: function(resp) {
+                                alert('Registro actualizado!');
+                                window.location.href = "reporte-habitacion.html";
+                            },
+                            error: function(err) {
+                                console.log(err.responseJSON.err.message);
+                            }
+                        });
+                    } else {
+                        window.location.href = "reporte-habitacion.html";
+                    }
+                });
+
+                $(document).on('click', '.elimina', function(e) {
+                    var id = $(this).data('id');
+                    var opt = confirm("Estas seguro de eliminar?");
+
+                    if (opt == true) {
+                        $.ajax({
+                            type: 'DELETE',
+                            url: `http://localhost:3000/listingsAndReviews/${id}`,
+                            beforeSend: function(request) {
+                                request.setRequestHeader("token", window.localStorage.getItem('token'));
+                            },
+                            success: function(resp) {
+                                alert('Registro Eliminado!');
+                                window.location.href = "reporte-habitacion.html";
+                            },
+                            error: function(err) {
+                                console.log(err.responseJSON.err.message);
+                            }
+                        });
+                    } else {
+                        window.location.href = "reporte-habitacion.html";
+                    }
+                });
+            </script>
+        </div>
+        <br>
+        <input type="button" value="Ocultar Tabla de Vehiculos" (click)="ocultar();">
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Observaciones:</label>
+                <input type="text" class="form-control" name="observacion" #observacion="ngModel" [(ngModel)]="o" [ngClass]="{ 'is-invalid': !observacion.valid && observacion.touched,'is-valid': observacion.valid}" required>
+            </div>
+        </div>
+
         <button type="submit " class="btn btn-primary " [disabled]="!myForm.valid">Enviar</button>
     </form>
-</div> -->
+
+
+
+</div>

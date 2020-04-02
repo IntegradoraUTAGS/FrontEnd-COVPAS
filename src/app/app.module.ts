@@ -17,7 +17,9 @@ import { VehiculoComponent } from './vehiculo/vehiculo.component';
 import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
 import { InterceptorService } from './service/interceptor.service';
 import { ConfirmarPasesalidaComponent } from './Components/confirmar-pasesalida/confirmar-pasesalida.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,9 @@ import { ConfirmarPasesalidaComponent } from './Components/confirmar-pasesalida/
     RouterModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatCheckboxModule
 
   ],
   providers: [ServiceService,
