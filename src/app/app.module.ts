@@ -17,6 +17,8 @@ import { VehiculoComponent } from './vehiculo/vehiculo.component';
 import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
 import { InterceptorService } from './service/interceptor.service';
 import { ConfirmarPasesalidaComponent } from './Components/confirmar-pasesalida/confirmar-pasesalida.component';
+import { AddUserComponent } from './Components/add-user/add-user.component';
+import { ModifyUserComponent } from './Components/modify-user/modify-user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ConfirmarPasesalidaComponent } from './Components/confirmar-pasesalida/
     RegistroComponent,
     VehiculoComponent,
     CRUDAdminComponent,
-    ConfirmarPasesalidaComponent
+    ConfirmarPasesalidaComponent,
+    AddUserComponent,
+    ModifyUserComponent
   ],
   imports: [
     BrowserModule,
