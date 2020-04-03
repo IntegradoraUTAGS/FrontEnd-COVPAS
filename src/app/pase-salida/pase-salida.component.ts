@@ -17,21 +17,7 @@ export class PaseSalidaComponent implements OnInit {
    trasladosA: any;
    passalida: PaseSalida = new PaseSalida();
    public informacion: any;
-
    usuarios: any;
-   a: string;
-   b: string;
-   c: string;
-   d: string;
-   e: Date;
-   f: Date;
-   g: Date;
-   h: string;
-   i: string;
-   j: string;
-   k: string;
-   l: string;
-
   constructor(public service: ServiceService) { }
  
   ngOnInit() {
