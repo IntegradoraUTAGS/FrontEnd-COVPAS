@@ -27,7 +27,7 @@ export class ModifyUserComponent implements OnInit {
     this.status = localStorage.getItem('status');
     this.obtenerDirecciones();
   }
-  obtenerDirecciones(){
+  obtenerDirecciones() {
     this.service.obtenerDirecciones().then((direccion: any) => {
       this.direcciones = direccion.cont;
       console.log(direccion);
@@ -37,6 +37,10 @@ export class ModifyUserComponent implements OnInit {
   }
   obtenerPersona(){
     let id = localStorage.getItem('idModify');
+    //obtener por id
+    
+
+    localStorage.setItem('idModify', '');
 
 
   }

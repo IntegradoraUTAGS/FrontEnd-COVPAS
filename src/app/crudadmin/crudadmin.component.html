@@ -1,69 +1,56 @@
 <app-nav></app-nav>
-<div class="container">
-    <nav class="navbar navbar-light bg-dark ">
-        <div class="form-inline ">
-            <button class="btn btn-primary mr-sm-2 ">Reportes</button>
-            <button class="btn btn-light my-2 my-sm-0 " data-toggle="modal" data-target="#adduser">  + </button>
-        </div>
 
-        <form class="form-inline ">
-            <input class="form-control mr-sm-2 " type="search " placeholder="Buscar " aria-label="Buscar ">
-            <button class="btn btn-primary my-2 my-sm-0 " type="submit ">Buscar</button>
-        </form>
+<div class="container-fluid">
+    <nav>
+
     </nav>
-    <div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="adduserTitle" data-backdrop="static" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="adduserTitle">Agregue un Usuario</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-                </div>
-                <div class="modal-body">
-                    <app-add-user></app-add-user>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+    <div class="row">
+
+        <div class="col">
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </nav>
+            <div class="card" style="width: 100%;" *ngFor="let item of personas">
+                <div class="card-body ">
+                    <div class="row ">
+                        <div class="col ">
+                            <h5 class="card-title ">{{item.strNombre}}</h5>
+                            <p class="card-text ">{{item.numNoEmpleado}}</p>
+                        </div>
+                        <div class="col float-right ">
+                            <button class="btn btn-primary mr-sm-2 " slot="end" (click)="editar(item._id)">Editar</button>
+                            <button class="btn btn-danger my-2 my-sm-0" type="button" slot="end ">Eliminar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="modifyuser" tabindex="-1" role="dialog" aria-labelledby="modifyuserTitle" data-backdrop="static" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modifyuserTitle">Agregue un Usuario</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+
+        <div class="col">
+            <div class="container" *ngIf="edit===false; else show">
+                <div class="h1 bg-primary">
+                    Agregar Usuario
                 </div>
-                <div class="modal-body">
+                <app-add-user></app-add-user>
+            </div>
+            <ng-template #show>
+                <div class="container">
+                    <div class=" h1 bg-primary">
+                        <button type="button" class="btn btn-secondary" (click)="editar2()"></button> Editar Usuario
+                    </div>
                     <app-modify-user></app-modify-user>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
+
+            </ng-template>
+
+
         </div>
     </div>
 
 
-    <div class="card" *ngFor="let item of personas" style="width: 100%; ">
-        <div class="card-body ">
-            <div class="row ">
-                <div class="col ">
-                    <h5 class="card-title ">{{item.usuario.strNombre}}</h5>
-                    <p class="card-text ">{{item.usuario.numNoEmpleado}}</p>
-                </div>
-                <div class="col float-right ">
-                    <button class="btn btn-primary mr-sm-2 " slot="end " data-toggle="modal" data-target="#modifyuser" (click)="editar(item._id)">Editar</button>
-                    <button class="btn btn-danger my-2 my-sm-0 " slot="end ">Eliminar</button>
-                </div>
-            </div>
-            <!--jkhjkhjkhjkhjkhk-->
-        </div>
-    </div>
 
 
 
