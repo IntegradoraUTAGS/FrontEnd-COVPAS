@@ -4,6 +4,7 @@ import { ServiceService } from '../service/service.service';
 import { PaseVacaciones } from '../models/modelovacaciones';
 import { Router } from '@angular/router';
 import { PersonaService } from '../service/persona.service';
+import { Fechas } from '../models/fechas';
 @Component({
   selector: 'app-soli-vacaciones',
   templateUrl: './soli-vacaciones.component.html',
@@ -15,24 +16,38 @@ export class SoliVacacionesComponent implements OnInit {
   status: any;
   personas: any[] = [];
   usuarios: any;
-  arrDate: Date[];
+
+  fechas: Fechas[];
+  
   constructor(public service: ServiceService, public router: Router, private personaService: PersonaService) { }
 
-  ngOnInit(){
+  ngOnInit() {
+    
+    this.fechas = [{De: null , A: null}];
+    console.log(this.fechas);
     this.informacion = jwt_decode(localStorage.getItem('token'));
     console.log(this.informacion);
     this.paseVacacion.idPersona = this.informacion._id;
     this.status = localStorage.getItem('status');
+    
 
     this.personaService.obtenerPersona().then((resp: any) => {
-      console.log(resp)
-      this.personas = resp.cont;
+      console.log(resp);
+      this.personas = resp;
       console.log(this.personas);
 
     }).catch((err) => {
 
-    })
+    });
   }
+  agregar() {
+    this.fechas.push({De: null, A:  null});
+    console.log(this.fechas);
+  }
+  eliminar(index: number) {
+    this.fechas.splice(index, 1);
+  }
+ 
   Registrarvacaciones(){
 
   }

@@ -16,43 +16,43 @@ export class CRUDAdminComponent implements OnInit {
   Usuario: User = new User();
   pass: string;
   personas: any;
+  edit = false;
   // tslint:disable-next-line: max-line-length
   regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
   direcciones: any;
-  constructor(public service: ServiceService, public router: Router) { }
+  constructor(public service: ServiceService, public router: Router) {
+       }
 //
 ngOnInit() {
-  this.informacion = jwt_decode(localStorage.getItem('token'));
-  console.log(this.informacion);
-  this.status = localStorage.getItem('status');
-  this.obtenerDirecciones();
+  this.h();
+  this.obtenerdatos();
+  console.log(this.edit);
+  this.obtenerPersonas();
 }
-
-obtenerDirecciones(){
-  this.service.obtenerDirecciones().then((direccion: any) => {
-    this.direcciones = direccion.cont;
-    console.log(direccion);
-  }).catch((err) => {
-    console.log(err);
-  });
+h(){
+  this.edit = false;
+}
+obtenerdatos(){
+  this.status = localStorage.getItem('status');
 }
 obtenerPersonas() {
-  this.service.obtenerUsuario().then((personas: any) => {
-    this.personas = personas;
-  })
+   this.service.obtenerUsuario().then((usuarios: any) => {
+      this.personas = usuarios.cont;
+      console.log(usuarios);
+    }).catch((err) => {
+      console.log(err);
+    });
 }
 
-registrarUsuario(myForm: NgForm) {
-  this.service.registarUsuario(this.Usuario).then((usuario: any) => {
-    myForm.reset();
-    this.router.navigateByUrl('login');
-  }).catch((err: any) => {
-    console.log(err);
-  });
 
-}
 editar(id) {
   localStorage.setItem('idModify', id);
+  this.edit = true;
+  console.log(this.edit);
+}
+editar2() {
+  this.edit = false;
+  console.log(this.edit);
 }
 
 }
