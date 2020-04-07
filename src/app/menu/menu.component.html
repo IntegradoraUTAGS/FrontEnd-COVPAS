@@ -11,7 +11,7 @@
             </div>
         </div>
         
-        <div class="col-sm ">
+        <div class="col-sm" *ngIf="status=='En progreso'">
             <div>
                 <img class='img-fluid' src="../../assets/imagen/autobus.png" style="width: 200px; height: 200px;" />
                 <button  type="button" class="btn btn-danger" (click)="gotovehiculo()">Solicitud de Vehiculo</button>

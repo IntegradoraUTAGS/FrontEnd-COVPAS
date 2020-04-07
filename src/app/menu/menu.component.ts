@@ -9,10 +9,11 @@ import * as jwt_decode from 'jwt-decode';
 export class MenuComponent implements OnInit  {
 informacion: any;
 
-
+status: any;
   ngOnInit() {
     this.informacion = jwt_decode(localStorage.getItem('token'));
     console.log(this.informacion);
+    this.status = localStorage.getItem('status');
   }
 
   constructor(public route: Router) { }

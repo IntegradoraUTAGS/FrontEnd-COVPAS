@@ -28,6 +28,7 @@ import { VigilanciaComponent } from './vigilancia/vigilancia.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/confirmar-vacaciones.component';
+import { CrudVehiculosComponent } from './crud-vehiculos/crud-vehiculos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/
     VigilanciaComponent,
     HomeComponent,
     LoginAdminComponent,
-    ConfirmarVacacionesComponent
+    ConfirmarVacacionesComponent,
+    CrudVehiculosComponent
   ],
   imports: [
     BrowserModule,
