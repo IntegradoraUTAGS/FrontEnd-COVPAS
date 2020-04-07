@@ -24,10 +24,10 @@ export class SoliVacacionesComponent implements OnInit {
     this.paseVacacion.idPersona = this.informacion._id;
     this.status = localStorage.getItem('status');
 
-    this.personaService.obtenerPersona().then((resp) => {
+    this.personaService.obtenerPersona().then((resp: any) => {
       console.log(resp)
       this.personas = resp.cont;
-      console.log(this.personas)
+      console.log(this.personas);
 
     }).catch((err) => {
 
