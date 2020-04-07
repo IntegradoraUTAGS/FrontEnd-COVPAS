@@ -18,9 +18,10 @@
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
     <a href="#">Tipo empleado: {{informacion.usuario.strTipoEmpleado}}</a>
     <a href="#">#{{informacion.usuario.numNoEmpleado}}</a>
+    <a routerLink="/menu">Menu</a>
     <a routerLink="/pase-salida">Pase Saldia</a>
-    <a routerLink="/solivaca">Vacaciones</a>
+    <a routerLink="/solivaca" *ngIf="informacion.usuario.strTipoEmpleado==='PTC'">Vacaciones</a>
     <a routerLink="/vehiculo">Vehiculos</a>
-    <a routerLink="/admin">Admin</a>
+    
     <a (click)="logout()">Cerrar sesión</a>
 </div>

@@ -1,32 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import * as jwt_decode from 'jwt-decode';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit  {
+informacion: any;
 
 
-  ngOnInit(){
-    
+  ngOnInit() {
+    this.informacion = jwt_decode(localStorage.getItem('token'));
+    console.log(this.informacion);
   }
 
   constructor(public route: Router) { }
-   title = 'FrontPaseSalida';
-   tipoEmpleado = 'admin';
    
-   gotopass(){
+   gotopass() {
     this.route.navigateByUrl('pase-salida');
   }
-  gotovaca(){
+  gotovaca() {
     this.route.navigateByUrl('solivaca');
-
   }
-  
-  gotovehiculo(){
+  gotovehiculo() {
     this.route.navigateByUrl('vehiculo');
-
   }
 }
