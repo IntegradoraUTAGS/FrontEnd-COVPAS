@@ -36,9 +36,8 @@
     <script>
         document.getElementById("img-thumbnail").style.visibility = "hidden";
     </script>
-    <img class="img-thumbnail" src="assets/imagen/Logo.gif">
 
-    <form class="needs-validation" #myform="ngForm" (ngSubmit)="Registrarvacaciones()">
+    <form class="needs-validation" #myform="ngForm" (ngSubmit)="Registrarvacaciones(paseVacacion)">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Nombre:</label>
@@ -62,16 +61,13 @@
         </div>
 
         <div class="form-row">
-
-            <div class="form-group col-md-6">
                 <label>Autorizo:</label>
                 <select class="form-control " name="autoriza " #autoriza="ngModel" [(ngModel)]="paseVacacion.idAutoriza" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched, 'is-valid': autoriza.valid}" required>
-                    <option  *ngFor="let item of personas" value={{item._id}}>{{item.strNombre}}</option>
+                    <option  *ngFor="let item of usuarios" value={{item._id}}>{{item.strNombre}}</option>
                   </select>
                 <div class="invalid-feedback">
                     Ingrese quien autoriza.
                 </div>
-            </div>
         </div>
         <!-- <div class="form-row">
             <div class="form-group col-md-6">
@@ -89,30 +85,26 @@
 
         <label>Fecha en que se desea tomar las vacaciones</label>
        
-        <div class="form-row" *ngFor="let item of fechas; let index=index">
-
-            <div class="form-group col-md-6">
-                <label>De:</label>
-                <input class="form-control" type="date" [(ngModel)]="fechas[index].De" name="de{{index}}" #de="ngModel" [ngClass]="{ 'is-invalid': !de.valid && de.touched,'is-valid': de.valid}" required>
-                <div class="invalid-feedback">
-                    Ingrese una fecha.
+        <div class="form-row">
+            <div class="form-row" *ngFor="let item of fechas; let index=index">
+    
+                <div class="form-group input-group col-md-6">
+                    <label>Dia {{index+1}}</label>
+                    <input class="form-control " type="date" [(ngModel)]="fechas[index].fecha" name="a{{index}}" #a="ngModel" [ngClass]="{ 'is-invalid': !a.valid && a.touched,'is-valid': a.valid}" required>
+                    <div class="input-group-append ">
+                        <button class="btn btn-danger btn-sm" (click)="eliminar(index) " id="button-addon2 " *ngIf="fechas.length !==1 && fechas.length==( index+1) " type="button">-</button>
+                    </div>
+                    <div class="invalid-feedback">
+                        Ingrese un destino.
+                    </div>
                 </div>
+    
             </div>
-
-            <div class="form-group input-group col-md-6">
-                <label>A:</label>
-                <input class="form-control " type="date " [(ngModel)]="fechas[index].A " name="a{{index}}" #a="ngModel" [ngClass]="{ 'is-invalid': !a.valid && a.touched,'is-valid': a.valid}" required>
-                <div class="input-group-append ">
-                    <button class="btn btn-danger btn-sm" (click)="eliminar(index) " id="button-addon2 " *ngIf="fechas.length !==1 && fechas.length==( index+1) " type="button">-</button>
-                </div>
-                <div class="invalid-feedback">
-                    Ingrese una fecha.
-                </div>
+            <div>
+                <button type="button" class="btn btn-primary" slot="end" (click)="agregar()">agregar</button>
             </div>
-
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary" (click)="agregar()">agregar</button>
+    
+    
         </div>
 
 

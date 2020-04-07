@@ -44,6 +44,17 @@ obtenerPersonas() {
     });
 }
 
+eliminarPersonas(id: any) {
+  this.service.eliminarUsuario(id).then((resp) => {
+    console.log(resp);
+    this.obtenerPersonas();
+  }).catch((err) => {
+    console.log(err);
+  })
+}
+
+
+
 
 editar(id) {
   localStorage.setItem('idModify', id);

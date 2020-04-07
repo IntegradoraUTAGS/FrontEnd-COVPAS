@@ -37,6 +37,7 @@ export class AddUserComponent implements OnInit {
   
   registrarUsuario(myForm: NgForm) {
     this.service.registarUsuario(this.Usuario).then((usuario: any) => {
+      console.log(usuario);
       myForm.reset();
     }).catch((err: any) => {
       console.log(err);

@@ -13,8 +13,6 @@ import * as jwt_decode from 'jwt-decode';
 })
 export class PaseSalidaComponent implements OnInit {
    traslados: Traslado[];
-   trasladosDe: any;
-   trasladosA: any;
    passalida: PaseSalida = new PaseSalida();
    public informacion: any;
    usuarios: any;

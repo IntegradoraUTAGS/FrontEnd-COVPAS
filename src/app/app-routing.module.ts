@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
 import { CRUDAdminComponent } from './crudadmin/crudadmin.component';
 import { ConfirmarPasesalidaComponent } from './Components/confirmar-pasesalida/confirmar-pasesalida.component';
+import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/confirmar-vacaciones.component';
 //
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent},
   { path: 'vehiculo', component: VehiculoComponent},
   { path: 'admin', component: CRUDAdminComponent },
-  { path: 'confirmar-pase-salida/:id/:strEstatus', component: ConfirmarPasesalidaComponent}
+  { path: 'confirmar-pase-salida/:id/:strEstatus', component: ConfirmarPasesalidaComponent},
+  { path: 'confirmar-vacaciones/:id/:strEstatus', component: ConfirmarVacacionesComponent}
 ];
 
 @NgModule({

@@ -1,7 +1,6 @@
 export class PaseVacaciones{
-    adteFechas: Date[];
+    fecha: string;
     idPersona: string;
     strEstatus: string;
     idAutoriza: string;
-
 }

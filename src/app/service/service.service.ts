@@ -57,4 +57,26 @@ status: any;
   obtenerEstatusPaseSalida(idPaseSalida: any) {
     return this.http.get(`${this.url}paseSalida/obtener/${idPaseSalida}`).toPromise();
   }
+  registrarVacaciones(body: any){
+    return this.http.post(`${this.url}vacaciones/registrar`, body).toPromise();
+  }
+  actualizarDiasVacaciones(body: any, id: any){
+    return this.http.put(`${this.url}vacaciones/actualizarDias/${id}`, body).toPromise();
+  }
+  enviarConfirmacionVacaciones(idAutoriza: any) {
+    return this.http.get(`${this.url}vacaciones/enviarConfirmacion/${idAutoriza}`).toPromise();
+  }
+  actualizarEstatusVacaciones(id: any, estatus: any) {
+    return this.http.get(`${this.url}vacaciones/actualizar/estatus/${id}/${estatus}`).toPromise();
+  }
+  obtenerPorIdPersona(id: any){
+    return this.http.get(`${this.url}persona/obtener/${id}`).toPromise();
+  }
+  actualizarUsuario(body: any, id: any) {
+    return this.http.put(`${this.url}persona/actualizar/${id}`, body).toPromise();
+  }
+  eliminarUsuario(id: any) {
+    return this.http.delete(`${this.url}persona/eliminar/${id}`).toPromise();
+  }
+
 }

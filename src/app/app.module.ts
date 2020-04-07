@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { PaseSalidaComponent } from './pase-salida/pase-salida.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,7 @@ import { ModifyUserComponent } from './Components/modify-user/modify-user.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/confirmar-vacaciones.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     CRUDAdminComponent,
     ConfirmarPasesalidaComponent,
     AddUserComponent,
-    ModifyUserComponent
+    ModifyUserComponent,
+    ConfirmarVacacionesComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule
 
   ],
   providers: [ServiceService,
