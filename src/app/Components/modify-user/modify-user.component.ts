@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CRUDAdminComponent} from '../../crudadmin/crudadmin.component';
 import * as jwt_decode from 'jwt-decode';
 import { ServiceService } from '../../service/service.service';
 import { NgForm } from '@angular/forms';
@@ -17,15 +18,16 @@ export class ModifyUserComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
   direcciones: any;
-  persona: any
+  persona: any;
 
   constructor(public service: ServiceService, public router: Router) { }
 
+  @ViewChild(CRUDAdminComponent) crud: CRUDAdminComponent;
   ngOnInit() {
     this.informacion = jwt_decode(localStorage.getItem('token'));
     console.log(this.informacion);
     this.status = localStorage.getItem('status');
-    this.obtenerDirecciones();
+    this.obtenerPersona();
   }
   obtenerDirecciones() {
     this.service.obtenerDirecciones().then((direccion: any) => {
@@ -37,22 +39,29 @@ export class ModifyUserComponent implements OnInit {
   }
   obtenerPersona(){
     let id = localStorage.getItem('idModify');
-    //obtener por id
-    
-
-    localStorage.setItem('idModify', '');
-
-
-  }
-  
-  actualizarUsuario(myForm: NgForm) {
-    this.service.registarUsuario(this.Usuario).then((usuario: any) => {
-      myForm.reset();
-      this.router.navigateByUrl('login');
+    this.service.obtenerPorIdPersona(id).then((resp: any) => {
+      console.log(resp);
+      this.persona = resp.resp;
+      console.log(this.persona.numNoEmpleado);
+      localStorage.setItem('idModify', '');
     }).catch((err: any) => {
       console.log(err);
     });
-  
+  }
+
+  actualizarUsuario(myForm: NgForm, id: any) {
+    const personita = {
+      strTipoEmpleado: this.persona.strTipoEmpleado,
+      numDiasDisponibles: this.persona.numDiasDisponibles
+    }
+    this.service.actualizarUsuario(personita, id).then((usuario: any) => {
+      myForm.reset();
+      console.log(usuario);
+      this.crud.obtenerPersonas();
+    }).catch((err: any) => {
+      console.log(err);
+    });
+
   }
 
 }

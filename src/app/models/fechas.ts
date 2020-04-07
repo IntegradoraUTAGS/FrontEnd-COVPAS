@@ -1,4 +1,3 @@
-export class Fechas {
-    De: any;
-    A: any;
+export class Date {
+    fecha: string;
 }

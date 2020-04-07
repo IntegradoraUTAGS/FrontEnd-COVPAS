@@ -4,7 +4,7 @@ import { ServiceService } from '../service/service.service';
 import { PaseVacaciones } from '../models/modelovacaciones';
 import { Router } from '@angular/router';
 import { PersonaService } from '../service/persona.service';
-import { Fechas } from '../models/fechas';
+import { Date } from '../models/fechas';
 @Component({
   selector: 'app-soli-vacaciones',
   templateUrl: './soli-vacaciones.component.html',
@@ -14,42 +14,58 @@ export class SoliVacacionesComponent implements OnInit {
   paseVacacion = new PaseVacaciones();
   informacion: any;
   status: any;
-  personas: any[] = [];
   usuarios: any;
 
-  fechas: Fechas[];
-  
-  constructor(public service: ServiceService, public router: Router, private personaService: PersonaService) { }
+ fechas: Date[];
+  constructor(public service: ServiceService, public router: Router) { }
+
+
 
   ngOnInit() {
-    
-    this.fechas = [{De: null , A: null}];
-    console.log(this.fechas);
+    this.fechas = [{fecha: null}];
     this.informacion = jwt_decode(localStorage.getItem('token'));
     console.log(this.informacion);
-    this.paseVacacion.idPersona = this.informacion._id;
+    console.log(this.paseVacacion);
+    this.paseVacacion.idPersona = this.informacion.usuario._id;
     this.status = localStorage.getItem('status');
-    
-
-    this.personaService.obtenerPersona().then((resp: any) => {
-      console.log(resp);
-      this.personas = resp;
-      console.log(this.personas);
-
-    }).catch((err) => {
-
-    });
+    this.obtenerUsuarios();
   }
   agregar() {
-    this.fechas.push({De: null, A:  null});
+    this.fechas.push({fecha: null});
     console.log(this.fechas);
+    // tslint:disable-next-line:prefer-for-of
+    for (let index = 0; index < this.fechas.length; index++) {
+      const element = this.fechas[index];
+      console.log(element);
+    }
   }
   eliminar(index: number) {
     this.fechas.splice(index, 1);
   }
- 
-  Registrarvacaciones(){
+  Registrarvacaciones(solicitudVacaciones: PaseVacaciones) {
+    console.log(this.paseVacacion);
+    this.service.registrarVacaciones(solicitudVacaciones).then((resp: any) => {
+      console.log(resp);
+      console.log(resp.resp._id)
+      console.log(this.fechas);
+      for (let index = 0; index <= this.fechas.length - 1; index++) {
+       const element = this.fechas[index];
+       console.log(element);
+       this.service.actualizarDiasVacaciones(element, resp.resp._id).then((resp: any) => {
+         console.log(resp);
+       }).catch((err) => {
+         console.log(err);
+       });
 
+     }
+      this.service.enviarConfirmacionVacaciones(resp.resp._id).then((resp: any) => {
+        console.log(resp);
+      }).catch((err: any) => {
+        console.log(err);
+      });
+    }).catch((err: any) => {
+      console.log(err);
+    });
   }
   obtenerUsuarios() {
     this.service.obtenerUsuario().then((usuarios: any) => {
@@ -66,7 +82,7 @@ export class SoliVacacionesComponent implements OnInit {
   openNav() {
     document.getElementById('mySidenav').style.width = '250px';
   }
-  
+
   /* Set the width of the side navigation to 0 */
   closeNav() {
     document.getElementById('mySidenav').style.width = '0';

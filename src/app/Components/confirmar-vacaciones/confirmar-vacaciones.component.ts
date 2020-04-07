@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ServiceService } from 'src/app/service/service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-confirmar-pasesalida',
-  templateUrl: './confirmar-pasesalida.component.html',
-  styleUrls: ['./confirmar-pasesalida.component.css']
+  selector: 'app-confirmar-vacaciones',
+  templateUrl: './confirmar-vacaciones.component.html',
+  styleUrls: ['./confirmar-vacaciones.component.css']
 })
-export class ConfirmarPasesalidaComponent implements OnInit {
+export class ConfirmarVacacionesComponent implements OnInit {
 
   constructor(public route: ActivatedRoute, public service: ServiceService ) { }
   id: any;
@@ -18,7 +18,7 @@ export class ConfirmarPasesalidaComponent implements OnInit {
       this.id = params.get('id');
       this.status = params.get('strEstatus');
       localStorage.setItem('status',this.status);
-      this.service.actualizarEstatusPaseSalida(this.id, this.status).then((resp: any) => {
+      this.service.actualizarEstatusVacaciones(this.id, this.status).then((resp: any) => {
         console.log(resp);
       }).catch((err: any) => {
         console.log(err);

@@ -19,10 +19,12 @@
                         <div class="col ">
                             <h5 class="card-title ">{{item.strNombre}}</h5>
                             <p class="card-text ">{{item.numNoEmpleado}}</p>
+                            <p class="card-text">Dias disponibles: {{item.numDiasDisponibles}}</p>
+                            <p class="card-text">Tipo de empleado: {{item.strTipoEmpleado}}</p>
                         </div>
                         <div class="col float-right ">
                             <button class="btn btn-primary mr-sm-2 " slot="end" (click)="editar(item._id)">Editar</button>
-                            <button class="btn btn-danger my-2 my-sm-0" type="button" slot="end ">Eliminar</button>
+                            <button class="btn btn-danger my-2 my-sm-0" type="button" (click)="eliminarPersonas(item._id)" slot="end ">Eliminar</button>
                         </div>
                     </div>
                 </div>
