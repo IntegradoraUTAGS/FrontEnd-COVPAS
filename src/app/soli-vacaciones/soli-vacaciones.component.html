@@ -88,7 +88,7 @@
 
 
         <label>Fecha en que se desea tomar las vacaciones</label>
-       
+
         <div class="form-row" *ngFor="let item of fechas; let index=index">
 
             <div class="form-group col-md-6">
@@ -101,9 +101,9 @@
 
             <div class="form-group input-group col-md-6">
                 <label>A:</label>
-                <input class="form-control " type="date " [(ngModel)]="fechas[index].A " name="a{{index}}" #a="ngModel" [ngClass]="{ 'is-invalid': !a.valid && a.touched,'is-valid': a.valid}" required>
+                <input class="form-control " type="date" [(ngModel)]="fechas[index].A " name="a{{index}}" #a="ngModel" [ngClass]="{ 'is-invalid': !a.valid && a.touched,'is-valid': a.valid}" required>
                 <div class="input-group-append ">
-                    <button class="btn btn-danger btn-sm" (click)="eliminar(index) " id="button-addon2 " *ngIf="fechas.length !==1 && fechas.length==( index+1) " type="button">-</button>
+                    <button class="btn btn-danger btn-sm" (click)="eliminar(index) " id="button-addon2" *ngIf="fechas.length !==1 && fechas.length==( index+1) " type="button">-</button>
                 </div>
                 <div class="invalid-feedback">
                     Ingrese una fecha.
@@ -119,4 +119,8 @@
 
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+</div>
+
+<div>
+
 </div>

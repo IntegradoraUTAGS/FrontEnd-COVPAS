@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   constructor(public service: ServiceService, public router: Router) { }
    informacion: any;
    status: any;
-  ngOnInit(): void {
+  ngOnInit() {
     this.informacion = jwt_decode(localStorage.getItem('token'));
     console.log(this.informacion);
     this.status = localStorage.getItem('status');

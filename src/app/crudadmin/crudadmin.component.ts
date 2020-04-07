@@ -22,7 +22,7 @@ export class CRUDAdminComponent implements OnInit {
   direcciones: any;
   constructor(public service: ServiceService, public router: Router) {
        }
-//
+
 ngOnInit() {
   this.h();
   this.obtenerdatos();
@@ -43,7 +43,6 @@ obtenerPersonas() {
       console.log(err);
     });
 }
-
 
 editar(id) {
   localStorage.setItem('idModify', id);

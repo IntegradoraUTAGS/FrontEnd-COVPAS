@@ -23,6 +23,9 @@ import { ModifyUserComponent } from './Components/modify-user/modify-user.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { VigilanciaComponent } from './vigilancia/vigilancia.component';
+import { HomeComponent } from './home/home.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     CRUDAdminComponent,
     ConfirmarPasesalidaComponent,
     AddUserComponent,
-    ModifyUserComponent
+    ModifyUserComponent,
+    VigilanciaComponent,
+    HomeComponent,
+    LoginAdminComponent
   ],
   imports: [
     BrowserModule,

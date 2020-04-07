@@ -5,35 +5,26 @@
 <div class="container" style="max-width: 100%; position: absolute; top: 76%; margin-right: 0;">
     <div class="row">
         <div class="col-sm">
-            <div *ngIf="tipoEmpleado==='admin'">
-                <img class='img-fluid' src="../../assets/imagen/employee.png" style="width: 200px; height: 200px;" />
-                <button href="#" type="button" class="btn btn-dark">Administrador</button>
-                <div></div>
-            </div>
-
-        </div>
-        <div class="col-sm">
-            <div class="">
+            <div>
                 <img class='img-fluid' src="../../assets/imagen/archive.png" style="width: 200px; height: 200px;" />
-                <button href=" # " type="button " class="btn btn-primary " (click)="gotopass() ">Solicitud Pase de Salida</button>
-                <div></div>
-
+                <button type="button" class="btn btn-primary" (click)="gotopass() ">Solicitud Pase de Salida</button>
             </div>
         </div>
-        <div class="col-sm ">
-            <div class=" " *ngIf="tipoEmpleado==='ptc' || tipoEmpleado==='admin' ">
-                <img class='img-fluid' src="../../assets/imagen/island.png " style="width: 200px; height: 200px;" />
-                <button href="# " type="button " class="btn btn-success " (click)="gotovaca() ">Solicitud de Vacaciones</button>
-                <div></div>
-            </div>
-
-        </div>
+        
         <div class="col-sm ">
             <div>
                 <img class='img-fluid' src="../../assets/imagen/autobus.png" style="width: 200px; height: 200px;" />
-                <button href="# " type="button " class="btn btn-danger " (click)="gotovehiculo()">Solicitud de Vehiculo</button>
+                <button  type="button" class="btn btn-danger" (click)="gotovehiculo()">Solicitud de Vehiculo</button>
+                
+            </div>
+        </div>
+        <div class="col-sm ">
+            <div *ngIf="informacion.usuario.strTipoEmpleado==='PTC'">
+                <img class='img-fluid' src="../../assets/imagen/island.png " style="width: 200px; height: 200px;" />
+                <button  type="button" class="btn btn-success" (click)="gotovaca()">Solicitud de Vacaciones</button>
                 <div></div>
             </div>
+
         </div>
 
     </div>

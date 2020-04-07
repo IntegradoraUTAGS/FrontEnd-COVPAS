@@ -1,0 +1,120 @@
+<div class="container">
+    <nav class="navbar">
+        <h3>UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</h3>
+        <br>
+        <h3>DEPARTAMENTO DE SERVICIOS GENERALES</h3>
+    </nav>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+    <div class="card" style="width: 100%;">
+        <!--ngFor de todos los pases de salida por fecha actual-->
+        <div class="card-body ">
+            <div class="row ">
+                <div class="col ">
+                    <h5 class="card-text">Fecha de solicitud:</h5>
+                    <h5 class="card-text">Nombre:</h5>
+                    <h5 class="card-text">Departamento:</h5>
+                    <h5 class="card-text">No licencia:</h5>
+                    <h5 class="card-text">Destino</h5>
+                    <h5 class="card-text">Motivo</h5>
+                    <h5 class="card-text">Autorizo:</h5>
+                </div>
+                <div class="col">
+                    <h5 class="card-text">Unidad solicitada:</h5>
+                    <h5 class="crad-text">Autorizo vehiculo:</h5>
+                    <!--ng-for de autirozo -->
+                    <h5 class="card-text">Placas:</h5>
+                    <h5 class="card-text">Servicio:</h5>
+                    <h5 class="card-text">Chofer:</h5>
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="card-text">Salida: </h3>
+                        </div>
+                        <div class="col">
+                            <h3 class="card-text">Hora: </h3>
+                        </div>
+                        <div class="col">
+                            <h3 class="card-text">KMS: </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="card-text">Regreso: </h3>
+                        </div>
+                        <div class="col">
+                            <h3 class="card-text">Hora: </h3>
+                        </div>
+                        <div class="col">
+                            <h3 class="card-text">KMS: </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col">
+                    <h5 class="card-text">Firma del condutor o responsable</h5>
+                    <input type="text" disabled>
+                    <!--Ngmodel de nombre del solicitante-->
+                </div>
+            </div>
+            <div class="container">
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="">Hora Salida:</label>
+                                <input type="datetime" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Nivel de gasolina:</label>
+                                <select class="form-control" required>
+                                    <option value="0%">0%</option>
+                                    <option value="25%">25%</option>
+                                    <option value="50%">50%</option>
+                                    <option value="75%">75%</option>
+                                    <option value="100%">100%</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="">Hora Regreso:</label>
+                                <input type="datetime" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Nivel de gasolina:</label>
+                                <select class="form-control" required>
+                                    <option value="0%">0%</option>
+                                    <option value="25%">25%</option>
+                                    <option value="50%">50%</option>
+                                    <option value="75%">75%</option>
+                                    <option value="100%">100%</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Observaciones:</label>
+                        <input type="text" class="form-control">
+                        <!-- puede ser reuqerido o no-->
+                    </div>
+
+                </form>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" (click)="terminarps()">Terminar pase de salida</button>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
