@@ -84,16 +84,6 @@
 
 
         <label>Fecha en que se desea tomar las vacaciones</label>
-<<<<<<< HEAD
-
-        <div class="form-row" *ngFor="let item of fechas; let index=index">
-
-            <div class="form-group col-md-6">
-                <label>De:</label>
-                <input class="form-control" type="date" [(ngModel)]="fechas[index].De" name="de{{index}}" #de="ngModel" [ngClass]="{ 'is-invalid': !de.valid && de.touched,'is-valid': de.valid}" required>
-                <div class="invalid-feedback">
-                    Ingrese una fecha.
-=======
        
         <div class="form-row">
             <div class="form-row" *ngFor="let item of fechas; let index=index">
@@ -107,25 +97,11 @@
                     <div class="invalid-feedback">
                         Ingrese un destino.
                     </div>
->>>>>>> f97f9f085641ba8d1491c78c4fcf2fdc784aa700
                 </div>
     
             </div>
-<<<<<<< HEAD
-
-            <div class="form-group input-group col-md-6">
-                <label>A:</label>
-                <input class="form-control " type="date" [(ngModel)]="fechas[index].A " name="a{{index}}" #a="ngModel" [ngClass]="{ 'is-invalid': !a.valid && a.touched,'is-valid': a.valid}" required>
-                <div class="input-group-append ">
-                    <button class="btn btn-danger btn-sm" (click)="eliminar(index) " id="button-addon2" *ngIf="fechas.length !==1 && fechas.length==( index+1) " type="button">-</button>
-                </div>
-                <div class="invalid-feedback">
-                    Ingrese una fecha.
-                </div>
-=======
             <div>
                 <button type="button" class="btn btn-primary" slot="end" (click)="agregar()">agregar</button>
->>>>>>> f97f9f085641ba8d1491c78c4fcf2fdc784aa700
             </div>
     
     

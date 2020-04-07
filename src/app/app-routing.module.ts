@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'confirmar-pase-salida/:id/:strEstatus', component: ConfirmarPasesalidaComponent},
   { path: 'vigilancia', component: VigilanciaComponent},
   { path: 'loginadmin', component: LoginAdminComponent },
-  { path: 'home' , component: HomeComponent}
+  { path: 'home' , component: HomeComponent},
   { path: 'confirmar-vacaciones/:id/:strEstatus', component: ConfirmarVacacionesComponent}
 ];
 

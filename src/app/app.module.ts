@@ -24,13 +24,10 @@ import { ModifyUserComponent } from './Components/modify-user/modify-user.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-<<<<<<< HEAD
 import { VigilanciaComponent } from './vigilancia/vigilancia.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
-=======
 import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/confirmar-vacaciones.component';
->>>>>>> f97f9f085641ba8d1491c78c4fcf2fdc784aa700
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,13 +42,10 @@ import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/
     ConfirmarPasesalidaComponent,
     AddUserComponent,
     ModifyUserComponent,
-<<<<<<< HEAD
     VigilanciaComponent,
     HomeComponent,
-    LoginAdminComponent
-=======
+    LoginAdminComponent,
     ConfirmarVacacionesComponent
->>>>>>> f97f9f085641ba8d1491c78c4fcf2fdc784aa700
   ],
   imports: [
     BrowserModule,
