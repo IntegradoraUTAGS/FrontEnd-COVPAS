@@ -28,7 +28,9 @@ import { VigilanciaComponent } from './vigilancia/vigilancia.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/confirmar-vacaciones.component';
-import { CrudVehiculosComponent } from './crud-vehiculos/crud-vehiculos.component';
+
+import { CrudvehiculosComponent } from './crudvehiculos/crudvehiculos.component';
+import { ReportesComponent } from './reportes/reportes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,8 @@ import { CrudVehiculosComponent } from './crud-vehiculos/crud-vehiculos.componen
     HomeComponent,
     LoginAdminComponent,
     ConfirmarVacacionesComponent,
-    CrudVehiculosComponent
+    CrudvehiculosComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
