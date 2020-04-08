@@ -78,5 +78,22 @@ status: any;
   eliminarUsuario(id: any) {
     return this.http.delete(`${this.url}persona/eliminar/${id}`).toPromise();
   }
-
+  agregarVehiculo(body: any) {
+    return this.http.post(`${this.url}vehiculos/registrar`,body).toPromise();
+  }
+  obtenerVehiculo() {
+    return this.http.get(`${this.url}vehiculos/obtener`).toPromise();
+  }
+  actualizarVehiculo(body: any,id: any) {
+    return this.http.put(`${this.url}vehiculos/actualizar/${id}`, body).toPromise();
+  }
+  actualizarEstatusVehiculo(id: any,status: any) {
+    return this.http.put(`${this.url}vehiculos/actualizar/estatus/${id}`,status).toPromise();
+  }
+  eliminarVehiculo(id: any) {
+    return this.http.delete(`${this.url}vehiculos/eliminar/${id}`).toPromise();
+  }
+  obtenerVehiculoPorId(id: any) {
+    return this.http.get(`${this.url}vehiculos/obtener/${id}`).toPromise();
+  }
 }

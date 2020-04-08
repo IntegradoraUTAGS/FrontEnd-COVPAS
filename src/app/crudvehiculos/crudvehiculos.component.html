@@ -35,21 +35,21 @@
                         </div>
                         <div class="form-group">
                             <label for="">Modelo</label>
-                            <input type="text" class="form-control" name="modelo" #modelo="ngModel" [(ngModel)]="vehiculo.strModelo" [ngClass]="{ 'is-invalid': !modelo.valid && modelo.touched,'is-valid': modelo.valid}" required>
+                            <input type="text" class="form-control" name="modelo" #modelo="ngModel" [(ngModel)]="vehiculo.numModelo" [ngClass]="{ 'is-invalid': !modelo.valid && modelo.touched,'is-valid': modelo.valid}" required>
                             <div class="invalid-feedback">
                                 Ingrese una modelo.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="">Motor</label>
-                            <input type="text" class="form-control" name="motor" #motor="ngModel" [(ngModel)]="vehiculo.strMotor" [ngClass]="{ 'is-invalid': !motor.valid && motor.touched,'is-valid': motor.valid}" required>
+                            <input type="text" class="form-control" name="motor" #motor="ngModel" [(ngModel)]="vehiculo.strNodeMotor" [ngClass]="{ 'is-invalid': !motor.valid && motor.touched,'is-valid': motor.valid}" required>
                             <div class="invalid-feedback">
                                 Ingrese un motor.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="">NIV</label>
-                            <input type="text" class="form-control" name="niv" #niv="ngModel" [(ngModel)]="vehiculo.strNiv" [ngClass]="{ 'is-invalid': !niv.valid && niv.touched,'is-valid': niv.valid}" required>
+                            <input type="text" class="form-control" name="niv" #niv="ngModel" [(ngModel)]="vehiculo.strNIV" [ngClass]="{ 'is-invalid': !niv.valid && niv.touched,'is-valid': niv.valid}" required>
                             <div class="invalid-feedback">
                                 Ingrese una Niv.
                             </div>
@@ -76,26 +76,26 @@
                 <hr>
                 <table class="table table-dark">
                     <thead>
-                        <th scope="col">ID</th>
                         <th scope="col">UNIDAD</th>
                         <th scope="col">MARCA</th>
                         <th scope="col">PLACA </th>
                         <th scope="col">MODELO</th>
                         <th scope="col">MOTOR</th>
                         <th scope="col">N.I.V</th>
+                        <th scope="col">Activar/Desactivar</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of datos">
-                            <th scope="row">{{item._id}}</th>
-                            <td>{{item.strUnidad}}</td>
+                            <th scope="row">{{item.strUnidad}}</th>
                             <td>{{item.strMarca}}</td>
                             <td>{{item.strPlaca}}</td>
-                            <td>{{item.strModelo}}</td>
-                            <td>{{item.strMotor}}</td>
-                            <td>{{item.StrNiv}}</td>
-                            <td><button class="btn btn-secondary" (click)="editar(item._id)">Editar</button></td>
+                            <td>{{item.numModelo}}</td>
+                            <td>{{item.strNodeMotor}}</td>
+                            <td>{{item.strNIV}}</td>
+                            <td><input type="checkbox" (change)="actualizarEstatus(item._id,item.blnEstatus)" [(ngModel)]="item.blnEstatus"></td>
+                            <td><button class="btn btn-secondary" (click)="editar(item)">Editar</button></td>
                             <td><button class="btn btn-danger" (click)="eliminar(item._id)">Eliminar</button></td>
                         </tr>
 

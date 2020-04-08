@@ -55,6 +55,7 @@ export class PaseSalidaComponent implements OnInit {
   registrarPaseSalida(myform: NgForm, id: any) {
     this.service.registrarPaseSalida(this.passalida, id).then((paseSalida: any) => {
       console.log(paseSalida);
+      localStorage.setItem('idPaseSalida',paseSalida.cont._id);
       this.service.obtenerEstatusPaseSalida(paseSalida.cont._id).then((resp: any) => {
         console.log(resp);
         localStorage.setItem('status',resp.pase.strEstatus);

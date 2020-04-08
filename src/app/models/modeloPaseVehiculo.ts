@@ -1,11 +1,14 @@
 export class paseVehiculo {
-    numFechasolicitud: number;
+    dteFechasolicitud: string;
+    idPaseSalida: string;
     strUnidad: string;
     strPlacas: string;
+    idVehiculo: string;
     strServicio: string;
-    anyLicencia: any;
     strChofer: string;
-    idPaseSalida: string;
-    idPersona: string;
-    idAutoriza: string;
+    idAutoriza1: string;
+    idAutoriza2: string;
+    idAutoriza3: string;
+    idAutoriza4: string;
+    strEstatus: string;
 }

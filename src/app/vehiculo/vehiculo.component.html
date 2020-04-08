@@ -9,12 +9,12 @@
         <div class="form-row">
             <div class="form-group col">
                 <label>Fecha de Solicitud:</label>
-                <input type="number" class="form-control" name="date" #date="ngModel" [(ngModel)]="pasevehiculo.numFechasolicitud" disabled required>
+                <input type="text" class="form-control" name="date" #date="ngModel" [(ngModel)]="pasevehiculo.dteFechasolicitud" maxlength="10" disabled required>
             </div>
             <div class="form-group col">
                 <label>Unidad Solicitada:</label>
-                <select class="form-control" name="unidad" #unidad="ngModel" [(ngModel)]="pasevehiculo.strUnidad" [ngClass]="{ 'is-invalid': !unidad.valid && unidad.touched,'is-valid': unidad.valid}" required>
-                    <option value="0"></option>
+                <select (change)="mostrarPlacas(pasevehiculo.idVehiculo)" class="form-control" name="unidad" #unidad="ngModel" [(ngModel)]="pasevehiculo.idVehiculo" [ngClass]="{ 'is-invalid': !unidad.valid && unidad.touched,'is-valid': unidad.valid}" required>
+                    <option *ngFor="let item of vehiculos" value={{item._id}}>{{item.strUnidad}}</option>
             </select>
                 <div class="invalid-feedback">
                     Ingrese una unidad.
@@ -28,7 +28,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label>Placas:</label>
-                <input type="text" class="form-control" name="placas" #placas="ngModel" [(ngModel)]="pasevehiculo.strPlacas" [ngClass]="{ 'is-invalid': !placas.valid && placas.touched,'is-valid': placas.valid}" required>
+                <input type="text" class="form-control" name="placas" #placas="ngModel" [(ngModel)]="placass" disabled required>
             </div>
         </div>
         <div class="form-row">
@@ -46,17 +46,17 @@
             </div>
             <div class="form-group col-md-6">
                 <label>Motivo:</label>
-                <input type="text" class="form-control" name="motivo" #motivo="ngModel" [(ngModel)]="m" disabled required>
+                <input type="text" class="form-control" name="motivo" #motivo="ngModel" [(ngModel)]="paseSalida.strMotivo" disabled required>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col">
+            <!-- <div class="form-group col">
                 <label>Licencia:</label>
                 <input type="number" class="form-control" name="licencia" #licencia="ngModel" [(ngModel)]="pasevehiculo.anyLicencia" [ngClass]="{ 'is-invalid': !licencia.valid && licencia.touched,'is-valid': licencia.valid}" required>
                 <div class="invalid-feedback">
                     Ingrese licencia.
                 </div>
-            </div>
+            </div> -->
             <div class="form-group col">
                 <label>Chofer:</label>
                 <select class="form-control" name="chofer" #chofer="ngModel" [(ngModel)]="pasevehiculo.strChofer" [ngClass]="{ 'is-invalid': !chofer.valid && chofer.touched,'is-valid': chofer.valid}" required>
@@ -72,12 +72,12 @@
         <div class="form-row">
             <div class="form-group col">
                 <label>Fecha de salida:</label>
-                <input type="date" class="form-control" name="date" #date="ngModel" [(ngModel)]="e" disabled required>
+                <input type="text" class="form-control" name="date" #date="ngModel" [(ngModel)]="paseSalida.dteFecha" disabled required>
             </div>
 
             <div class="form-group col">
                 <label>Hora de salida:</label>
-                <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="f" disabled required>
+                <input type="text" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="paseSalida.dteHoraSalida" disabled required>
             </div>
         </div>
         <div class="form-row">
@@ -85,7 +85,7 @@
 
             <div class="form-group col">
                 <label>Hora de Regreso:</label>
-                <input type="time" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="f" disabled required>
+                <input type="text" class="form-control" name="horas" #horas="ngModel" [(ngModel)]="f" disabled required>
             </div>
             <div class="form-group col-md-6">
                 <label>Quien autorizo:</label>
