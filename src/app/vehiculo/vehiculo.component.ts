@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Traslado } from '../models/traslado';
-
+import { ServiceService } from '../service/service.service';
+import * as jwt_decode from 'jwt-decode';
+import { paseVehiculo } from '../models/modeloPaseVehiculo';
 
 @Component({
   selector: 'app-vehiculo',
@@ -9,7 +10,11 @@ import { Traslado } from '../models/traslado';
   styleUrls: ['./vehiculo.component.css']
 })
 export class VehiculoComponent implements OnInit {
-  traslados : Traslado[];
+  vehiculos: any;
+  paseSalida: any;
+  informacion: any;
+  pasevehiculo = new paseVehiculo();
+
   e:Date;//fecha
   c:string;//nombre
   n:number;//Licencia
@@ -18,46 +23,21 @@ export class VehiculoComponent implements OnInit {
  f:Date;//Salida
    g:Date;//Regreso
    o:String;//Observacion
-   checked = false;
-disabled = false;
-  constructor() { }
+ 
+  constructor(public service: ServiceService) { }
 
    ngOnInit() {
-    this.traslados=[];
-   
-    this.agregar();
+    this.informacion = jwt_decode(localStorage.getItem('token'));
+    console.log(this.informacion);
+
+  }
+  obtenerVehiculos(){
+
+  }
+  obtenerpasesalida() {
     
   }
-  openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
   
-  /* Set the width of the side navigation to 0 */
-  closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
   
-  agregar(){
-    this.traslados.push({De:'', A:''});
-  }
-  eliminar(index: number){
-    this.traslados.splice(index, 1)
-  }
-  ocultar() {
-      document.getElementById('mostrarOcultar').style.display = "none";
 
-  }
-
-mostrar() {
-      document.getElementById('mostrarOcultar').style.display = "block";
-
-  }
-  ocultar2() {
-    document.getElementById('mostrarOcultar2').style.display = "none";
-
-}
-mostrar2() {
-  document.getElementById('mostrarOcultar2').style.display = "block";
-
-}
 }

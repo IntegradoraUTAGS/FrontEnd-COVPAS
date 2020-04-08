@@ -14,6 +14,8 @@ import { VigilanciaComponent } from './vigilancia/vigilancia.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/confirmar-vacaciones.component';
+import { CrudvehiculosComponent } from './crudvehiculos/crudvehiculos.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -28,7 +30,9 @@ const routes: Routes = [
   { path: 'vigilancia', component: VigilanciaComponent},
   { path: 'loginadmin', component: LoginAdminComponent },
   { path: 'home' , component: HomeComponent},
-  { path: 'confirmar-vacaciones/:id/:strEstatus', component: ConfirmarVacacionesComponent}
+  { path: 'confirmar-vacaciones/:id/:strEstatus', component: ConfirmarVacacionesComponent},
+  { path: 'crudvehiculo', component: CrudvehiculosComponent},
+  { path: 'reportes', component: ReportesComponent}
 ];
 
 @NgModule({

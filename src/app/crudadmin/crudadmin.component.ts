@@ -29,6 +29,12 @@ ngOnInit() {
   console.log(this.edit);
   this.obtenerPersonas();
 }
+gotoreportes(){
+  this.router.navigateByUrl('reportes');
+}
+gotocrudvehiculos() {
+  this.router.navigateByUrl('crudvehiculo');
+}
 h(){
   this.edit = false;
 }

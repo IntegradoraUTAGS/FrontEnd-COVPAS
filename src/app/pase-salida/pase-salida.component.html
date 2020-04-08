@@ -14,7 +14,6 @@
             </div>
         </div>
 
-
         <div class="form-row">
 
             <div class="form-group col-md-6">
@@ -114,11 +113,11 @@
             </div>
         </div>
 
-        <div class="form-row " >
+        <div class="form-row ">
 
             <div class="form-group col " style="display: none;">
                 <label>Solicitante:</label>
-                <input  type="text " class="form-control " name="solicitante " #solicitante="ngModel"  [(ngModel)]="informacion.usuario._id" disabled required>
+                <input type="text " class="form-control " name="solicitante " #solicitante="ngModel" [(ngModel)]="informacion.usuario._id" disabled required>
             </div>
 
             <div class="form-group col ">
@@ -133,9 +132,6 @@
             </div>
 
         </div>
-
-
-        <!-- [disabled]="!myForm.valid" -->
-        <button type="submit " class="btn btn-primary">Enviar</button>
+        <button type="submit " [disabled]="!myForm.valid" class="btn btn-primary">Enviar</button>
     </form>
 </div>
