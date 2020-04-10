@@ -96,4 +96,9 @@ status: any;
   obtenerVehiculoPorId(id: any) {
     return this.http.get(`${this.url}vehiculos/obtener/${id}`).toPromise();
   }
+
+  registrarVigilancia(paseSalida,observacion,nombreReviso,kilometrosSalida,gasolinaSalida){
+    return this.http.post(`${this.url}paseVigilancia/registrar`, {paseSalida,observacion,nombreReviso,kilometrosSalida,gasolinaSalida}).toPromise();
+  }
+
 }
