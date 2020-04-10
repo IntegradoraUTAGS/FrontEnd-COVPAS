@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { NgForm } from '@angular/forms';
+import { NotificationService } from '../service/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
-  constructor(public router: Router, private service: ServiceService) { }
+  constructor(public router: Router, private service: ServiceService, private notifyService: NotificationService) { }
 
   ngOnInit() {
   }
@@ -32,9 +33,11 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', usuario.token);
       this.router.navigateByUrl('menu');
     }).catch((err: any) => {
+      this.notifyService.showError(err.error.message,"Algo salio mal" );
       console.log(err);
     });
   }
+  
 
 
 

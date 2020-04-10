@@ -31,6 +31,7 @@ import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/
 
 import { CrudvehiculosComponent } from './crudvehiculos/crudvehiculos.component';
 import { ReportesComponent } from './reportes/reportes.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +62,9 @@ import { ReportesComponent } from './reportes/reportes.component';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
 
   ],
   providers: [ServiceService,

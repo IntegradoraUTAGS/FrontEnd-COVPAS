@@ -1,10 +1,12 @@
 <nav class="navbar navbar-light bg-secondary">
+
     <div class="col">
         <img (click)="openNav()" class="img" src="../../../assets/imagen/menu.png" alt="">
     </div>
     <div class="col">
         <a class="navbar-brand">{{informacion.usuario.strNombre}}</a>
     </div>
+
     <div class="col text-center">
         <label> Estatus</label>
         <br>
@@ -14,19 +16,18 @@
         <label> Vacaciones Disponibles</label>
         <br>
         <span class="badge badge-warning">0</span>
-
     </div>
-
 </nav>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <a href="#">Tipo empleado: {{informacion.usuario.strTipoEmpleado}}</a>
-    <a href="#">#{{informacion.usuario.numNoEmpleado}}</a>
-    <a routerLink="/pase-salida">Pase Saldia</a>
-    <a routerLink="/solivaca">Vacaciones</a>
-    <a routerLink="/vehiculo">Vehiculos</a>
-    <a routerLink="/admin">Admin</a>
-    <a (click)="logout()">Cerrar sesión</a>
+    <label class="h3">Tipo empleado: {{informacion.usuario.strTipoEmpleado}}</label>
+    <br>
+    <label class="h3">No Empleado:{{informacion.usuario.numNoEmpleado}}</label>
+    <button routerLink="/menu" class="btn btn-dark w-100">Menu</button>
+    <button routerLink="/pase-salida" class="btn btn-dark  w-100">Pase Saldia</button>
+    <button routerLink="/solivaca" class="btn btn-dark  w-100" *ngIf="informacion.usuario.strTipoEmpleado==='PTC'">Vacaciones</button>
+    <button routerLink="/vehiculo" class="btn btn-dark  w-100" *ngIf="status=='En progreso'">Vehiculos</button>
+    <button (click)="logout()" class="btn btn-danger  w-100">Cerrar sesión</button>
 </div>
 <div class="container">
     <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
@@ -54,13 +55,13 @@
         </div>
 
         <div class="form-row">
-                <label>Autorizo:</label>
-                <select class="form-control " name="autoriza " #autoriza="ngModel" [(ngModel)]="paseVacacion.idAutoriza" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched, 'is-valid': autoriza.valid}" required>
+            <label>Autorizo:</label>
+            <select class="form-control " name="autoriza " #autoriza="ngModel" [(ngModel)]="paseVacacion.idAutoriza" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched, 'is-valid': autoriza.valid}" required>
                     <option  *ngFor="let item of usuarios" value={{item._id}}>{{item.strNombre}}</option>
                   </select>
-                <div class="invalid-feedback">
-                    Ingrese quien autoriza.
-                </div>
+            <div class="invalid-feedback">
+                Ingrese quien autoriza.
+            </div>
         </div>
         <!-- <div class="form-row">
             <div class="form-group col-md-6">
@@ -77,10 +78,10 @@
 
 
         <label>Fecha en que se desea tomar las vacaciones</label>
-       
+
         <div class="form-row">
             <div class="form-row" *ngFor="let item of fechas; let index=index">
-    
+
                 <div class="form-group input-group col-md-6">
                     <label>Dia {{index+1}}</label>
                     <input class="form-control " type="date" [(ngModel)]="fechas[index].fecha" name="a{{index}}" #a="ngModel" [ngClass]="{ 'is-invalid': !a.valid && a.touched,'is-valid': a.valid}" required>
@@ -91,13 +92,13 @@
                         Ingrese un destino.
                     </div>
                 </div>
-    
+
             </div>
             <div>
                 <button type="button" class="btn btn-primary" slot="end" (click)="agregar()">agregar</button>
             </div>
-    
-    
+
+
         </div>
 
 

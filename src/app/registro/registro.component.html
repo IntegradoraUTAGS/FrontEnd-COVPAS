@@ -17,25 +17,14 @@
                 Ingrese nombre completo .
             </div>
         </div>
-        <div class="form-row">
-            <!--<div class="form-group col-md-6">
-                <label for="">Departamento</label>
-                <select name="departamento" class="form-control" #departamento="ngModel" [(ngModel)]="b" [ngClass]="{ 'is-invalid': !departamento.valid && departamento.touched,'is-valid': departamento.valid}" required>
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                </select>
-            </div>-->
-            <div class="form-group col-md-6">
-                <label for="">Dirección</label>
-                <select name="dire" class="form-control" #dire="ngModel" [(ngModel)]="Usuario.idDireccion" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
+
+        <div class="form-group">
+            <label for="">Dirección</label>
+            <select name="dire" class="form-control" #dire="ngModel" [(ngModel)]="Usuario.idDireccion" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
                     <option  *ngFor="let item of direcciones" value={{item._id}}>{{item.strNombre}}</option>
                 </select>
-                <div class="invalid-feedback">
-                    Ingrese una dirección.
-                </div>
-
+            <div class="invalid-feedback">
+                Ingrese una dirección.
             </div>
 
         </div>
@@ -43,8 +32,8 @@
             <div class="form-group col-md-6">
                 <label for="">Tipo Empleado</label>
                 <select name="tipoEmp" class="form-control" #tipoEmp="ngModel" [(ngModel)]="Usuario.strTipoEmpleado" [ngClass]="{ 'is-invalid': !tipoEmp.valid && tipoEmp.touched,'is-valid': tipoEmp.valid}" required>
-                    <option value="PA">Profesor Tiempo Completo</option>
-                    <option value="PTC">Profesor Asignatura</option>
+                    <option value="PTC">Profesor Tiempo Completo</option>
+                    <option value="PA">Profesor Asignatura</option>
                 </select>
                 <div class="invalid-feedback">
                     Ingrese un tipo de empleado.

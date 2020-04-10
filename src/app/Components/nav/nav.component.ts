@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  constructor(public service: ServiceService, public router: Router) { }
+  constructor(public service: ServiceService, public router: Router) {
+    this.status = localStorage.getItem('status');
+   }
    informacion: any;
    status: any;
   ngOnInit() {

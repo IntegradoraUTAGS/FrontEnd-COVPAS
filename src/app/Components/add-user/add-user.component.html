@@ -1,4 +1,4 @@
-<form class="needs-validation" (ngSubmit)="registrarUsuario(myForm)" #myForm="ngForm">
+<form (ngSubmit)="registrarUsuario(myForm)" #myForm="ngForm">
     <div class="form-group">
         <label for="">Numero de Empleado</label>
         <input type="number" class="form-control" name="num" #num="ngModel" [(ngModel)]="Usuario.numNoEmpleado" [ngClass]="{ 'is-invalid': !num.valid && num.touched,'is-valid': num.valid}" required>
@@ -13,28 +13,20 @@
             Ingrese nombre completo .
         </div>
     </div>
-    <div class="form-row">
-        <!--<div class="form-group col-md-6">
-        <label for="">Departamento</label>
-        <select name="departamento" class="form-control" #departamento="ngModel" [(ngModel)]="b" [ngClass]="{ 'is-invalid': !departamento.valid && departamento.touched,'is-valid': departamento.valid}" required>
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-            <option value="">4</option>
-        </select>
-    </div>-->
-        <div class="form-group col-md-6">
-            <label for="">Dirección</label>
-            <select name="dire" class="form-control" #dire="ngModel" [(ngModel)]="Usuario.idDireccion" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
+
+
+    <div class="form-group col-md-6">
+        <label for="">Dirección</label>
+        <select name="dire" class="form-control" #dire="ngModel" [(ngModel)]="Usuario.idDireccion" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
             <option  *ngFor="let item of direcciones" value={{item._id}}>{{item.strNombre}}</option>
         </select>
-            <div class="invalid-feedback">
-                Ingrese una dirección.
-            </div>
-
+        <div class="invalid-feedback">
+            Ingrese una dirección.
         </div>
 
     </div>
+
+
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="">Tipo Empleado</label>
@@ -60,7 +52,7 @@
     <div class="alert alert-danger" role="alert" *ngIf="correo.touched&&!regexp.test(correo.value)">
         Ingrese un correo valido
     </div>
-    <!--jkhjkhjkhjkhjkhk-->
+
 
     <div class="form-group">
         <label for="">Ingresar Conraseña</label>
@@ -80,3 +72,4 @@
         Las contraseñas no coinciden
     </div>
     <button type="submit" class="btn btn-primary " [disabled]="!myForm.valid ">Registrar</button>
+</form>

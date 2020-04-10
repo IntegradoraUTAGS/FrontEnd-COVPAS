@@ -17,18 +17,18 @@
 
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col">
             <label for="">Tipo Empleado</label>
             <select name="tipoEmp" class="form-control" #tipoEmp="ngModel" [(ngModel)]="persona.strTipoEmpleado" [ngClass]="{ 'is-invalid': !tipoEmp.valid && tipoEmp.touched,'is-valid': tipoEmp.valid}" required>
-            <option value="PA">Profesor Tiempo Completo</option>
-            <option value="PTC">Profesor Asignatura</option>
+            <option value="PTC">Profesor Tiempo Completo</option>
+            <option value="PA">Profesor Asignatura</option>
         </select>
             <div class="invalid-feedback">
                 Ingrese un tipo de empleado.
             </div>
 
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col">
             <label for="">Licencia*Puedes omitir esta parte*</label>
             <input type="file" class="form-control">
         </div>
@@ -42,5 +42,5 @@
         <label for="">Dias de vacaciones</label>
         <input type="number" class="form-control" name="number" #number="ngModel" [(ngModel)]="persona.numDiasDisponibles" required>
     </div>
-
     <button type="submit" class="btn btn-primary " [disabled]="!myForm.valid ">Actualizar</button>
+</form>

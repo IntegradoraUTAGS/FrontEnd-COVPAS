@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/service.service';
 import { Vehiculo } from '../models/vehiculo';
 import { NgForm } from '@angular/forms';
+import { NotificationService } from '../service/notification.service';
 
 @Component({
   selector: 'app-crudvehiculos',
@@ -13,7 +14,7 @@ export class CrudvehiculosComponent implements OnInit {
   datos: any;
   
 
-  constructor(public servie: ServiceService) { }
+  constructor(public servie: ServiceService, private alert: NotificationService) { }
 
   ngOnInit() {
     this.mostrarVehiculos();
@@ -30,8 +31,10 @@ export class CrudvehiculosComponent implements OnInit {
     this.servie.agregarVehiculo(this.vehiculo).then((resp: any) => {
       console.log(resp.cont);
       myForm.reset();
+      this.alert.showSuccess('', 'Registo correcto');
       this.mostrarVehiculos();
     }).catch((err: any) => {
+      this.alert.showError(err.error.msg, 'Algo salio mal');
       console.log(err);
     });
   }
@@ -56,8 +59,10 @@ export class CrudvehiculosComponent implements OnInit {
     this.servie.actualizarVehiculo(this.vehiculo,id).then((resp: any) => {
       console.log(resp);
       this.mostrarVehiculos();
+      this.alert.showSuccess('', 'actualizado correctamente');
     }).catch((err: any) => {
       console.log(err);
+      this.alert.showError(err.error.menssage, 'Algo salio mal');
     });
   }
   actualizarEstatus(id: any, status: any) {

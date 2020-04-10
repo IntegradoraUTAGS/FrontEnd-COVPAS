@@ -10,18 +10,17 @@
     <div class="col text-center">
         <label> Estatus</label>
         <br>
-        <span class="badge badge-warning">{{status}}</span>
+        <span class="badge badge-warning">{{status ||'Sin reportes' }}</span>
     </div>
-
 </nav>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <a href="#">Tipo empleado: {{informacion.usuario.strTipoEmpleado}}</a>
-    <a href="#">#{{informacion.usuario.numNoEmpleado}}</a>
-    <a routerLink="/menu">Menu</a>
-    <a routerLink="/pase-salida">Pase Saldia</a>
-    <a routerLink="/solivaca" *ngIf="informacion.usuario.strTipoEmpleado==='PTC'">Vacaciones</a>
-    <a routerLink="/vehiculo">Vehiculos</a>
-    
-    <a (click)="logout()">Cerrar sesión</a>
+    <label class="h3">Tipo empleado: {{informacion.usuario.strTipoEmpleado}}</label>
+    <br>
+    <label class="h3">No Empleado:{{informacion.usuario.numNoEmpleado}}</label>
+    <button routerLink="/menu" class="btn btn-dark w-100">Menu</button>
+    <button routerLink="/pase-salida" class="btn btn-dark  w-100">Pase Saldia</button>
+    <button routerLink="/solivaca" class="btn btn-dark  w-100" *ngIf="informacion.usuario.strTipoEmpleado==='PTC'">Vacaciones</button>
+    <button routerLink="/vehiculo" class="btn btn-dark  w-100" *ngIf="status=='En progreso'">Vehiculos</button>
+    <button (click)="logout()" class="btn btn-danger  w-100">Cerrar sesión</button>
 </div>
