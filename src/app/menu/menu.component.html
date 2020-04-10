@@ -1,31 +1,27 @@
 <app-nav></app-nav>
-<font SIZE=10>
-    <p class="text-center">Solicitudes</p>
-</font>
-<div class="container" style="max-width: 100%; position: absolute; top: 76%; margin-right: 0;">
-    <div class="row">
-        <div class="col-sm">
-            <div>
-                <img class='img-fluid' src="../../assets/imagen/archive.png" style="width: 200px; height: 200px;" />
-                <button type="button" class="btn btn-primary" (click)="gotopass() ">Solicitud Pase de Salida</button>
-            </div>
-        </div>
-        
-        <div class="col-sm" *ngIf="status=='En progreso'">
-            <div>
-                <img class='img-fluid' src="../../assets/imagen/autobus.png" style="width: 200px; height: 200px;" />
-                <button  type="button" class="btn btn-danger" (click)="gotovehiculo()">Solicitud de Vehiculo</button>
-                
-            </div>
-        </div>
-        <div class="col-sm ">
-            <div *ngIf="informacion.usuario.strTipoEmpleado==='PTC'">
-                <img class='img-fluid' src="../../assets/imagen/island.png " style="width: 200px; height: 200px;" />
-                <button  type="button" class="btn btn-success" (click)="gotovaca()">Solicitud de Vacaciones</button>
-                <div></div>
-            </div>
 
-        </div>
-
+<div class="container">
+    <div class="text-center" style="width: 50%;">
+        <img src="../../assets/imagen/Logo2.png" style="width: 100%; text-align: center;" alt="">
     </div>
-</div>
+
+    <div class="row">
+        <div class="row justify-content-center" style="padding-top: 50px;">
+            <div class="col">
+                <img src="../../assets/imagen/archive.png " alt=" " (click)="gotopass() " class="w-50 h-50 " style="margin-left: 25%; ">
+                <button class="btn btn-outline-secondary w-100 " (click)="gotopass() ">Solcitud Pase Salida</button>
+            </div>
+            <div class="col" *ngIf="status=='En progreso'">
+                <img src="../../assets/imagen/autobus.png" alt=" " class="text-center " (click)="gotovehiculo() " class="w-50 h-50 " style="margin-left: 25%; ">
+                <button class="btn btn-outline-secondary w-100 " (click)="gotovehiculo() ">Solicitud de Vehiculo</button>
+            </div>
+            <div class="col" *ngIf="informacion.usuario.strTipoEmpleado==='PTC'">
+                <img src="../../assets/imagen/island.png  " class="text-center " alt=" " (click)="gotovaca() " class="w-50 h-50 " style="margin-left: 25%; ">
+                <button class="btn btn-outline-secondary w-100 " (click)="gotovaca() ">Solicitud de Vacaciones</button>
+            </div>
+        </div>
+        <div class="text-center bg-secondary " style="color: white;">
+            <h1 class="align-items-center">Solicitudes</h1>
+
+        </div>
+    </div>

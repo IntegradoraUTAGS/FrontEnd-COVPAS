@@ -5,14 +5,14 @@
 </div>
 
 <div class="container mt-5">
-    <form class="needs-validation" (ngSubmit)="registrarPaseSalida(myForm,passalida.idPersona)" #myForm="ngForm">
+    <form (ngSubmit)="registrarPaseSalida(myForm,passalida.idPersona)" #myForm="ngForm">
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Dirección:</label>
-                <input class="form-control" [(ngModel)]="informacion.usuario.idDireccion.strNombre" name="dire" #dire="ngModel" disabled required>
-            </div>
+
+        <div class="form-group col">
+            <label>Dirección:</label>
+            <input class="form-control" [(ngModel)]="informacion.usuario.idDireccion.strNombre" name="dire" #dire="ngModel" disabled required>
         </div>
+
 
         <div class="form-row">
 
@@ -63,7 +63,7 @@
         <!--===============================================================================-->
         <div class="form-row" *ngFor="let item of traslados;    let index=index">
 
-            <div class="form-group col-md-6">
+            <div class="form-group col">
                 <label>De:</label>
                 <input class="form-control" type="text" [(ngModel)]="traslados[index].De" name="de{{index}}" #de="ngModel" [ngClass]="{ 'is-invalid': !de.valid && de.touched,'is-valid': de.valid}" required>
                 <div class="invalid-feedback">
@@ -71,7 +71,7 @@
                 </div>
             </div>
 
-            <div class="form-group input-group col-md-6">
+            <div class="form-group input-group col">
                 <label>A:</label>
                 <input class="form-control " type="text " [(ngModel)]="traslados[index].A " name="a{{index}}" #a="ngModel" [ngClass]="{ 'is-invalid': !a.valid && a.touched,'is-valid': a.valid}" required>
                 <div class="input-group-append ">
@@ -89,7 +89,7 @@
 
 
         <!--===========================================================================-->
-        <div class="form-group ">
+        <div class="form-group">
             <label>Nombre de la empresa a visitar: </label>
             <input type="text " class="form-control " name="nev " #nev="ngModel" [(ngModel)]="passalida.strEmpresaVisita" [ngClass]="{ 'is-invalid': !nev.valid && nev.touched, 'is-valid': nev.valid} " required>
             <div class="invalid-feedback">
@@ -97,7 +97,7 @@
             </div>
         </div>
 
-        <div class="form-group ">
+        <div class="form-group">
             <label>Asunto a tratar:</label>
             <input type="text " class="form-control " name="asunto " #asunto="ngModel" [(ngModel)]="passalida.strMotivo" [ngClass]="{ 'is-invalid': !asunto.valid && asunto.touched, 'is-valid': asunto.valid} " required>
             <div class="invalid-feedback">
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <div class="form-group ">
+        <div class="form-group">
             <label>Nombre de la persona quien tinene cita:</label>
             <input type="text " class="form-control " name="nomper " #nomper="ngModel" [(ngModel)]="passalida.strPersonaCita" [ngClass]="{ 'is-invalid': !nomper.valid && nomper.touched, 'is-valid': nomper.valid} " required>
             <div class="invalid-feedback">
@@ -113,7 +113,7 @@
             </div>
         </div>
 
-        <div class="form-row ">
+        <div class="form-row">
 
             <div class="form-group col " style="display: none;">
                 <label>Solicitante:</label>

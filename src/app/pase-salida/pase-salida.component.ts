@@ -4,6 +4,7 @@ import { Traslado } from '../models/traslado';
 import { PaseSalida } from '../models/modelPasedalida';
 import { NgForm } from '@angular/forms';
 import * as jwt_decode from 'jwt-decode';
+import { NotificationService } from '../service/notification.service';
 
 @Component({
   selector: 'app-pase-salida',
@@ -14,16 +15,15 @@ import * as jwt_decode from 'jwt-decode';
 export class PaseSalidaComponent implements OnInit {
    traslados: Traslado[];
    passalida: PaseSalida = new PaseSalida();
-   public informacion: any;
+   informacion: any;
    usuarios: any;
-  constructor(public service: ServiceService) { }
+  constructor(public service: ServiceService, private alert: NotificationService) { }
  
   ngOnInit() {
     this.obtenerUsuarios();
     this.traslados = [{De: '', A: ''}];
     this.informacion = jwt_decode(localStorage.getItem('token'));
     console.log(this.informacion);
-    
     this.passalida.idPersona = this.informacion.usuario._id;
     console.log(this.passalida.idPersona = this.informacion.usuario._id);
   }
@@ -55,11 +55,15 @@ export class PaseSalidaComponent implements OnInit {
   registrarPaseSalida(myform: NgForm, id: any) {
     this.service.registrarPaseSalida(this.passalida, id).then((paseSalida: any) => {
       console.log(paseSalida);
-      localStorage.setItem('idPaseSalida',paseSalida.cont._id);
+      localStorage.setItem('idPaseSalida', paseSalida.cont._id);
+      myform.reset();
+      this.alert.showSuccess('', 'Registro exitoso');
+
       this.service.obtenerEstatusPaseSalida(paseSalida.cont._id).then((resp: any) => {
         console.log(resp);
-        localStorage.setItem('status',resp.pase.strEstatus);
+        localStorage.setItem('status', resp.pase.strEstatus);
       }).catch((err: any) => {
+        this.alert.showError('Obtener estatus fallo', 'Algo salio mal');
         console.log(err);
       });
       for (let index = 0; index <= this.traslados.length - 1; index++) {
@@ -68,16 +72,19 @@ export class PaseSalidaComponent implements OnInit {
         this.service.actualizarDestinos(element, paseSalida.cont._id).then((destinos: any) => {
           console.log(destinos);
         }).catch((err: any) => {
+          this.alert.showError('Actualizar destinos fallo', 'Algo salio mal');
           console.log(err);
         });
       }
       this.service.enviarConfirmacionPaseSalida(paseSalida.cont._id).then((resp: any) => {
         console.log(resp);
       }).catch((err: any) => {
+        this.alert.showError('Enviar confirmación fallo', 'Algo salio mal');
         console.log(err);
       });
     }).catch((err: any) => {
       console.log(err);
+      this.alert.showError('Registro fallo ', 'Algo salio mal');
     });
   }
 
