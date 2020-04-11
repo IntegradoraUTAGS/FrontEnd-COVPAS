@@ -56,7 +56,6 @@ export class PaseSalidaComponent implements OnInit {
     this.service.registrarPaseSalida(this.passalida, id).then((paseSalida: any) => {
       console.log(paseSalida);
       localStorage.setItem('idPaseSalida', paseSalida.cont._id);
-      myform.reset();
       this.alert.showSuccess('', 'Registro exitoso');
 
       this.service.obtenerEstatusPaseSalida(paseSalida.cont._id).then((resp: any) => {
@@ -82,6 +81,7 @@ export class PaseSalidaComponent implements OnInit {
         this.alert.showError('Enviar confirmación fallo', 'Algo salio mal');
         console.log(err);
       });
+      myform.reset();
     }).catch((err: any) => {
       console.log(err);
       this.alert.showError('Registro fallo ', 'Algo salio mal');

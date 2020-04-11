@@ -11,14 +11,14 @@
 
         <div class="col">
             <nav class="navbar navbar-light bg-light">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <div class="form-inline">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" name="filter" #filter="ngModel" [(ngModel)]="filterPost">
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
+                </div>
             </nav>
-            <div class="card" style="width: 100%;" *ngFor="let item of personas">
-                <div class="card-body ">
-                    <div class="row ">
+            <div class="card" style="width: 100%;" *ngFor="let item of personas | filter:filterPost">
+                <div class="card-body">
+                    <div class="row">
                         <div class="col ">
                             <h5 class="card-title ">{{item.strNombre}}</h5>
                             <p class="card-text ">{{item.numNoEmpleado}}</p>

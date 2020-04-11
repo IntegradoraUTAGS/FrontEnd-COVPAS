@@ -6,7 +6,7 @@ import {ServiceService} from '../service/service.service'
   styleUrls: ['./vigilancia.component.css']
 })
 export class VigilanciaComponent implements OnInit {
-  pase = {}
+  pase: any;
   idPase= ""
   observacion =""
   kilometrosSalida=""
@@ -20,10 +20,10 @@ export class VigilanciaComponent implements OnInit {
   }
   obtener(id:any){
 
-    this.service.obtenerPaseSalidaPorId(id).then((data)=>{
-      this.pase = data['pase']
+    this.service.obtenerPaseSalidaPorId(id).then((data: any)=>{
+      this.pase = data.pase;
       console.log(this.pase)
-    }).catch((err)=>{
+    }).catch((err: any)=>{
       console.error(err)
     })
   }

@@ -6,6 +6,7 @@ export class paseVehiculo {
     idVehiculo: string;
     strServicio: string;
     strChofer: string;
+    strObservaciones: string;
     idAutoriza1: string;
     idAutoriza2: string;
     idAutoriza3: string;

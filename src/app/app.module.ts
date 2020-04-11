@@ -32,6 +32,8 @@ import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/
 import { CrudvehiculosComponent } from './crudvehiculos/crudvehiculos.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { ToastrModule } from 'ngx-toastr';
+import { DatePipe } from "@angular/common";
+import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,8 @@ import { ToastrModule } from 'ngx-toastr';
     LoginAdminComponent,
     ConfirmarVacacionesComponent,
     CrudvehiculosComponent,
-    ReportesComponent
+    ReportesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule
 
   ],
-  providers: [ServiceService,
+  providers: [ServiceService,DatePipe,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorService,

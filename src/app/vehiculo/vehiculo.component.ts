@@ -3,11 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/service.service';
 import * as jwt_decode from 'jwt-decode';
 import { paseVehiculo } from '../models/modeloPaseVehiculo';
+import { NgForm } from '@angular/forms';
+import { NotificationService } from '../service/notification.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-vehiculo',
   templateUrl: './vehiculo.component.html',
-  styleUrls: ['./vehiculo.component.css']
+  styleUrls: ['./vehiculo.component.css'],
+  providers: [DatePipe]
 })
 export class VehiculoComponent implements OnInit {
   vehiculos: any;
@@ -15,26 +19,17 @@ export class VehiculoComponent implements OnInit {
   informacion: any;
   pasevehiculo = new paseVehiculo();
   placass: any;
-  e:Date;//fecha
-  c:string;//nombre
-  n:number;//Licencia
-  p:string;//placas
- m:string;//Motivo
- f:Date;//Salida
-   g:Date;//Regreso
-   o:String;//Observacion
-  datePipe: any;
+  personas: any;
  
-  constructor(public service: ServiceService) { }
+  constructor(public service: ServiceService,private alert:NotificationService, private date: DatePipe) { }
 
    ngOnInit() {
     this.informacion = jwt_decode(localStorage.getItem('token'));
     console.log(this.informacion);
-    this.pasevehiculo.dteFechasolicitud = Date.now().toString();
-    this.pasevehiculo.dteFechasolicitud.substring(0,10);
-    console.log(this.pasevehiculo.dteFechasolicitud);
+    this.pasevehiculo.dteFechasolicitud = this.date.transform(Date.now(),'yyy-MM-dd');
     this.obtenerVehiculos();
     this.obtenerpasesalida();
+    this.obtenerPersonas();
     console.log(this.placass);
   }
   mostrarPlacas(id: any) {
@@ -44,6 +39,14 @@ export class VehiculoComponent implements OnInit {
       console.log(err);
     });
   }
+  obtenerPersonas() {
+    this.service.obtenerUsuario().then((usuarios: any) => {
+       this.personas = usuarios.cont;
+       console.log(usuarios);
+     }).catch((err) => {
+       console.log(err);
+     });
+ }
   obtenerVehiculos(){
     this.service.obtenerVehiculo().then((resp: any) => {
       this.vehiculos = resp.vehiculos;
@@ -63,7 +66,18 @@ export class VehiculoComponent implements OnInit {
       console.log(err);
     });
   }
-  
-  
+  registrarPaseSalidaVehiculo(myForm:NgForm){
+    let id= localStorage.getItem('idPaseSalida');
+    console.log(this.pasevehiculo);
+    this.service.registrarPaseSalidaVehiculo(this.pasevehiculo,id).then((resp: any) => {
+      console.log(resp);
+
+      this.alert.showSuccess('','Registrado correctamente');
+    }).catch((err: any) => {
+      console.log(err);
+      this.alert.showError(err.msg,'Algo salio mal');
+    });
+  }
+
 
 }

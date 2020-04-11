@@ -18,6 +18,7 @@ export class CRUDAdminComponent implements OnInit {
   pass: string;
   personas: any;
   edit = false;
+  filterPost = '';
   // tslint:disable-next-line: max-line-length
   regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
   direcciones: any;

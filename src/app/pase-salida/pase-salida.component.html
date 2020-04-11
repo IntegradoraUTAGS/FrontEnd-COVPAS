@@ -5,28 +5,29 @@
 </div>
 
 <div class="container mt-5">
+    
+    <div class="form-group col">
+        <label>Dirección:</label>
+        <input class="form-control" [(ngModel)]="informacion.usuario.idDireccion.strNombre" name="dire" #dire="ngModel" disabled required>
+    </div>
+
+
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="informacion.usuario.strNombre" disabled required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Cargo:</label>
+            <input class="form-control" name="cargo" #cargo="ngModel" [(ngModel)]="informacion.usuario.strTipoEmpleado" disabled required>
+        </div>
+
+    </div>
+
     <form (ngSubmit)="registrarPaseSalida(myForm,passalida.idPersona)" #myForm="ngForm">
 
-
-        <div class="form-group col">
-            <label>Dirección:</label>
-            <input class="form-control" [(ngModel)]="informacion.usuario.idDireccion.strNombre" name="dire" #dire="ngModel" disabled required>
-        </div>
-
-
-        <div class="form-row">
-
-            <div class="form-group col-md-6">
-                <label>Nombre:</label>
-                <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="informacion.usuario.strNombre" disabled required>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label>Cargo:</label>
-                <input class="form-control" name="cargo" #cargo="ngModel" [(ngModel)]="informacion.usuario.strTipoEmpleado" disabled required>
-            </div>
-
-        </div>
 
         <div class="form-row">
 
