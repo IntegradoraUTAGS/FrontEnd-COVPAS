@@ -67,11 +67,11 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Hora Salida:</label>
-                                <input  type="datetime" class="form-control" required>
+                                <input  type="datetime" class="form-control" required [disabled]="pase._id !== '' ? false : true">
                             </div>
                             <div class="form-group">
                                 <label for="">Nivel de gasolina:</label>
-                                <select  class="form-control" [(ngModel)]="gasolinaSalida" [ngModelOptions]="{standalone: true}" required>
+                                <select  class="form-control" [(ngModel)]="gasolinaSalida" [ngModelOptions]="{standalone: true}" required [disabled]="pase._id !== '' ? false : true">
                                     <option value="0%">0%</option>
                                     <option value="25%">25%</option>
                                     <option value="50%">50%</option>
@@ -84,25 +84,30 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Hora Regreso:</label>
-                                <input type="datetime" class="form-control"  required>
+                                <input type="datetime" class="form-control"  required [disabled]="pase._id !== '' ? false : true">
                             </div>
                             <div class="form-group">
                                 <label for="">Kilometros:</label>
-                                <input type="text" [(ngModel)]="kilometrosSalida" [ngModelOptions]="{standalone: true}">
+                                <input type="text" [(ngModel)]="kilometrosSalida" [ngModelOptions]="{standalone: true}" [disabled]="pase._id !== '' ? false : true">
                             </div>
 
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Observaciones:</label>
-                        <input type="text" [(ngModel)]="observacion" [ngModelOptions]="{standalone: true}" class="form-control">
+                        <input type="text" [(ngModel)]="observacion" [ngModelOptions]="{standalone: true}" class="form-control" [disabled]="pase._id !== '' ? false : true">
                         <!-- puede ser reuqerido o no-->
+                    </div>
+                    <div>
+                        <p>
+                            {{observacion}}
+                        </p>
                     </div>
 
                 </form>
             </div>
             <div>
-                <button type="button" (click)="registrar(idPase,observacion,'nombreReviso',kilometrosSalida,gasolinaSalida)" class="btn btn-primary">Terminar pase de salida</button>
+                <button type="button" (click)="registrar()" class="btn btn-primary" [disabled]="pase._id !== '' ? false : true">Terminar pase de salida</button>
             </div>
 
 
