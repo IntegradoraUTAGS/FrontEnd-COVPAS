@@ -23,7 +23,6 @@ export class VigilanciaComponent implements OnInit {
   }
 
   obtener(id: any) {
-
     this.service.obtenerPaseSalidaPorId(id)
       .then((data: any) => {
         this.pase = data.pase;
@@ -47,5 +46,5 @@ export class VigilanciaComponent implements OnInit {
       alert("No se pudo registrar")
     })
   }
-
 }
+

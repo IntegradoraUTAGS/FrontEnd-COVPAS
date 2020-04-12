@@ -100,7 +100,7 @@ export class ServiceService {
   registrarVigilancia(paseSalida: any, observacion, nombreReviso, kilometrosSalida, gasolinaSalida) {
     return this.http.post(`${this.url}paseVigilancia/registrar`, { paseSalida, observacion, nombreReviso, kilometrosSalida, gasolinaSalida }).toPromise();
   }
-  
+
   registrarPaseSalidaVehiculo(body: any, id: any) {
     return this.http.post(`${this.url}paseSalidaVehiculo/registrar/${id}`, body).toPromise();
   }
