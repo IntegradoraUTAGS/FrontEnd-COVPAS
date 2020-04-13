@@ -98,11 +98,16 @@ export class ServiceService {
   }
 
   registrarVigilancia(paseSalida: any, observacion, nombreReviso, kilometrosSalida, gasolinaSalida) {
+    // tslint:disable-next-line: max-line-length
     return this.http.post(`${this.url}paseVigilancia/registrar`, { paseSalida, observacion, nombreReviso, kilometrosSalida, gasolinaSalida }).toPromise();
   }
 
   registrarPaseSalidaVehiculo(body: any, id: any) {
     return this.http.post(`${this.url}paseSalidaVehiculo/registrar/${id}`, body).toPromise();
+  }
+
+  obtenerPaseSalidaVehiculoPorNumEmpleado(num: any){
+    return this.http.get(`${this.url}paseSalidaVehiculo/obtener/${num}`).toPromise();
   }
 
 }

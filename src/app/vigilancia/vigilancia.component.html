@@ -6,40 +6,34 @@
     </nav>
     <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" [(ngModel)]="idPase" [ngModelOptions]="{standalone: true}" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-primary my-2 my-sm-0" (click)="obtener(idPase)" type="submit">Buscar</button>
+        <button class="btn btn-primary my-2 my-sm-0" (click)="obtener(idPase)" type="button">Buscar</button>
     </form>
     <div class="card" style="width: 100%;">
         <!--ngFor de todos los pases de salida por fecha actual-->
         <div class="card-body ">
             <div class="row ">
-                <div class="col ">
-                    <h5 class="card-text">Fecha de solicitud:</h5>
-                    <h5 class="card-text">Nombre:{{pase.idPersona.strNombre}}</h5>
-                    <h5 class="card-text">Departamento:</h5>
+                <div class="col">
+                    <h5 class="card-text">Fecha de solicitud:{{pase.dteFechasolicitud}}</h5>
+                    <h5 class="card-text">Nombre: {{persona.strNombre}}</h5>
                     <h5 class="card-text">No licencia:</h5>
-                    <h5 class="card-text">Destino:</h5>
-                    <h5 class="card-text">Motivo:{{pase.strMotivo}}</h5>
-                    <h5 class="card-text">Autorizo:{{pase.idAutoriza.strNombre}}</h5>
+                    <h5 class="card-text">Motivo:{{paseSalida.strMotivo}}</h5>
                 </div>
                 <div class="col">
-                    <h5 class="card-text">Unidad solicitada:</h5>
-                    <h5 class="crad-text">Autorizo vehiculo:</h5>
+                    <h5 class="card-text">Unidad solicitada:{{pase.idVehiculo.strUnidad}}</h5>
+                    <h5 class="crad-text">Autorizo vehiculo:{{pase.idAutoriza3.strNombre}}</h5>
                     <!--ng-for de autirozo -->
-                    <h5 class="card-text">Placas:</h5>
-                    <h5 class="card-text">Servicio:</h5>
-                    <h5 class="card-text">Chofer:</h5>
+                    <h5 class="card-text">Placas:{{pase.idVehiculo.strPlaca}}</h5>
+                    <h5 class="card-text">Servicio:{{pase.strServicio}}</h5>
+                    <h5 class="card-text">Chofer:{{pase.strChofer}}</h5>
                     <div class="row">
                         <div class="col">
-                            <h3 class="card-text">Salida: </h3>
+                            <h3 class="card-text">Hora de salida: {{pase.idPaseSalida.dteHoraSalida}}</h3>
                         </div>
-                        <div class="col">
-                            <h3 class="card-text">Hora:{{pase.dteHoraSalida}} </h3>
-                        </div>
-                        <div class="col">
+                        <!-- <div class="col">
                             <h3 class="card-text">KMS: </h3>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col">
                             <h3 class="card-text">Regreso: </h3>
                         </div>
@@ -49,15 +43,15 @@
                         <div class="col">
                             <h3 class="card-text">KMS: </h3>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div class="card-footer">
             <div class="row">
                 <div class="col">
-                    <h5 class="card-text">Firma del condutor o responsable</h5>
-                    <input type="text" disabled>
+                    <h5 class="card-text">Persona que lo atendio</h5>
+                    <input type="text" name="nombrePersona" #nombrePersona="ngModel" [(ngModel)]="nombreReviso">
                     <!--Ngmodel de nombre del solicitante-->
                 </div>
             </div>
@@ -67,7 +61,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Hora Salida:</label>
-                                <input  type="datetime" class="form-control" required [disabled]="pase._id !== '' ? false : true">
+                                <input  type="time" class="form-control" required [disabled]="pase._id !== '' ? false : true">
                             </div>
                             <div class="form-group">
                                 <label for="">Nivel de gasolina:</label>
@@ -84,11 +78,11 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Hora Regreso:</label>
-                                <input type="datetime" class="form-control"  required [disabled]="pase._id !== '' ? false : true">
+                                <input type="time" class="form-control"  required [disabled]="pase._id !== '' ? false : true">
                             </div>
                             <div class="form-group">
                                 <label for="">Kilometros:</label>
-                                <input type="text" [(ngModel)]="kilometrosSalida" [ngModelOptions]="{standalone: true}" [disabled]="pase._id !== '' ? false : true">
+                                <input type="number" [(ngModel)]="kilometrosSalida" [ngModelOptions]="{standalone: true}" [disabled]="pase._id !== '' ? false : true">
                             </div>
 
                         </div>
