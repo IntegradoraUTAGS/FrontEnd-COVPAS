@@ -6,7 +6,18 @@ import {ServiceService} from '../service/service.service'
   styleUrls: ['./vigilancia.component.css']
 })
 export class VigilanciaComponent implements OnInit {
-  pase = {}
+  pase = {
+blnRegreso: '',
+dteHoraRegreso: "",
+dteHoraSalida: "",
+idAutoriza: {numNoEmpleado:'', strNombre: "", strEmail: "", strTipoEmpleado: "", idDireccion: ""},
+idPersona: {numNoEmpleado: '', strNombre: "", strEmail: "", strTipoEmpleado: "", idDireccion: ""},
+strEmpresaVisita: "",
+strEstatus: "",
+strMotivo: "",
+strPersonaCita: "",
+_id: "",
+  }
   idPase= ""
   observacion =""
   kilometrosSalida=""
@@ -20,11 +31,12 @@ export class VigilanciaComponent implements OnInit {
   }
   obtener(id:any){
 
+
     this.service.obtenerPaseSalidaPorId(id).then((data)=>{
       this.pase = data['pase']
       console.log(this.pase)
     }).catch((err)=>{
-      console.error(err)
+      alert("Favor de ingresar un Id Valido")
     })
   }
 
