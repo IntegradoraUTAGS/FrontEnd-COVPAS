@@ -12,49 +12,56 @@
                     </h2>
                     <hr>
                     <form class="needs-validation" #myForm="ngForm" (ngSubmit)="guardarvehiculo(myForm)">
-                        <div class="form-group">
-                            <label for="">Unidad</label>
-                            <input type="text" class="form-control" name="unidad" #unidad="ngModel" [(ngModel)]="vehiculo.strUnidad" [ngClass]="{ 'is-invalid': !unidad.valid && unidad.touched,'is-valid': unidad.valid}" required>
-                            <div class="invalid-feedback">
-                                Ingrese una unidad.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Marca</label>
-                            <input type="text" class="form-control" name="marca" #marca="ngModel" [(ngModel)]="vehiculo.strMarca" [ngClass]="{ 'is-invalid': !marca.valid && marca.touched,'is-valid': marca.valid}" required>
-                            <div class="invalid-feedback">
-                                Ingrese una marca.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Placa</label>
-                            <input type="text" class="form-control" name="placa" #placa="ngModel" [(ngModel)]="vehiculo.strPlaca" [ngClass]="{ 'is-invalid': !placa.valid && placa.touched,'is-valid': placa.valid}" required>
-                            <div class="invalid-feedback">
-                                Ingrese las placas.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Modelo</label>
-                            <input type="text" class="form-control" name="modelo" #modelo="ngModel" [(ngModel)]="vehiculo.numModelo" [ngClass]="{ 'is-invalid': !modelo.valid && modelo.touched,'is-valid': modelo.valid}" required>
-                            <div class="invalid-feedback">
-                                Ingrese una modelo.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Motor</label>
-                            <input type="text" class="form-control" name="motor" #motor="ngModel" [(ngModel)]="vehiculo.strNodeMotor" [ngClass]="{ 'is-invalid': !motor.valid && motor.touched,'is-valid': motor.valid}" required>
-                            <div class="invalid-feedback">
-                                Ingrese un motor.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">NIV</label>
-                            <input type="text" class="form-control" name="niv" #niv="ngModel" [(ngModel)]="vehiculo.strNIV" [ngClass]="{ 'is-invalid': !niv.valid && niv.touched,'is-valid': niv.valid}" required>
-                            <div class="invalid-feedback">
-                                Ingrese una Niv.
-                            </div>
-                        </div>
 
+                        <div class="form row">
+                            <div class="col">
+                                <label for="">Unidad</label>
+                                <input type="text" class="form-control" name="unidad" #unidad="ngModel" [(ngModel)]="vehiculo.strUnidad" [ngClass]="{ 'is-invalid': !unidad.valid && unidad.touched,'is-valid': unidad.valid}" required>
+                                <div class="invalid-feedback">
+                                    Ingrese una unidad.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="">Marca</label>
+                                <input type="text" class="form-control" name="marca" #marca="ngModel" [(ngModel)]="vehiculo.strMarca" [ngClass]="{ 'is-invalid': !marca.valid && marca.touched,'is-valid': marca.valid}" required>
+                                <div class="invalid-feedback">
+                                    Ingrese una marca.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form row">
+                            <div class="col">
+                                <label for="">Placa</label>
+                                <input type="text" class="form-control" name="placa" #placa="ngModel" [(ngModel)]="vehiculo.strPlaca" [ngClass]="{ 'is-invalid': !placa.valid && placa.touched,'is-valid': placa.valid}" required>
+                                <div class="invalid-feedback">
+                                    Ingrese las placas.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="">Modelo</label>
+                                <input type="text" class="form-control" name="modelo" #modelo="ngModel" [(ngModel)]="vehiculo.numModelo" [ngClass]="{ 'is-invalid': !modelo.valid && modelo.touched,'is-valid': modelo.valid}" required>
+                                <div class="invalid-feedback">
+                                    Ingrese una modelo.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form row">
+                            <div class="col">
+                                <label for="">Motor</label>
+                                <input type="text" class="form-control" name="motor" #motor="ngModel" [(ngModel)]="vehiculo.strNodeMotor" [ngClass]="{ 'is-invalid': !motor.valid && motor.touched,'is-valid': motor.valid}" required>
+                                <div class="invalid-feedback">
+                                    Ingrese un motor.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="">NIV</label>
+                                <input type="text" class="form-control" name="niv" #niv="ngModel" [(ngModel)]="vehiculo.strNIV" [ngClass]="{ 'is-invalid': !niv.valid && niv.touched,'is-valid': niv.valid}" required>
+                                <div class="invalid-feedback">
+                                    Ingrese una Niv.
+                                </div>
+                            </div>
+                        </div>
                         <button type="submit" [disabled]="!myForm.valid" class="btn btn-secondary font-weight-normal">Guardar</button>
                         <button type="button" class="btn btn-secondary" (click)="actualizardatos()">Actualizar</button>
                     </form>
@@ -74,7 +81,7 @@
             <div class="col">
                 <legend class="text-center">Reporte de Vehiculos</legend>
                 <hr>
-                <table class="table table-dark">
+                <table class="table ">
                     <thead>
                         <th scope="col">UNIDAD</th>
                         <th scope="col">MARCA</th>

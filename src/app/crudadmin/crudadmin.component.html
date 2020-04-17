@@ -58,7 +58,7 @@
                     </div>
 
 
-                    <div class="form-group col-md-6">
+                    <div class="form-group">
                         <label for="">Dirección</label>
                         <select name="dire" class="form-control" #dire="ngModel" [(ngModel)]="Usuario.idDireccion" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
                             <option  *ngFor="let item of direcciones" value={{item._id}}>{{item.strNombre}}</option>
@@ -71,7 +71,7 @@
 
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="col">
                             <label for="">Tipo Empleado</label>
                             <select name="tipoEmp" class="form-control" #tipoEmp="ngModel" [(ngModel)]="Usuario.strTipoEmpleado" [ngClass]="{ 'is-invalid': !tipoEmp.valid && tipoEmp.touched,'is-valid': tipoEmp.valid}" required>
                             <option value="PA">Profesor Tiempo Completo</option>
@@ -82,7 +82,7 @@
                             </div>
 
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="col ">
                             <label for="">Licencia*Puedes omitir esta parte*</label>
                             <input type="file" class="form-control">
                         </div>

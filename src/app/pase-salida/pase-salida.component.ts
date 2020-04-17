@@ -5,7 +5,8 @@ import { PaseSalida } from '../models/modelPasedalida';
 import { NgForm } from '@angular/forms';
 import * as jwt_decode from 'jwt-decode';
 import { NotificationService } from '../service/notification.service';
-
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-pase-salida',
   templateUrl: './pase-salida.component.html',
@@ -17,7 +18,7 @@ export class PaseSalidaComponent implements OnInit {
    passalida: PaseSalida = new PaseSalida();
    informacion: any;
    usuarios: any;
-  constructor(public service: ServiceService, private alert: NotificationService) { }
+  constructor(public service: ServiceService, private alert: NotificationService, public route: Router) { }
  
   ngOnInit() {
     this.obtenerUsuarios();
@@ -56,8 +57,6 @@ export class PaseSalidaComponent implements OnInit {
     this.service.registrarPaseSalida(this.passalida, id).then((paseSalida: any) => {
       console.log(paseSalida);
       localStorage.setItem('idPaseSalida', paseSalida.cont._id);
-      this.alert.showSuccess('', 'Registro exitoso');
-
       this.service.obtenerEstatusPaseSalida(paseSalida.cont._id).then((resp: any) => {
         console.log(resp);
         localStorage.setItem('status', resp.pase.strEstatus);
@@ -82,11 +81,29 @@ export class PaseSalidaComponent implements OnInit {
         console.log(err);
       });
       myform.reset();
+      Swal.fire({
+        title: '¿Necesita un vehiculo?',
+        icon: 'question',
+        showCancelButton: true,
+        cancelButtonText: 'No',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si'
+      }).then((result) => {
+        if (result.value) {
+         this.route.navigateByUrl('vehiculo');
+        }
+      }).catch((err) => {
+        console.log(err);
+        this.route.navigateByUrl('menu');
+      });
     }).catch((err: any) => {
       console.log(err);
       this.alert.showError('Registro fallo ', 'Algo salio mal');
     });
   }
+  
+ 
 
 
 }

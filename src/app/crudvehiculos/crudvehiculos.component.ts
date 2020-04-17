@@ -3,6 +3,7 @@ import { ServiceService } from '../service/service.service';
 import { Vehiculo } from '../models/vehiculo';
 import { NgForm } from '@angular/forms';
 import { NotificationService } from '../service/notification.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crudvehiculos',
@@ -48,11 +49,28 @@ export class CrudvehiculosComponent implements OnInit {
     this.vehiculo.strUnidad = item.strUnidad;
   }
   eliminar(id: any) {
-    this.servie.eliminarVehiculo(id).then((resp: any) => {
-      this.mostrarVehiculos();
-    }).catch((err: any) => {
-      console.log(err);
-    });
+    Swal.fire({
+      title: '¿Desea borrar el vehiculo?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'No',
+      confirmButtonText: 'Si'
+    }).then((result) => {
+      if (result.value) {
+        this.servie.eliminarVehiculo(id).then((resp: any) => {
+          this.mostrarVehiculos();
+        }).catch((err: any) => {
+          console.log(err);
+        });
+        Swal.fire(
+          'Borrado!',
+          'EL vehiculo ha sido borrado',
+          'success'
+        );
+      }
+    });  
   }
   actualizardatos() {
     let id = localStorage.getItem('idVehiculo');
@@ -76,5 +94,5 @@ export class CrudvehiculosComponent implements OnInit {
       console.log(err);
     });
   }
-
+ 
 }
