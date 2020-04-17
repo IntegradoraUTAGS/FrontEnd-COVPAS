@@ -5,6 +5,7 @@ import { PaseSalida } from '../models/modelPasedalida';
 import { NgForm } from '@angular/forms';
 import * as jwt_decode from 'jwt-decode';
 import { NotificationService } from '../service/notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pase-salida',
@@ -17,7 +18,7 @@ export class PaseSalidaComponent implements OnInit {
    passalida: PaseSalida = new PaseSalida();
    informacion: any;
    usuarios: any;
-  constructor(public service: ServiceService, private alert: NotificationService) { }
+  constructor(public service: ServiceService, private alert: NotificationService, public router: Router) { }
  
   ngOnInit() {
     this.obtenerUsuarios();
@@ -57,6 +58,7 @@ export class PaseSalidaComponent implements OnInit {
       console.log(paseSalida);
       localStorage.setItem('idPaseSalida', paseSalida.cont._id);
       this.alert.showSuccess('', 'Registro exitoso');
+      this.router.navigateByUrl('menu');
 
       this.service.obtenerEstatusPaseSalida(paseSalida.cont._id).then((resp: any) => {
         console.log(resp);
