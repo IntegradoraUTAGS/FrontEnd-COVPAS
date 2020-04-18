@@ -32,8 +32,9 @@ import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/
 import { CrudvehiculosComponent } from './crudvehiculos/crudvehiculos.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { ToastrModule } from 'ngx-toastr';
-import { DatePipe } from "@angular/common";
+import { DatePipe } from '@angular/common';
 import { FilterPipe } from './pipes/filter.pipe';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,10 +68,10 @@ import { FilterPipe } from './pipes/filter.pipe';
     MatCheckboxModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    SweetAlert2Module.forRoot()
   ],
-  providers: [ServiceService,DatePipe,
+  providers: [ServiceService, DatePipe,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorService,

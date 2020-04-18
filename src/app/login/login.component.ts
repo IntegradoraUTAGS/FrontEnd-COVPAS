@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', usuario.token);
       this.router.navigateByUrl('menu');
     }).catch((err: any) => {
-      this.notifyService.showError(err.error.message,"Algo salio mal" );
+      this.notifyService.showError(err.error.err.message, 'Algo salio mal' );
       console.log(err);
     });
   }

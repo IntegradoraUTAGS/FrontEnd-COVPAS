@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
 import { NotificationService } from '../service/notification.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crudadmin',
@@ -51,12 +52,29 @@ obtenerPersonas() {
 }
 
 eliminarPersonas(id: any) {
-  this.service.eliminarUsuario(id).then((resp) => {
-    console.log(resp);
-    this.obtenerPersonas();
-  }).catch((err) => {
-    console.log(err);
-  });
+ Swal.fire({
+      title: '¿Desea borrar la persona?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'No',
+      confirmButtonText: 'Si'
+    }).then((result) => {
+      if (result.value) {
+        this.service.eliminarUsuario(id).then((resp) => {
+          console.log(resp);
+          this.obtenerPersonas();
+        }).catch((err) => {
+          console.log(err);
+        });
+        Swal.fire(
+          'Borrado!',
+          'EL vehiculo ha sido borrado',
+          'success'
+        );
+      }
+    });  
 }
 
 editar(id) {
