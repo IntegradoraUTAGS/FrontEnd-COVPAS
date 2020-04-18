@@ -62,7 +62,7 @@
             <label class="form-check-label" for="exampleCheck1"> Voy a regresar</label>
         </div>
         <!--===============================================================================-->
-        <div class="form-row" *ngFor="let item of traslados;    let index=index">
+        <div class="form-row row" *ngFor="let item of traslados;    let index=index">
 
             <div class="form-group col">
                 <label>De:</label>
@@ -125,7 +125,8 @@
 
                 <label>Autorizo:</label>
                 <select class="form-control " name="autoriza " #autoriza="ngModel" [(ngModel)]="passalida.idAutoriza" [ngClass]="{ 'is-invalid': !autoriza.valid && autoriza.touched, 'is-valid': autoriza.valid}" required>
-                      <option  *ngFor="let item of usuarios" value={{item._id}}>{{item.strNombre}}</option>
+                    <option [ngValue]="undefined" selected hidden>Seleccione una persona</option>  
+                    <option  *ngFor="let item of usuarios" value={{item._id}}>{{item.strNombre}}</option>
                     </select>
                 <div class="invalid-feedback">
                     Ingrese quien autoriza.
