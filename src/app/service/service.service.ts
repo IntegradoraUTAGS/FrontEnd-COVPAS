@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { PaseSalida } from '../models/modelPasedalida';
 import { Traslado } from '../models/traslado';
+import { environment } from '../../environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
   userLogged: boolean;
-  private url: string = 'http://localhost:3000/';
+  url = environment.urlProd;
   // registrar persona: persona/registrar
   // obtener persona: persona/obtener
   // registrar paseSalida: paseSalida/registrar
