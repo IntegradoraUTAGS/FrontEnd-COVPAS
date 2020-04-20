@@ -13,18 +13,18 @@ import { ConfirmarPasesalidaComponent } from './Components/confirmar-pasesalida/
 import { VigilanciaComponent } from './vigilancia/vigilancia.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
-import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/confirmar-vacaciones.component';
+import { ConfirmarVacacionesComponent } from './Components/confirmar-vacaciones/confirmar-vacaciones.component';
 import { CrudvehiculosComponent } from './crudvehiculos/crudvehiculos.component';
 import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'pase-salida', component: PaseSalidaComponent},
-  { path: 'menu', component: MenuComponent},
+  { path: 'pase-salida', component: PaseSalidaComponent, canActivate: [LoginGuard]},
+  { path: 'menu', component: MenuComponent,canActivate: [LoginGuard]},
   { path: 'login' , component: LoginComponent},
-  { path: 'solivaca', component: SoliVacacionesComponent},
+  { path: 'solivaca', component: SoliVacacionesComponent,canActivate: [LoginGuard]},
   { path: 'registro', component: RegistroComponent},
-  { path: 'vehiculo', component: VehiculoComponent},
+  { path: 'vehiculo', component: VehiculoComponent,canActivate: [LoginGuard]},
   { path: 'admin', component: CRUDAdminComponent },
   { path: 'confirmar-pase-salida/:id/:strEstatus', component: ConfirmarPasesalidaComponent},
   { path: 'vigilancia', component: VigilanciaComponent},
@@ -32,7 +32,8 @@ const routes: Routes = [
   { path: 'home' , component: HomeComponent},
   { path: 'confirmar-vacaciones/:id/:strEstatus', component: ConfirmarVacacionesComponent},
   { path: 'crudvehiculo', component: CrudvehiculosComponent},
-  { path: 'reportes', component: ReportesComponent}
+  { path: 'reportes', component: ReportesComponent},
+  { path: '**', component:LoginComponent }
 ];
 
 @NgModule({
