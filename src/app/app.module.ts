@@ -27,7 +27,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { VigilanciaComponent } from './vigilancia/vigilancia.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
-import { ConfirmarVacacionesComponent } from './components/confirmar-vacaciones/confirmar-vacaciones.component';
+import { ConfirmarVacacionesComponent } from './Components/confirmar-vacaciones/confirmar-vacaciones.component';
 
 import { CrudvehiculosComponent } from './crudvehiculos/crudvehiculos.component';
 import { ReportesComponent } from './reportes/reportes.component';
