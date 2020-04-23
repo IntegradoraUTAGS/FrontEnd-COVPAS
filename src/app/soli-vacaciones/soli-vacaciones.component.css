@@ -28,6 +28,13 @@
     display: block;
     transition: 0.3s;
 }
+.sidenav .menu {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 30px;
+    margin-top: 10px;
+    }
 
 .sidenav a:hover {
     color: #ffffff;

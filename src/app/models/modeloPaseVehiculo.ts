@@ -12,4 +12,5 @@ export class paseVehiculo {
     idAutoriza3: string;
     idAutoriza4: string;
     strEstatus: string;
+    anyLicencia: any;
 }

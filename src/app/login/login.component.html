@@ -3,7 +3,7 @@
     <form class="needs-validation" (ngSubmit)="ingresar(myForm)" #myForm="ngForm">
         <div class="form-group">
             <label for="">Numero de Empleado</label>
-            <input class="form-control" [(ngModel)]="usuario.numNoEmpleado" maxlength="4" type="text" name="numEmpleado" #numEmpleado="ngModel" [ngClass]="{ 'is-invalid': !numEmpleado.valid && numEmpleado.touched,'is-valid': numEmpleado.valid}" required>
+            <input class="form-control" [(ngModel)]="usuario.numNoEmpleado"  minlength="4" maxlength="4" type="number" name="numEmpleado" #numEmpleado="ngModel" [ngClass]="{ 'is-invalid': (!numEmpleado.valid && numEmpleado.touched)||(numEmpleado.value<999||numEmpleado.value>9999),'is-valid': numEmpleado.valid}" required>
             <div class="invalid-feedback">
                 Ingrese un número de empleado.
             </div>
