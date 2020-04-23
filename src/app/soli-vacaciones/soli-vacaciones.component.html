@@ -99,8 +99,8 @@
         </div> -->
         </div>
         <div class="form-row">
-                <ul class="list-group list-group-horizontal " *ngFor="let item of days" >
-                    <li class="list-group-item"><h2><span class="badge badge-success">{{item| date}}</span><a (click)="eliminar()" class="badge badge-secondary">eliminar</a></h2></li>
+                <ul class="list-group list-group-horizontal " *ngFor="let item of days; let index= index" >
+                    <li class="list-group-item"><h2><span class="badge badge-success">{{item| date}}</span><a (click)="eliminar(index)" class="badge badge-secondary">eliminar</a></h2></li>
                 </ul>
                 
             </div>

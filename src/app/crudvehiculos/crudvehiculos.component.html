@@ -63,8 +63,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" [disabled]="!myForm.valid" class="btn btn-secondary font-weight-normal">Guardar</button>
-                        <button type="button" class="btn btn-secondary" (click)="actualizardatos()">Actualizar</button>
+                        <button type="submit" [disabled]="!myForm.valid" *ngIf="blnmostrar==true" class="btn btn-secondary font-weight-normal">Guardar</button>
+                        <button type="button" *ngIf="blnmostrar==false" class="btn btn-secondary" (click)="actualizardatos(myForm)">Actualizar</button>
                     </form>
                 </div>
             </div>
