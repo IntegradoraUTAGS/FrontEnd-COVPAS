@@ -39,8 +39,18 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    margin-top: 10px;
 }
 
+.sidenav .menu {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 30px;
+    margin-top: 10px;
+    
+    
+}
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;

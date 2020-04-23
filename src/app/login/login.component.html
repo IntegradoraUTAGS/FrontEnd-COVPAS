@@ -1,8 +1,5 @@
-<div class="container">
-    <div class="text-center" style="width: 50%;">
-        <img src="../../assets/imagen/Logo2.png" style="width: 100%; text-align: center;" alt="">
-    </div>
-
+<app-nav2></app-nav2>
+<div class="container my-5">
     <form class="needs-validation" (ngSubmit)="ingresar(myForm)" #myForm="ngForm">
         <div class="form-group">
             <label for="">Numero de Empleado</label>
@@ -27,4 +24,6 @@
             </div>
         </div>
     </form>
+    
+    <app-modify-user></app-modify-user>
 </div>

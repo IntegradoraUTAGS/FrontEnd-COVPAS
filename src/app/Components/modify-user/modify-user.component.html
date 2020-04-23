@@ -1,46 +1,5 @@
-<form class="needs-validation" (ngSubmit)="actualizarUsuario(myForm, persona._id)" #myForm="ngForm">
-    <div class="form-group">
-        <label for="">Numero de Empleado</label>
-        <input type="number" class="form-control" name="num" #num="ngModel" [(ngModel)]="persona.numNoEmpleado" disabled required>
-
-    </div>
-    <div class="form-group">
-        <label for="">Nombre completo </label>
-        <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="persona.strNombre" disabled required>
-
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="">Dirección</label>
-            <input name="dire" class="form-control" #dire="ngModel" [(ngModel)]="persona.idDireccion.strNombre" disabled required>
-        </div>
-
-    </div>
-    <div class="form-row">
-        <div class="form-group col">
-            <label for="">Tipo Empleado</label>
-            <select name="tipoEmp" class="form-control" #tipoEmp="ngModel" [(ngModel)]="persona.strTipoEmpleado" [ngClass]="{ 'is-invalid': !tipoEmp.valid && tipoEmp.touched,'is-valid': tipoEmp.valid}" required>
-            <option value="PTC">Profesor Tiempo Completo</option>
-            <option value="PA">Profesor Asignatura</option>
-        </select>
-            <div class="invalid-feedback">
-                Ingrese un tipo de empleado.
-            </div>
-
-        </div>
-        <div class="form-group col">
-            <label for="">Licencia*Puedes omitir esta parte*</label>
-            <input type="file" class="form-control">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="">Correo</label>
-        <input type="email" class="form-control" placeholder="example@utags.edu.mx" name="correo" #correo="ngModel" [(ngModel)]="persona.strEmail" disabled required>
-    </div>
-    <div class="form-group">
-        <label for="">Dias de vacaciones</label>
-        <input type="number" class="form-control" name="number" #number="ngModel" [(ngModel)]="persona.numDiasDisponibles" required>
-    </div>
-    <button type="submit" class="btn btn-primary " [disabled]="!myForm.valid ">Actualizar</button>
-</form>
+<footer class="footer mt-auto bg-dark py-3 ">
+  <div class="container">
+    <span class="text-muted">Proyecto desarrollado por alumnos de la Universidad Tecnologica de Aguascalientes</span>
+  </div>
+</footer>
