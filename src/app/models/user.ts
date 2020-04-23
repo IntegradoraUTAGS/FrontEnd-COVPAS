@@ -1,5 +1,5 @@
 export class User{
-
+    strRole: string;
     numNoEmpleado: number;
     strTipoEmpleado: string;
     strNombre: string;

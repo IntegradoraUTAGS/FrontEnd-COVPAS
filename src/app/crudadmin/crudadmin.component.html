@@ -166,6 +166,17 @@
                             <label for="">Dias de vacaciones</label>
                             <input type="number" class="form-control" name="number" #number="ngModel" [(ngModel)]="persona.numDiasDisponibles" required>
                         </div>
+                        <div class="form-group">
+                            <label for="">Rol de Empleado</label>
+                            <select name="role" class="form-control" #role="ngModel" [(ngModel)]="persona.strRole" [ngClass]="{ 'is-invalid': !role.valid && role.touched,'is-valid': role.valid}" required>
+                            <option value="Usuario">Usuario</option>
+                            <option value="Admin">Administrador</option>
+                        </select>
+                            <div class="invalid-feedback">
+                                Ingrese un tipo de empleado.
+                            </div>
+
+                        </div>
                         <button type="submit" class="btn btn-primary " [disabled]="!myForm.valid ">Actualizar</button>
                     </form>
                 </div>

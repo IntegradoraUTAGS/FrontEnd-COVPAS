@@ -42,6 +42,7 @@ import { Nav2Component } from './Components/nav2/nav2.component';
     PaseSalidaComponent,
     MenuComponent,
     NavComponent,
+    Nav2Component,
     LoginComponent,
     SoliVacacionesComponent,
     RegistroComponent,
@@ -56,8 +57,7 @@ import { Nav2Component } from './Components/nav2/nav2.component';
     ConfirmarVacacionesComponent,
     CrudvehiculosComponent,
     ReportesComponent,
-    FilterPipe,
-    Nav2Component
+    FilterPipe
   ],
   imports: [
     BrowserModule,

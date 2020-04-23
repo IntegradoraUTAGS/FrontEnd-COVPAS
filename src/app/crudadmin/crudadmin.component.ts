@@ -121,7 +121,7 @@ obtenerPersona(){
   this.service.obtenerPorIdPersona(id).then((resp: any) => {
     console.log(resp);
     this.persona = resp.resp;
-    console.log(this.persona.numNoEmpleado);
+    console.log(this.persona);
     localStorage.setItem('idModify', '');
   }).catch((err: any) => {
     console.log(err);
@@ -130,7 +130,8 @@ obtenerPersona(){
 actualizarUsuario(myForm: NgForm, id: any) {
   const personita = {
     strTipoEmpleado: this.persona.strTipoEmpleado,
-    numDiasDisponibles: this.persona.numDiasDisponibles
+    numDiasDisponibles: this.persona.numDiasDisponibles,
+    strRole: this.persona.strRole
   }
   this.service.actualizarUsuario(personita, id).then((usuario: any) => {
     console.log(usuario);
