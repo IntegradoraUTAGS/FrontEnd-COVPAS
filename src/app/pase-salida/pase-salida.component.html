@@ -1,10 +1,10 @@
 <app-nav></app-nav>
-<div class="container ">
+<div class="container mt-5">
     <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
     <P class="text-center">PASE DE SALIDA PERSONAL</P>
 </div>
 
-<div class="container">
+<div class="container mb-5">
 
     <div class="form-group">
         <label>Dirección:</label>
@@ -62,7 +62,9 @@
             <label class="form-check-label" for="exampleCheck1"> Voy a regresar</label>
         </div>
         <!--===============================================================================-->
-        <div class="form-row row" *ngFor="let item of traslados;    let index=index">
+
+        <div class="form-row" *ngFor="let item of traslados; let index=index">
+
 
             <div class="form-group col">
                 <label>De:</label>
@@ -85,7 +87,7 @@
 
         </div>
         <div>
-            <button type="button" class="btn btn-primary " slot="end " (click)="agregar() ">agregar</button>
+            <button class="btn btn-primary " slot="end " (click)="agregar() ">agregar</button>
         </div>
 
 
@@ -137,3 +139,4 @@
         <button type="submit " [disabled]="!myForm.valid" class="btn btn-primary">Enviar</button>
     </form>
 </div>
+<app-add-user></app-add-user>

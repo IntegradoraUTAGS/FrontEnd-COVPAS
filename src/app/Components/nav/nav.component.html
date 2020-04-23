@@ -1,23 +1,68 @@
-<nav class="navbar navbar-light bg-secondary">
+<!-- <nav class="navbar navbar-light bg-secondary"> -->
 
-    <div class="col">
+   <!--  <div class="col">
         <img (click)="openNav()" class="img" src="../../../assets/imagen/menu.png" alt="">
     </div>
     <div class="col text-left">
-        <a class="navbar-brand">{{informacion.usuario.strNombre}}</a>
+        <a class="navbar-brand">Control de Vacaiones, Pase de salida personal y vehicular</a>
     </div>
+    
+   <div class="btn-group col" role="group" aria-label="Button group with nested dropdown">
 
-    <div class="col text-right">
+  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Solicitudes
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" href="/pase-salida">Pase Saldia</a>
+      <a *ngIf="informacion.usuario.strTipoEmpleado==='PTC'" class="dropdown-item" href="/solivaca">Vacaciones</a>
+      <a class="dropdown-item" href="/vehiculo" *ngIf="status=='En progreso'">Vehiculos</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="text-center">
         <label> Estatus</label>
         <br>
         <span class="badge badge-warning">{{status ||'Sin reportes' }}</span>
     </div>
+     -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <img (click)="openNav()" class="img" src="../../../assets/imagen/menu.png" alt="">
+
+  <a class="navbar-brand mx-4"style="color:white;" >Control de Vacaiones, Pase de salida personal y vehicular</a>
+  
+
+  <div class="collapse navbar-collapse ml-4 pl-5" id="navbarSupportedContent" >
+    <ul class="navbar-nav mr-auto">
+     
+      <li class="nav-item">
+        <a class="nav-link" href="/pase-salida" style="color:white;">Pase Saldia</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/vehiculo" style="color:white;" *ngIf="status=='En progreso'">Vehiculos</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/solivaca" style="color:white;" *ngIf="informacion.usuario.strTipoEmpleado==='PTC'">Vacaciones<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+     <div class="text-center mr-5 pr-5">
+        <label style="color:white;"> Estatus</label>
+        <br>
+        <span class="badge badge-warning">{{status ||'Sin reportes' }}</span>
+    </div>
+  </div>
 </nav>
+<!-- </nav> -->
 <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <label class="h5">Tipo empleado: {{informacion.usuario.strTipoEmpleado}}</label>
+        <label class="menu" style="color:white;">Menu</label>
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <label class="h5" style="color:white;">{{informacion.usuario.strNombre}}</label>
     <br>
-    <label class="h5">No Empleado:{{informacion.usuario.numNoEmpleado}}</label>
+    <label class="h5" style="color:white;">Tipo empleado: {{informacion.usuario.strTipoEmpleado}}</label>
+    <br>
+    <label class="h5" style="color:white;">No Empleado:{{informacion.usuario.numNoEmpleado}}</label>
     <button routerLink="/menu" class="btn btn-dark w-100">Menu</button>
     <button routerLink="/pase-salida" class="btn btn-dark  w-100">Pase Saldia</button>
     <button routerLink="/solivaca" class="btn btn-dark  w-100" *ngIf="informacion.usuario.strTipoEmpleado==='PTC'">Vacaciones</button>

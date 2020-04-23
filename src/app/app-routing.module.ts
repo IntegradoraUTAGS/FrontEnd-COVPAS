@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'login' , component: LoginComponent},
   { path: 'solivaca', component: SoliVacacionesComponent,canActivate: [LoginGuard]},
   { path: 'registro', component: RegistroComponent},
-  { path: 'vehiculo', component: VehiculoComponent,canActivate: [LoginGuard]},
+  { path: 'vehiculo', component: VehiculoComponent, canActivate: [LoginGuard]},
   { path: 'admin', component: CRUDAdminComponent },
   { path: 'confirmar-pase-salida/:id/:strEstatus', component: ConfirmarPasesalidaComponent},
   { path: 'vigilancia', component: VigilanciaComponent},

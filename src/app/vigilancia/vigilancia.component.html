@@ -1,9 +1,8 @@
+<app-nav2></app-nav2>
 <div class="container">
-    <nav class="navbar">
-        <h3>UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</h3>
-        <br>
+    <div class="text-center">
         <h3>DEPARTAMENTO DE SERVICIOS GENERALES</h3>
-    </nav>
+    </div>
     <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" [(ngModel)]="idPase" [ngModelOptions]="{standalone: true}" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-primary my-2 my-sm-0" (click)="obtener(idPase)" type="button">Buscar</button>
@@ -106,3 +105,4 @@
     </div>
 
 </div>
+ <app-modify-user></app-modify-user>
