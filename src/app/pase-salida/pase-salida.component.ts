@@ -92,10 +92,12 @@ export class PaseSalidaComponent implements OnInit {
       }).then((result) => {
         if (result.value) {
          this.route.navigateByUrl('vehiculo');
+         this.alert.showSuccess('', 'Registro correcto');
         }
       }).catch((err) => {
         console.log(err);
         this.route.navigateByUrl('menu');
+        this.alert.showSuccess('', 'Registro correcto');
       });
     }).catch((err: any) => {
       console.log(err);

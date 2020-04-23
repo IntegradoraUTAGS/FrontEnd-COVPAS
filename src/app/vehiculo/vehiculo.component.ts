@@ -6,6 +6,7 @@ import { paseVehiculo } from '../models/modeloPaseVehiculo';
 import { NgForm } from '@angular/forms';
 import { NotificationService } from '../service/notification.service';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehiculo',
@@ -21,7 +22,7 @@ export class VehiculoComponent implements OnInit {
   placass: any;
   personas: any;
  
-  constructor(public service: ServiceService,private alert:NotificationService, private date: DatePipe) { }
+  constructor(public service: ServiceService,private alert:NotificationService, private date: DatePipe, public router: Router) { }
 
    ngOnInit() {
     this.informacion = jwt_decode(localStorage.getItem('token'));
@@ -71,8 +72,9 @@ export class VehiculoComponent implements OnInit {
     console.log(this.pasevehiculo);
     this.service.registrarPaseSalidaVehiculo(this.pasevehiculo,id).then((resp: any) => {
       console.log(resp);
-
       this.alert.showSuccess('','Registrado correctamente');
+      myForm.reset();
+      this.router.navigateByUrl('menu');
     }).catch((err: any) => {
       console.log(err);
       this.alert.showError(err.msg,'Algo salio mal');

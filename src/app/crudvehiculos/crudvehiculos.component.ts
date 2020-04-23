@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class CrudvehiculosComponent implements OnInit {
   vehiculo = new Vehiculo();
   datos: any;
+  blnmostrar= true;
   
 
   constructor(public servie: ServiceService, private alert: NotificationService) { }
@@ -47,6 +48,7 @@ export class CrudvehiculosComponent implements OnInit {
     this.vehiculo.strNodeMotor = item.strNodeMotor;
     this.vehiculo.strPlaca = item.strPlaca;
     this.vehiculo.strUnidad = item.strUnidad;
+    this.blnmostrar=false;
   }
   eliminar(id: any) {
     Swal.fire({
@@ -72,12 +74,14 @@ export class CrudvehiculosComponent implements OnInit {
       }
     });  
   }
-  actualizardatos() {
+  actualizardatos(myForm: NgForm) {
     let id = localStorage.getItem('idVehiculo');
     this.servie.actualizarVehiculo(this.vehiculo,id).then((resp: any) => {
       console.log(resp);
       this.mostrarVehiculos();
       this.alert.showSuccess('', 'actualizado correctamente');
+      this.blnmostrar= true;
+      myForm.reset();
     }).catch((err: any) => {
       console.log(err);
       this.alert.showError(err.error.menssage, 'Algo salio mal');

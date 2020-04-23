@@ -49,7 +49,10 @@ export class SoliVacacionesComponent implements OnInit {
       console.log(element);
     }
   }
-  eliminar() {
+  eliminar(index) {
+    console.log(index);
+    this.days.splice(index, 1);
+
     
   }
   Registrarvacaciones(solicitudVacaciones: PaseVacaciones) {
