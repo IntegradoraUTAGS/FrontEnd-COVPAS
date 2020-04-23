@@ -35,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { Nav2Component } from './Components/nav2/nav2.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ConfirmarVacacionesComponent,
     CrudvehiculosComponent,
     ReportesComponent,
-    FilterPipe
+    FilterPipe,
+    Nav2Component
   ],
   imports: [
     BrowserModule,
