@@ -1,15 +1,8 @@
-<div class="container-fluid">
-    <div class="h1 bg-secondary text-center">
-        Administración de empleados, vehiculos y reportes
+<app-nav2></app-nav2>
+<div class="container-fluid my-5">
+    <div class="text-center">
+       <h3 class="text-center">ADMINISTRACIÓN DE EMPLEADOS, VEHICULOS Y REPORTES</h3>
     </div>
-    <nav class="navbar navbar-light bg-light ">
-        <div class="container">
-            <button class="btn btn-primary" (click)="gotoreportes()">Reportes</button>
-            <button class="btn btn-secondary" (click)="gotocrudvehiculos()">Administrar vehiculos</button>
-        </div>
-
-
-    </nav>
     <div class="row">
 
         <div class="col">
@@ -17,6 +10,9 @@
                 <div class="form-inline">
                     <input class="form-control mr-sm-2" type="text" placeholder="Buscar" name="filter" [(ngModel)]="filterPost">
                 </div>
+                <button class="btn btn-primary" (click)="gotoreportes()">Reportes</button>
+                <button class="btn btn-secondary" (click)="gotocrudvehiculos()">Administrar vehiculos</button>
+
             </nav>
             <div class="card" style="width: 100%;" *ngFor="let item of personas | filter:filterPost">
                 <div class="card-body">
@@ -38,13 +34,13 @@
 
         <div class="col">
             <div class="container" *ngIf="edit===false; else show">
-                <div class="h1 bg-primary">
+                <div class="h3 bg-secondary text-center">
                     Agregar Usuario
                 </div>
                 <form (ngSubmit)="registrarUsuario(myForm)" #myForm="ngForm">
                     <div class="form-group">
                         <label for="">Numero de Empleado</label>
-                        <input type="number" class="form-control" name="num" #num="ngModel" [(ngModel)]="Usuario.numNoEmpleado" [ngClass]="{ 'is-invalid': !num.valid && num.touched,'is-valid': num.valid}" required>
+                        <input type="number" class="form-control" name="num" #num="ngModel" [(ngModel)]="Usuario.numNoEmpleado" [ngClass]="{ 'is-invalid': (!num.valid && num.touched)||(num.value<999||num.value>9999),'is-valid': num.valid}" required>
                         <div class="invalid-feedback">
                             Ingrese un número de empleado.
                         </div>
@@ -62,6 +58,7 @@
                         <label for="">Dirección</label>
                         <select name="dire" class="form-control" #dire="ngModel" [(ngModel)]="Usuario.idDireccion" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
                             <option  *ngFor="let item of direcciones" value={{item._id}}>{{item.strNombre}}</option>
+                            <option [ngValue]="undefined" selected hidden>Seleccione una dirección</option>  
                         </select>
                         <div class="invalid-feedback">
                             Ingrese una dirección.
@@ -74,6 +71,7 @@
                         <div class="col">
                             <label for="">Tipo Empleado</label>
                             <select name="tipoEmp" class="form-control" #tipoEmp="ngModel" [(ngModel)]="Usuario.strTipoEmpleado" [ngClass]="{ 'is-invalid': !tipoEmp.valid && tipoEmp.touched,'is-valid': tipoEmp.valid}" required>
+                                <option [ngValue]="undefined" selected hidden>Seleccione tipo empleado</option>  
                             <option value="PA">Profesor Tiempo Completo</option>
                             <option value="PTC">Profesor Asignatura</option>
                         </select>
@@ -119,8 +117,9 @@
             </div>
             <ng-template #show>
                 <div class="container">
-                    <div class=" h1 bg-primary">
-                        <button type="button" class="btn btn-secondary" (click)="editar2()">Volver</button> Editar Usuario
+                    <div class="bg-primary h3 text-center">
+                        <button type="button" class="btn btn-secondary mr-5" (click)="editar2()">Volver</button>
+                         Editar Usuario
                     </div>
                     <form class="needs-validation" (ngSubmit)="actualizarUsuario(myForm, persona._id)" #myForm="ngForm">
                         <div class="form-group">

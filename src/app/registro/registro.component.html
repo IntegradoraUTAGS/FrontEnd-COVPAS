@@ -2,8 +2,8 @@
 <div class="container my-5">
     <form class="needs-validation" (ngSubmit)="registrarUsuario(myForm)" #myForm="ngForm">
         <div class="form-group">
-            <label for="">Numero de Empleado</label>
-            <input type="text" class="form-control" name="num" #num="ngModel" [(ngModel)]="Usuario.numNoEmpleado" [ngClass]="{ 'is-invalid': !num.valid && num.touched,'is-valid': num.valid}" maxlength="4" required>
+            <label for="">Número de Empleado</label>
+            <input type="number" class="form-control" name="num" #num="ngModel" [(ngModel)]="Usuario.numNoEmpleado" [ngClass]="{ 'is-invalid': (!num.valid && num.touched)||(num.value<999||num.value>9999),'is-valid': num.valid}" maxlength="4" required>
             <div class="invalid-feedback">
                 Ingrese un número de empleado.
             </div>
@@ -19,6 +19,7 @@
         <div class="form-group">
             <label for="">Dirección</label>
             <select name="dire" class="form-control" #dire="ngModel" [(ngModel)]="Usuario.idDireccion" [ngClass]="{ 'is-invalid': !dire.valid && dire.touched,'is-valid': dire.valid}" required>
+                <option [ngValue]="undefined" selected hidden>Seleccione una direción</option>  
                     <option  *ngFor="let item of direcciones" value={{item._id}}>{{item.strNombre}}</option>
                 </select>
             <div class="invalid-feedback">
@@ -30,6 +31,7 @@
             <div class="form-group col-md-6">
                 <label for="">Tipo Empleado</label>
                 <select name="tipoEmp" class="form-control" #tipoEmp="ngModel" [(ngModel)]="Usuario.strTipoEmpleado" [ngClass]="{ 'is-invalid': !tipoEmp.valid && tipoEmp.touched,'is-valid': tipoEmp.valid}" required>
+                    <option [ngValue]="undefined" selected hidden>Seleccione tipo empleado</option>  
                     <option value="PTC">Profesor Tiempo Completo</option>
                     <option value="PA">Profesor Asignatura</option>
                 </select>

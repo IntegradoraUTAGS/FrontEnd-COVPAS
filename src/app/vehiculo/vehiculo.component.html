@@ -1,9 +1,9 @@
 <app-nav></app-nav>
-<div class="container ">
+<div class="container mt-5 ">
     <p class="text-center">UNIVERSIDAD TECNOLOGICA DE AGUASCALIENTES</p>
     <P class="text-center">SOLICITUD DE VEHICULO</P>
 </div>
-<div class="container">
+<div class="container mb-5">
 
     <form class="needs-validation" #myForm="ngForm" (ngSubmit)="registrarPaseSalidaVehiculo(myForm)">
         <div class="form-row">
@@ -15,6 +15,7 @@
                 <label>Unidad Solicitada:</label>
                 <select (change)="mostrarPlacas(pasevehiculo.idVehiculo)" class="form-control" name="unidad" #unidad="ngModel" [(ngModel)]="pasevehiculo.idVehiculo" [ngClass]="{ 'is-invalid': !unidad.valid && unidad.touched,'is-valid': unidad.valid}" required>
                     <option *ngFor="let item of vehiculos" value={{item._id}}>{{item.strUnidad}}</option>
+                    <option [ngValue]="undefined" selected hidden>Seleccione una unidad</option>  
             </select>
                 <div class="invalid-feedback">
                     Ingrese una unidad.
@@ -38,6 +39,7 @@
                 <select class="form-control" name="servicio" #servicio="ngModel" [(ngModel)]="pasevehiculo.strServicio" [ngClass]="{ 'is-invalid': !servicio.valid && servicio.touched,'is-valid': servicio.valid}" required>
                     <option value="local">Local</option>
                     <option value="foraneo">Foraneo</option>
+                    <option [ngValue]="undefined" selected hidden>Seleccione un servicio</option>  
                     
             </select>
                 <div class="invalid-feedback">
@@ -50,16 +52,17 @@
             </div>
         </div>
         <div class="form-row">
-            <!-- <div class="form-group col">
+            <div class="form-group col">
                 <label>Licencia:</label>
-                <input type="number" class="form-control" name="licencia" #licencia="ngModel" [(ngModel)]="pasevehiculo.anyLicencia" [ngClass]="{ 'is-invalid': !licencia.valid && licencia.touched,'is-valid': licencia.valid}" required>
+                <input type="number" class="form-control" name="licencia" #licencia="ngModel" [(ngModel)]="pasevehiculo.anyLicencia" [ngClass]="{ 'is-invalid': !licencia.valid && licencia.touched,'is-valid': licencia.valid}" >
                 <div class="invalid-feedback">
                     Ingrese licencia.
                 </div>
-            </div> -->
+            </div> 
             <div class="form-group col">
                 <label>Chofer:</label>
                 <select class="form-control" name="chofer" #chofer="ngModel" [(ngModel)]="pasevehiculo.strChofer" [ngClass]="{ 'is-invalid': !chofer.valid && chofer.touched,'is-valid': chofer.valid}" required>
+                    <option [ngValue]="undefined" selected hidden>Seleccione una opción</option>  
                     <option value="si">Si</option>
                     <option value="no">No</option>
             </select>
@@ -88,31 +91,36 @@
                 <input type="text" class="form-control" name="horas2" #horas2="ngModel" [(ngModel)]="paseSalida.dteHoraRegreso" disabled required>
             </div>
             
-            <label>Quien autorizo:</label>
+            
             <div class="form-group col-md-6">
+
                 <label>Jefe inmediato:</label>
                 <select class="form-control" name="autoriza1" #autoriza1="ngModel" [(ngModel)]="pasevehiculo.idAutoriza1" [ngClass]="{ 'is-invalid': !autoriza1.valid && autoriza1.touched,'is-valid': autoriza1.valid}" required>
                 <option *ngFor="let item of personas" value={{item._id}}>{{item.strNombre}}</option>
+                <option [ngValue]="undefined" selected hidden>Seleccione una persona</option>  
         </select>
             </div><div class="form-group col-md-6">
                 <label>Departamento de finanzas:</label>
                 <select class="form-control" name="autoriza2" #autoriza2="ngModel" [(ngModel)]="pasevehiculo.idAutoriza2" [ngClass]="{ 'is-invalid': !autoriza2.valid && autoriza2.touched,'is-valid': autoriza2.valid}"required>
                  <option *ngFor="let item of personas" value={{item._id}}>{{item.strNombre}}</option>
+                 <option [ngValue]="undefined" selected hidden>Seleccione una persona</option>  
         </select>
             </div><div class="form-group col-md-6">
                 <label>Departamento de servicios generales:</label>
                 <select class="form-control" name="autoriza3" #autoriza3="ngModel" [(ngModel)]="pasevehiculo.idAutoriza3" [ngClass]="{ 'is-invalid': !autoriza3.valid && autoriza3.touched,'is-valid': autoriza3.valid}" required>
                  <option *ngFor="let item of personas" value={{item._id}}>{{item.strNombre}}</option>
+                 <option [ngValue]="undefined" selected hidden>Seleccione una persona</option>  
         </select>
             </div><div class="form-group col-md-6" *ngIf="pasevehiculo.strServicio=='foraneo'">
                 <label>Rectoria</label>
                 <select class="form-control" name="autoriza4" #autoriza4="ngModel" [(ngModel)]="pasevehiculo.idAutoriza4" [ngClass]="{ 'is-invalid': !autoriza4.valid && autoriza4.touched,'is-valid': autoriza4.valid}" required>
                  <option *ngFor="let item of personas" value={{item._id}}>{{item.strNombre}}</option>
+                 <option [ngValue]="undefined" selected hidden>Seleccione una persona</option>  
         </select>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col">
                 <label>Observaciones:</label>
                 <input type="text" class="form-control" name="observacion" #observacion="ngModel" [(ngModel)]="pasevehiculo.strObservaciones">
             </div>
