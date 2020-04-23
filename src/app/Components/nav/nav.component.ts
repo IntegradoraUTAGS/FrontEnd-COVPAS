@@ -27,8 +27,8 @@ export class NavComponent implements OnInit {
     document.getElementById('mySidenav').style.width = '0';
   }
   logout() {
-    this.router.navigateByUrl('login');
     localStorage.clear();
+    this.router.navigateByUrl('login');
   }
 
 }
