@@ -26,7 +26,7 @@ export class CRUDAdminComponent implements OnInit {
   persona: any;
   constructor(public service: ServiceService, public router: Router, private alert: NotificationService) {
        }
-
+// Funcion que manda a llamar las funciones necesarias al cargar el componente
 ngOnInit() {
   this.edit = false;
   this.status = localStorage.getItem('status');
@@ -35,13 +35,16 @@ ngOnInit() {
   this.obtenerPersona();
   this.obtenerDirecciones();
 }
+// Utilizamos esta funcion para navegar a reportes
 gotoreportes(){
   this.router.navigateByUrl('reportes');
 }
+// Utilizamos esta funcion para navegar a la pagina de administración
 gotocrudvehiculos() {
   this.router.navigateByUrl('crudvehiculo');
 }
 
+// Funcion para obtener todos los usuarios registrados
 obtenerPersonas() {
    this.service.obtenerUsuario().then((usuarios: any) => {
       this.personas = usuarios.cont;
@@ -51,6 +54,7 @@ obtenerPersonas() {
     });
 }
 
+// Funcion para eliminar logicamente a un usuario
 eliminarPersonas(id: any) {
  Swal.fire({
       title: '¿Desea borrar la persona?',
@@ -77,6 +81,8 @@ eliminarPersonas(id: any) {
     });  
 }
 
+// Con esta funcion tomamos todos los datos de una persona para vaciarlos en unos input para ser editados
+// al final mandamos a llamar la funcion de obtener persona para volver a llenar la tabla
 editar(id) {
   localStorage.setItem('idModify', id);
   this.edit = true;
@@ -87,7 +93,8 @@ editar2() {
   this.edit = false;
   console.log(this.edit);
 }
-//Agregar un usuario
+
+// Obtenemos las direcciones academicas directamente de la base de datos
 obtenerDirecciones(){
   this.service.obtenerDirecciones().then((direccion: any) => {
     this.direcciones = direccion.cont;
@@ -97,6 +104,7 @@ obtenerDirecciones(){
   });
 }
 
+// Registramos al usuario
 registrarUsuario(myForm: NgForm) {
   this.service.registarUsuario(this.Usuario).then((usuario: any) => {
     console.log(usuario);
@@ -107,7 +115,7 @@ registrarUsuario(myForm: NgForm) {
     this.alert.showError(err.error.msg, 'Algo salio mal');
   });
 }
-//Actualizar usuario
+// Actualizar usuario
 obtenerPersona(){
   let id = localStorage.getItem('idModify');
   this.service.obtenerPorIdPersona(id).then((resp: any) => {
@@ -119,7 +127,6 @@ obtenerPersona(){
     console.log(err);
   });
 }
-
 actualizarUsuario(myForm: NgForm, id: any) {
   const personita = {
     strTipoEmpleado: this.persona.strTipoEmpleado,

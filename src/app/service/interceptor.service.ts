@@ -11,7 +11,11 @@ export class InterceptorService implements HttpInterceptor {
 
   constructor(private router: Router) { }
 
-  intercept(req: import("@angular/common/http").HttpRequest<any>, next: import("@angular/common/http").HttpHandler): import("rxjs").Observable<import("@angular/common/http").HttpEvent<any>> {
+  intercept(req: import('@angular/common/http')
+  // Funcion de interceptor que funciona para tomar el token y enviarlo a las peticiones
+  // tslint:disable-next-line: align
+  .HttpRequest<any>, next: import('@angular/common/http').HttpHandler ): import('rxjs')
+  .Observable<import('@angular/common/http').HttpEvent<any>> {
     const token = localStorage.getItem('token');
 
     let request = req;
