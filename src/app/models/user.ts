@@ -6,6 +6,7 @@ export class User{
     strEmail: string;
     strPassword: string;
     idDireccion: string;
+    numDiasDisponibles: number;
     //strDepartamento: string;
     // imgLicencia:any;
 

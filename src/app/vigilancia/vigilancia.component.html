@@ -3,106 +3,24 @@
     <div class="text-center">
         <h3>DEPARTAMENTO DE SERVICIOS GENERALES</h3>
     </div>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" [(ngModel)]="idPase" [ngModelOptions]="{standalone: true}" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-primary my-2 my-sm-0" (click)="obtener(idPase)" type="button">Buscar</button>
-    </form>
-    <div class="card" style="width: 100%;">
-        <!--ngFor de todos los pases de salida por fecha actual-->
-        <div class="card-body ">
-            <div class="row ">
-                <div class="col">
-                    <h5 class="card-text">Fecha de solicitud:{{pase.dteFechasolicitud}}</h5>
-                    <h5 class="card-text">Nombre: {{persona.strNombre}}</h5>
-                    <h5 class="card-text">No licencia:</h5>
-                    <h5 class="card-text">Motivo:{{paseSalida.strMotivo}}</h5>
-                </div>
-                <div class="col">
-                    <h5 class="card-text">Unidad solicitada:{{pase.idVehiculo.strUnidad}}</h5>
-                    <h5 class="crad-text">Autorizo vehiculo:{{pase.idAutoriza3.strNombre}}</h5>
-                    <!--ng-for de autirozo -->
-                    <h5 class="card-text">Placas:{{pase.idVehiculo.strPlaca}}</h5>
-                    <h5 class="card-text">Servicio:{{pase.strServicio}}</h5>
-                    <h5 class="card-text">Chofer:{{pase.strChofer}}</h5>
-                    <div class="row">
-                        <div class="col">
-                            <h3 class="card-text">Hora de salida: {{pase.idPaseSalida.dteHoraSalida}}</h3>
-                        </div>
-                        <!-- <div class="col">
-                            <h3 class="card-text">KMS: </h3>
-                        </div> -->
-                    </div>
-                    <!-- <div class="row">
-                        <div class="col">
-                            <h3 class="card-text">Regreso: </h3>
-                        </div>
-                        <div class="col">
-                            <h3 class="card-text">Hora:{{pase.dteHoraRegreso}}</h3>
-                        </div>
-                        <div class="col">
-                            <h3 class="card-text">KMS: </h3>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
+  <div>
+    <input (keyup.enter)="obtener(numNoEmpleado,$event)" [(ngModel)]="numNoEmpleado" type="text" class="form-control" placeholder="Ingrese número de empleado" autofocus>
+  </div>
+  <div class="container mt-5">
+    <div *ngIf="pase" class="card" >
+        <h5 class="card-header">Pase de salida de {{numNoEmpleado}}</h5>
+        <div class="card-body">
+          <h5 class="card-title">Hora de salida:</h5> 
+          <input type="text" class="form-control"pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"autofocus>
+         <div *ngIf="pase.blnRegreso">
+            <h5 class="card-title">Hora de regreso:</h5> 
+            <input type="text" class="form-control"pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"autofocus>
+         </div>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col">
-                    <h5 class="card-text">Persona que lo atendio</h5>
-                    <input type="text" name="nombrePersona" #nombrePersona="ngModel" [(ngModel)]="nombreReviso">
-                    <!--Ngmodel de nombre del solicitante-->
-                </div>
-            </div>
-            <div class="container">
-                <form>
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="">Hora Salida:</label>
-                                <input  type="time" class="form-control" required [disabled]="pase._id !== '' ? false : true">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Nivel de gasolina:</label>
-                                <select  class="form-control" [(ngModel)]="gasolinaSalida" [ngModelOptions]="{standalone: true}" required [disabled]="pase._id !== '' ? false : true">
-                                    <option value="0%">0%</option>
-                                    <option value="25%">25%</option>
-                                    <option value="50%">50%</option>
-                                    <option value="75%">75%</option>
-                                    <option value="100%">100%</option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="">Hora Regreso:</label>
-                                <input type="time" class="form-control"  required [disabled]="pase._id !== '' ? false : true">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Kilometros:</label>
-                                <input type="number" [(ngModel)]="kilometrosSalida" [ngModelOptions]="{standalone: true}" [disabled]="pase._id !== '' ? false : true">
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Observaciones:</label>
-                        <input type="text" [(ngModel)]="observacion" [ngModelOptions]="{standalone: true}" class="form-control" [disabled]="pase._id !== '' ? false : true">
-                        <!-- puede ser reuqerido o no-->
-                    </div>                    
-
-                </form>
-            </div>
-            <div>
-                <button type="button" (click)="registrar()" class="btn btn-primary" [disabled]="pase._id !== '' ? false : true">Terminar pase de salida</button>
-            </div>
-
-
-
-        </div>
-
     </div>
+  </div>
 
 </div>
  <app-add-user></app-add-user>

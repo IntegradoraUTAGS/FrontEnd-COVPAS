@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { PersonaService } from '../service/persona.service';
 import { Date } from '../models/fechas';
 import { NotificationService } from '../service/notification.service';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-soli-vacaciones',
   templateUrl: './soli-vacaciones.component.html',
@@ -34,19 +35,14 @@ export class SoliVacacionesComponent implements OnInit {
     this.obtenerUsuarios();
   }
   diasArray(){
+    if(this.informacion.usuario.numDiasDisponibles <= this.days.length){
+      this.alert.showWarning('Parece que no tienes dias suficientes','Oops');
+    }
+    else {
     this.days[this.i] = this.date;
     this.i++;
     this.date=null;
     console.log(this.days);
-
-  }
-  agregar() {
-    this.fechas.push({fecha: null});
-    console.log(this.fechas);
-    // tslint:disable-next-line:prefer-for-of
-    for (let index = 0; index < this.fechas.length; index++) {
-      const element = this.fechas[index];
-      console.log(element);
     }
   }
   eliminar(index) {
@@ -55,33 +51,27 @@ export class SoliVacacionesComponent implements OnInit {
 
     
   }
-  Registrarvacaciones(solicitudVacaciones: PaseVacaciones) {
+  Registrarvacaciones(myForm: NgForm) {
     if(this.days.length==0){
       this.alert.showWarning('Agrega días','No selecionaste días!');
     }
-    // console.log(this.paseVacacion);
-    // this.service.registrarVacaciones(solicitudVacaciones).then((resp: any) => {
-    //   console.log(resp);
-    //   console.log(resp.resp._id)
-    //   console.log(this.fechas);
-    //   for (let index = 0; index <= this.fechas.length - 1; index++) {
-    //    const element = this.fechas[index];
-    //    console.log(element);
-    //    this.service.actualizarDiasVacaciones(element, resp.resp._id).then((resp: any) => {
-    //      console.log(resp);
-    //    }).catch((err) => {
-    //      console.log(err);
-    //    });
-
-    //  }
-    //   this.service.enviarConfirmacionVacaciones(resp.resp._id).then((resp: any) => {
-    //     console.log(resp);
-    //   }).catch((err: any) => {
-    //     console.log(err);
-    //   });
-    // }).catch((err: any) => {
-    //   console.log(err);
-    // });
+   else {
+     this.paseVacacion.adteFechas = this.days;
+     let diasRestantes = this.informacion.usuario.numDiasDiasponibles - this.paseVacacion.adteFechas.length;
+     this.service.registrarVacaciones(this.paseVacacion).then((resp:any)=>{
+       myForm.reset();
+       this.alert.showSuccess('','Enviada solicitud de vacacion')
+       console.log(resp)
+       this.service.actualizarDiasVacaciones({numDiasDisponibles: diasRestantes},this.informacion.usuario._id).then((resp:any)=>{
+         console.log(resp);
+       }).catch((err: any)=>{
+         console.log(err);
+       });
+       this.router.navigateByUrl('menu');
+     }).catch((err: any) => {
+       this.alert.showError(err.err.msg,'Error');
+     })
+   }
   }
   obtenerUsuarios() {
     this.service.obtenerUsuario().then((usuarios: any) => {

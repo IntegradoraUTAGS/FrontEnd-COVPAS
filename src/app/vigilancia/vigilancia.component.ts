@@ -1,56 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ServiceService } from '../service/service.service'
+import { vigilanciaModel } from '../models/vigilanciaModel';
+import { NotificationService } from '../service/notification.service';
 @Component({
   selector: 'app-vigilancia',
   templateUrl: './vigilancia.component.html',
   styleUrls: ['./vigilancia.component.css']
 })
 export class VigilanciaComponent implements OnInit {
+  vigilancia = new vigilanciaModel();
+  numNoEmpleado: number;
   pase: any;
-  idPase: string;
-  observacion = "";
-  kilometrosSalida = "";
-  gasolinaSalida = "";
-  paseSalida: any;
-  nombreReviso = "";
-  persona: any;
-  constructor(protected service: ServiceService) { }
+  @ViewChild('input2') input2: ElementRef;
+  constructor(protected service: ServiceService,private alert:NotificationService) { }
 
   ngOnInit(): void {
-  }
-
-  terminarps() {
 
   }
 
-  obtener(num: any) {
-    this.service.obtenerPaseSalidaVehiculoPorNumEmpleado(num)
-      .then((data: any) => {
-        this.pase = data.cont;
-        this.service.obtenerPaseSalidaPorId(data.cont.idPaseSalida._id).then((resp: any)  => {
-            console.log(resp)
-            this.paseSalida = resp.pase;
-            this.persona = resp.pase.idPersona;
-        }).catch((err: any) => {
-          console.log(err);
-        });
-        console.log(this.pase);
-      }).catch((err: any) => {
-        console.error(err);
-      });
+  obtener(num: number,event: Event) {
+    this.service.obtenerPaseSalidaPorNumEmpleado(num).then((resp: any)=> {
+      this.alert.showSuccess('Mostrando pase de salidad del empleado '+num,'Obtenido con exito');
+      console.log(resp.cont);
+      this.pase = resp.cont;
+    }).catch((err)=>{
+      this.alert.showError('Intenta de nuevo con otro numero de empleado','Ocurrio un error ')
+      console.log(err);
+    })
   }
 
   registrar() {
-    this.paseSalida._id = this.pase._id;
-    console.log(this.nombreReviso);
-    this.service.registrarVigilancia(this.paseSalida._id, this.observacion,this.nombreReviso, this.kilometrosSalida, this.gasolinaSalida)
-    .then((data: any) => {
-      console.log(data);
-      alert(data['msg']);
-    }).catch((err: any) => {
-      console.log(err)
-      alert('No se pudo registrar');
-    });
+   this.service.registrarVigilancia(this.vigilancia).then((resp:any) =>{
+     this.alert.showSuccess('Pase de salida checado con exito','Listo');
+     console.log(resp);
+   }).catch((err:any)=>{
+     this.alert.showSuccess('Pase de salida checado','Listo');
+     console.log(err);
+   });
   }
 }
 

@@ -115,18 +115,23 @@ export class ServiceService {
   obtenerVehiculoPorId(id: any) {
     return this.http.get(`${this.url}vehiculos/obtener/${id}`).toPromise();
   }
-// registrar u
-  registrarVigilancia(paseSalida: any, observacion, nombreReviso, kilometrosSalida, gasolinaSalida) {
-    // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.url}paseVigilancia/registrar`, { paseSalida, observacion, nombreReviso, kilometrosSalida, gasolinaSalida }).toPromise();
-  }
 
   registrarPaseSalidaVehiculo(body: any, id: any) {
     return this.http.post(`${this.url}paseSalidaVehiculo/registrar/${id}`, body).toPromise();
   }
 
-  obtenerPaseSalidaVehiculoPorNumEmpleado(num: any){
-    return this.http.get(`${this.url}paseSalidaVehiculo/obtener/${num}`).toPromise();
+  actualizarLicencia(file: any, id: any){
+    return this.http.put(`${this.url}upload/usuario/${id}`, file).toPromise();
   }
 
+  registrarVigilancia(body: any) {
+    return this.http.post(`${this.url}vigilancia/registrar`,body).toPromise();
+  }
+
+  obtenerPaseSalidaPorNumEmpleado(num: any) {
+    return this.http.get(`${this.url}vigilancia/obtener/paseSalida/${num}`).toPromise();
+  }
+  obtenerPaseSalidaVehiculoPorId(id: any) {
+    return this.http.get(`${this.url}vigilancia/obtener/paseSalidaVehiculo/${id}`).toPromise();
+  }
 }
