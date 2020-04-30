@@ -24,7 +24,7 @@
     "@sweetalert2/ngx-sweetalert2": "^8.1.0",
     "bootstrap": "^4.4.1",
     "bootstrap-icons": "^1.0.0-alpha2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jwt-decode": "^2.2.0",
     "mongoose": "^5.9.7",
     "ngx-toastr": "^12.0.1",
